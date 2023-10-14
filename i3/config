@@ -55,7 +55,9 @@ floating_modifier $mod
 # tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+# changed the default terminal to alacritty
+bindsym $mod+Return exec alacritty -vv
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -211,13 +213,16 @@ bar {
       # }
 }
 # display 125%
-exec xrandr --dpi 125
+exec_always --no-startup-id xrandr --dpi 125
 
 # to load gtk theme
 exec --no-startup-id /usr/libexec/gsd-xsettings
+exec_always --no-startup-id  xrdb ~/.Xresources
 
 # for transparency
-exec --no-startup-id compton
+# exec --no-startup-id compton
+# Picom
+exec_always --no-startup-id picom &
 
 # FKeys
 # Pulse Audio controls
@@ -241,7 +246,12 @@ bindsym $mod+m move workspace to output left
 # Suspend
 bindsym $mod+Shift+period exec systemctl suspend
 
-smart_borders no_gaps
-# default_border pixel 10
-# hide_edge_borders smart
+# smart_borders no_gaps
+smart_borders on 
+default_border pixel 10
+hide_edge_borders smart
+
+bindsym Super+Shift+R exec picom
+
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
 

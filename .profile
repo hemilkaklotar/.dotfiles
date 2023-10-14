@@ -49,3 +49,7 @@ D="/mnt/0842C44342C4376A"
 alias edge="microsoft-edge"
 
 feh --randomize --bg-fill ~/Pictures/*
+
+if [ "$0" = "/usr/sbin/lightdm-session" -a "$DESKTOP_SESSION" = "i3" ]; then
+    export $(gnome-keyring-daemon -s)
+fi
