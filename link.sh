@@ -13,3 +13,4 @@ ln -s ~/.dotfiles/.bashrc ~/
 ln -s ~/.dotfiles/picom/picom.conf ~/.config/picom/picom.conf
 ln -s ~/.dotfiles/alacritty/config ~/.config/alacritty/alacritty.conf
 ln -s ~/.dotfiles/.Xresources ~/.Xresources
+ln -s ~/.dotfiles/.gitconfig ~/
