@@ -15,3 +15,4 @@ ln -s ~/.dotfiles/alacritty/alacritty.yml ~/.config/alacritty/
 ln -s ~/.dotfiles/.Xresources ~/.Xresources
 ln -s ~/.dotfiles/.gitconfig ~/
 ln -s  ~/.dotfiles/i3/i3status/config ~/.config/i3status/
+ ln -s ~/.dotfiles/.xinitrc ~/
