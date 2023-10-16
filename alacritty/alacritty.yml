@@ -1,6 +1,7 @@
-background_opacity: 0.7
+window_opacity: 0.7
 import:
-  - ~/.dotfiles/alacritty/theme/catppuccin-mocha.yml
+  - ~/.config/alacritty/theme/rose-pine.toml
+# - ~/.dotfiles/alacritty/theme/catppuccin-mocha.yml
 #  - ~/.config/alacritty/theme/catppuccin-macchiato.yml
 #  - ~/.config/alacritty/theme/catppuccin-frappe.yml
 #  - ~/.config/alacritty/theme/catppuccin-latte.yml
@@ -11,4 +12,4 @@ font:
         family: JetBrainsMono Nerd Font 
         style: Regular
   # Point size
-  size: 7.0
+  size: 14.0

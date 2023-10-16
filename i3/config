@@ -213,7 +213,7 @@ bar {
       # }
 }
 # display 125%
-exec_always --no-startup-id xrandr --dpi 125
+exec --no-startup-id xrandr --dpi 125
 
 # to load gtk theme
 exec --no-startup-id /usr/libexec/gsd-xsettings

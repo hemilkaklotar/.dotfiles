@@ -11,6 +11,7 @@ ln -s ~/.dotfiles/.zshrc ~/
 ln -s ~/.dotfiles/.profile ~/
 ln -s ~/.dotfiles/.bashrc ~/
 ln -s ~/.dotfiles/picom/picom.conf ~/.config/picom/picom.conf
-ln -s ~/.dotfiles/alacritty/config ~/.config/alacritty/alacritty.conf
+ln -s ~/.dotfiles/alacritty/alacritty.yml ~/.config/alacritty/
 ln -s ~/.dotfiles/.Xresources ~/.Xresources
 ln -s ~/.dotfiles/.gitconfig ~/
+ln -s  ~/.dotfiles/i3/i3status/config ~/.config/i3status/
