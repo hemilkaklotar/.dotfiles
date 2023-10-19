@@ -33,6 +33,15 @@ OR
 . ./link.sh
 ```
 
+3. Install dependancy and required packages
+
+- comment the lines or block of code that you don't want in your system in `./dependency.sh`
+
+- run below command to install the dependancy
+```zsh
+sudo bash ./dependancy.sh
+```
+
 ## Usage
 
 Provide instructions and examples for use. Include screenshots as needed.
