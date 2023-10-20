@@ -42,6 +42,20 @@ OR
 sudo bash ./dependancy.sh
 ```
 
+4. Enable tap to click and three fingers touch to middle click
+
+```conf
+# /etc/X11/xorg.conf.d/90-touchpad.conf
+Section "InputClass"
+        Identifier "touchpad"
+        MatchIsTouchpad "on"
+        Driver "libinput"
+        Option "Tapping" "on"
+        Option "NaturalScrolling" "true"
+        Option "TappingButtonMap" "lrm" # 2/2/3 finger, for 3-finger middle lrm
+EndSection
+```
+
 ## Usage
 
 Provide instructions and examples for use. Include screenshots as needed.

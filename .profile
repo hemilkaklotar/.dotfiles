@@ -58,3 +58,7 @@ feh --randomize --bg-fill ~/Pictures/*
 if [ "$0" = "/usr/sbin/lightdm-session" -a "$DESKTOP_SESSION" = "i3" ]; then
     export $(gnome-keyring-daemon -s)
 fi
+
+alias browser="google-chrome --password-store=gnome"
+alias pactl="/usr/bin/pactl"
+# alias light="/usr/bin/light"
