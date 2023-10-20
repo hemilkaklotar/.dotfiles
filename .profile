@@ -26,11 +26,6 @@ if [ -d "$HOME/.local/bin" ]; then
 	PATH="$HOME/.local/bin:$PATH"
 fi
 
-# start my custom script for setting random background wallpapers
-# if [ -f "$HOME/.dotfiles/wallpaper.sh" ] ; then
-#     bash $HOME/.dotfiles/wallpaper.sh &
-# fi
-
 alias vim="nvim"
 
 export NVM_DIR="$HOME/.nvm"
