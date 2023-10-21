@@ -1,3 +1,8 @@
 [user]
 	name = Hemil Kaklotar
-	email = hemilkaklotar@gmail.com
+	email = 83568973+hemilkaklotar@users.noreply.github.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
