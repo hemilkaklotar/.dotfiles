@@ -4,11 +4,11 @@ sudo apt update && sudo apt upgrade
 sudo apt install zsh -y
 
 # installing flatpak
-sudo apt install flatpak
-sudo apt install gnome-software-plugin-flatpak
+sudo apt install flatpak -y
+sudo apt install gnome-software-plugin-flatpak -y
 # add flatpak repo
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-bash ~/.zshrc
+source ~/.bashrc
 
 # installing curl and ripgrep for neovim
 sudo apt install curl ripgrep -y
@@ -18,7 +18,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 #install nvm and latest node version
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash # change the version number as per current version
-bash ~/.zshrc
+source ~/.bashrc
 nvm install --lts
 
 # install i3wm, tmux, alacritty and other required packages
@@ -34,50 +34,55 @@ chmod u+x nvim.appimage
 sudo mv squashfs-root /
 sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
 
+#add policykit
+sudo apt-get install -y policykit-1-gnome
+
 ## installing nvchad
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 
 
 # install slack using flatpak
-flatpak install flathub com.slack.Slack
+flatpak install -y --noninteractive flathub com.slack.Slack
 
 # installing vlc video player using flatpak 
-flatpak install flathub org.videolan.VLC
+flatpak install -y --noninteractive flathub org.videolan.VLC
 
-flatpak install flathub com.visualstudio.code
+flatpak install -y --noninteractive flathub com.visualstudio.code
 
-flatpak install flathub com.jetbrains.PyCharm-Community
+flatpak install -y --noninteractive flathub com.jetbrains.PyCharm-Community
 
-flatpak install flathub com.brave.Browser
+flatpak install -y --noninteractive flathub com.brave.Browser
 
-flatpak install flathub md.obsidian.Obsidian
+flatpak install -y --noninteractive flathub md.obsidian.Obsidian
 
-flatpak install flathub com.spotify.Client
+flatpak install -y --noninteractive flathub com.spotify.Client
 
-flatpak install flathub org.telegram.desktop
+flatpak install -y --noninteractive flathub org.telegram.desktop
 
-flatpak install flathub com.obsproject.Studio
+flatpak install -y --noninteractive flathub com.obsproject.Studio
 
-flatpak install flathub fr.handbrake.ghb
+flatpak install -y --noninteractive flathub fr.handbrake.ghb
 
-flatpak install flathub io.github.shiftey.Desktop
+flatpak install -y --noninteractive flathub io.github.shiftey.Desktop
 
-flatpak install flathub com.discordapp.Discord
+flatpak install -y --noninteractive flathub com.discordapp.Discord
 
-flatpak install flathub us.zoom.Zoom
+flatpak install -y --noninteractive flathub us.zoom.Zoom
 
-flatpak install flathub io.github.mimbrero.WhatsAppDesktop
+flatpak install -y --noninteractive flathub io.github.mimbrero.WhatsAppDesktop
 
-flatpak install flathub com.bitwarden.desktop
+flatpak install -y --noninteractive flathub com.bitwarden.desktop
 
-flatpak install flathub com.getpostman.Postman
+flatpak install -y --noninteractive flathub com.getpostman.Postman
 
-flatpak install flathub com.mongodb.Compass
+flatpak install -y --noninteractive flathub com.mongodb.Compass
 
-flatpak install flathub com.jetbrains.IntelliJ-IDEA-Community
+flatpak install -y --noninteractive flathub com.jetbrains.IntelliJ-IDEA-Community
 
-flatpak install flathub com.redis.RedisInsight
+flatpak install -y --noninteractive flathub com.redis.RedisInsight
 
 # remove unneccessary packages
 sudo apt autoclean
 sudo apt autoremove
 
+# to give permission run light without sudoers
+sudo chmod +s /usr/bin/light
