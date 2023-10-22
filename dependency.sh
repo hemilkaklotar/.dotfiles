@@ -25,6 +25,10 @@ nvm install --lts
 sudo apt install gnome-tweaks picom alacritty tmux i3 zsh light pulseaudio pavucontrol -y
 sudo apt install gnome-shell-extension-manager blueman htop neofetch xclip python3-pip feh python3-venv -y
 
+# for gtk dark mode detection
+sudo apt install lxappearance gtk-chtheme -y
+
+
 #neovim installation
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
