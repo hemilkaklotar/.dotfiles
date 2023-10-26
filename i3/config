@@ -214,7 +214,7 @@ bar {
       # }
 }
 # display 125%
-exec --no-startup-id xrandr --dpi 125
+exec_always --no-startup-id xrandr --dpi 125 --output eDP --mode 1920x1080 --rate 60.00
 
 # to load gtk theme
 exec --no-startup-id /usr/libexec/gsd-xsettings
@@ -223,7 +223,7 @@ exec_always --no-startup-id  xrdb ~/.Xresources
 # for transparency
 # exec --no-startup-id compton
 # Picom
-exec_always --no-startup-id picom &
+exec_always --no-startup-id picom --experimental-backends &
 
 # FKeys
 # Pulse Audio controls

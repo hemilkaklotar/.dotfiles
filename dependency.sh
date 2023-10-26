@@ -27,7 +27,7 @@ sudo apt install gnome-shell-extension-manager blueman htop neofetch xclip pytho
 
 # for gtk dark mode detection
 sudo apt install lxappearance gtk-chtheme -y
-
+sudo apt-get install gnome-sushi -y
 
 #neovim installation
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage

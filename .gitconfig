@@ -1,8 +1,10 @@
 [user]
 	name = Hemil Kaklotar
-	email = 83568973+hemilkaklotar@users.noreply.github.com
+	email = 115414595+plater99@users.noreply.github.com
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[safe]
+	directory = /mnt/0842C44342C4376A/Work/Personnal/NextJS/skateshop
