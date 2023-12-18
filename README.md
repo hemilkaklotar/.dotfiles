@@ -21,6 +21,12 @@ I am using zsh shell as my default
 git clone https://github.com/hemilkaklotar/.dotfiles.git ~/
 ```
 
+1.5 To install things run the install script by below command
+
+```bash
+source ~/.dotfiles/install.sh
+```
+
 2. run link.sh file in terminal by running bellow command
 
 ```bash
