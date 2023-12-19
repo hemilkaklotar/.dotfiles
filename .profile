@@ -36,24 +36,13 @@ export NVM_DIR="$HOME/.nvm"
 alias python="python3"
 alias pip="pip3"
 alias vim="nvim"
-# pnpm
-export PNPM_HOME="/home/hemil/.local/share/pnpm"
-case ":$PATH:" in
-*":$PNPM_HOME:"*) ;;
-*) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-# data drive
-D="/media/hemil/0842C44342C4376A1"
-alias edge="microsoft-edge"
-
-feh --randomize --bg-fill ~/Pictures/*
 
 if [ "$0" = "/usr/sbin/lightdm-session" -a "$DESKTOP_SESSION" = "i3" ]; then
-    export $(gnome-keyring-daemon -s)
-fi
+	export $(gnome-keyring-daemon -s)
+	alias browser="google-chrome --password-store=gnome-keyring &"
+	alias pactl="/usr/bin/pactl"
+	#alias light="/usr/bin/light"
 
-alias browser="google-chrome --password-store=gnome-keyring &"
-alias pactl="/usr/bin/pactl"
-# alias light="/usr/bin/light"
+	# remove '#' from below line to activate wallpaper loop in i3
+	#feh --randomize --bg-fill ~/Pictures/*
+fi
