@@ -1,8 +1,7 @@
 window:
   opacity: 0.9
 import:
-  - ~/.dotfiles/alacritty/theme/rose-pine.yml
-# - ~/.dotfiles/alacritty/theme/catppuccin-mocha.yml
+  - ~/.config/alacritty/catppuccin-mocha.yml
 env:
   TERM: xterm-256color
 font:
