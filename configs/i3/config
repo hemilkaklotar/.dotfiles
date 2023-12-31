@@ -230,7 +230,7 @@ exec_always --no-startup-id  xrdb ~/.Xresources
 # for transparency
 # exec --no-startup-id compton
 # Picom
-exec_always --no-startup-id picom --experimental-backends &
+exec_always --no-startup-id picom &
 
 # FKeys
 # Pulse Audio controls
@@ -268,4 +268,4 @@ exec_always --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authenticati
 exec_always --no-startup-id gsettings set org.gnome.desktop.interface color-scheme prefer-dark &
 
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
-exec_always --no-startup-id feh --bg-fill ~/Pictures/wall.jpg
+exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures/*
