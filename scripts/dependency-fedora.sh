@@ -17,7 +17,6 @@ source ~/.bashrc
 nvm install --lts
 
 sudo dnf install tmux htop neofetch python3-pip python3-venv -y
-
 #neovim installation
 # curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 # chmod u+x nvim.appimage
