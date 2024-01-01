@@ -8,8 +8,8 @@ sudo dnf install -y polybar rofi light
 sudo dnf install -y gnome-tweaks 
 sudo dnf install -y gnome-shell-extension-manager 
 # for gtk dark mode detection
-sudo dnf install lxappearance 
+sudo dnf install -y lxappearance qt5ct
 # sudo dnf install gnome-sushi gtk-chtheme -y
 sudo dnf install -y dunst xclip xdotool
 sudo dnf install -y policykit-1-gnome 
-
+sudo dnf install -y mpd --allowerasing

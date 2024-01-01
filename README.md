@@ -62,6 +62,18 @@ Section "InputClass"
 EndSection
 ```
 
+- For Google chrome keyring issue for gnome follow below 
+
+```
+sudo vim /usr/share/applications/google-chrome.desktop
+```
+
+then add the `--password-store=gnome-libsecret` after all `Exec` commands :)
+
+- add qt5ct and lxappareance then add below to file 
+
+`sudo echo "QT_QPA_PLATFORMTHEME=qt5ct" >> /etc/environment`
+
 ## Usage
 
 Provide instructions and examples for use. Include screenshots as needed.

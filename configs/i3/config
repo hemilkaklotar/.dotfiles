@@ -204,7 +204,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 # display - add --dpi 125 to scaling
-exec_always --no-startup-id xrandr --output eDP --mode 1920x1080 --rate 144.00 &
+exec_always --no-startup-id xrandr --output eDP --mode 1920x1080 --dpi 125 --rate 144.00 &
 
 # to load gtk theme
 exec_always --no-startup-id /usr/libexec/gsd-xsettings &

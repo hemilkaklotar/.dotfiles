@@ -29,6 +29,9 @@ sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
 rm -rf ./nvim.appimage
 rm -rf ./squashfs-root
 
+echo "[Settings]
+gtk-application-prefer-dark-theme=1" >> ~/.config/gtk-3.0/settings.ini
+
 # remove unneccessary packages
 sudo apt autoclean
 sudo apt autoremove
