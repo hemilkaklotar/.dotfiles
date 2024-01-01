@@ -21,7 +21,7 @@ font pango:JetBrainsMono Nerd Font 16px
 # Thanks Childz
 for_window [class="^.*"] border pixel 2
                           # class                 border  backgr. text    indicator child_border
-for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
+for_window [class="^.*"] client.focused          #77dd77 #faf281 #ffffff #2e9ef4   #fa252b
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -73,10 +73,13 @@ bindsym $mod+b exec --no-startup-id polybar-msg cmd toggle
 # Reload Polybar after modifications
 bindsym $mod+Shift+b exec --no-startup-id pkill polybar && polybar --config=~/.config/polybar/config.ini &
 
-bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/launcher.sh
+bindsym $mod+p exec --no-startup-id ~/.config/rofi/powermenu/powermenu.sh
+bindsym $mod+Shift+s exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
+bindsym $mod+t exec --no-startup-id ~/.config/rofi/applets/bin/mpd.sh
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
+# There also is i3-dmenu-desktop which only displays applications shipping 
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
@@ -200,32 +203,12 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# bar {
-#       i3bar_command i3bar --transparency #000000FF
-#       position bottom
-#       status_command i3status --config ~/.config/i3status/config
-#       tray_output primary
-#       # colors {
-#       #   background #000000
-#       #   statusline #ffffff
-#       #   separator #666666
-#       #
-#       #   focused_workspace  #4c7899 #285577 #ffffff
-#       #   active_workspace   #333333 #5f676a #ffffff
-#       #   inactive_workspace #333333 #222222 #888888
-#       #   urgent_workspace   #2f343a #900000 #ffffff
-#       #   binding_mode       #2f343a #900000 #ffffff
-#       # }
-# }
-# display 125%
-exec_always --no-startup-id xrandr --dpi 125 --output eDP --mode 1920x1080 --rate 144.00
+# display - add --dpi 125 to scaling
+exec_always --no-startup-id xrandr --output eDP --mode 1920x1080 --rate 144.00 &
 
 # to load gtk theme
-exec --no-startup-id /usr/libexec/gsd-xsettings
-exec_always --no-startup-id  xrdb ~/.Xresources
+exec_always --no-startup-id /usr/libexec/gsd-xsettings &
+exec_always --no-startup-id  xrdb ~/.Xresources &
 
 # for transparency
 # exec --no-startup-id compton
@@ -234,15 +217,15 @@ exec_always --no-startup-id picom &
 
 # FKeys
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% & #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% & #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 #
 # # Sreen brightness controls
 # bindsym --release XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 # bindsym --release XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5 & # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5 & # decrease screen brightness
 
 
 # Alsa audio controls.
@@ -254,12 +237,28 @@ bindsym $mod+m move workspace to output left
 # Suspend
 bindsym $mod+Shift+period exec systemctl suspend
 
-# smart_borders no_gaps
-smart_borders on 
+# Inner gaps for all windows: space between two adjacent windows (or split containers).
+gaps inner 5
+
+# Outer gaps for all windows: space along the screen edges.
+# gaps outer 2
+
+# Inner and outer gaps for all windows on a specific workspace.
+# <ws> can be a workspace number or name.
+# workspace <ws> gaps inner <gap_size>[px]
+# workspace <ws> gaps outer|horizontal|vertical|top|left|bottom|right <gap_size>[px]
+
+# Enabling “Smart Gaps” means no gaps will be shown when there is
+# precisely one window or split container on the workspace.
+#
+# inverse_outer only enables outer gaps when there is exactly one
+# window or split container on the workspace.
+smart_gaps on
+
 default_border pixel 10
 hide_edge_borders smart
 
-bindsym Super+Shift+R exec picom
+bindsym Super+Shift+R exec picom &
 
 exec_always --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11 &
 
@@ -268,4 +267,5 @@ exec_always --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authenticati
 exec_always --no-startup-id gsettings set org.gnome.desktop.interface color-scheme prefer-dark &
 
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
-exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures/*
+exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures/* &
+exec_always --no-startup-id blueman-applet &
