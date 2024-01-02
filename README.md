@@ -1,14 +1,21 @@
 # .dotfiles
-Currently using UBUNTU with gnome and i3wm
 
-<!-- ![.dotfiles](assets/images/the_person.jpg) -->
-<img src="assets/images/the_person.jpg" alt=".dotfiles" width="200"/>
+Recently swithed to Fedora with gnome and i3wm, 
+Before that I was using Ubuntu with gnome and i3wm
 
-I am using zsh shell as my default 
+
+
+I am using `zsh` shell as my default 
+
+<pre>
+<img src="assets/images/i3wm_Polybar_setup.png" alt="i3wm setup" width="49%" /> <img src="assets/images/AppLauncher.png" alt="i3wm Applauncher Rofi" width="49%"/> <br />
+<img src="assets/images/Lockscreen.png" alt="i3wm Lockscreen Rofi" width="49%"/> <img src="assets/images/Screenshot.png" alt="i3wm screenshot rofi" width="49%" />
+</pre>
 
 ## Table of Contents
 
 - [Installation](#installation)
+- [Configuration Includes](#configuration-includes)
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
@@ -74,19 +81,50 @@ then add the `--password-store=gnome-libsecret` after all `Exec` commands :)
 
 `sudo echo "QT_QPA_PLATFORMTHEME=qt5ct" >> /etc/environment`
 
+## Configuration includes
+
+- [] i3wm
+- [] polybar
+- [] rofi
+- [] alacritty
+- [] dunst
+- [] lxappearance
+- [] qt5ct
+- [] zsh
+
+In future more module will be added!
+
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+Follow the above instruction to clone and run scripts 
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+- to more customization please fork this repo and then modify  the your changes as per your distribution.
+
+- I have created the config file and scripts for fedora and ubuntu with gnome and kde.
+
+- Feel Free to create issues or pull request to update the dotfiles.
+
+Thanks for your contribution!
 
 
 ## Credits
+<!-- ![.dotfiles](assets/images/the_person.jpg) -->
+<img src="assets/images/the_person.jpg" alt=".dotfiles" width="200"/>
+
+- [Plater99](https://github.com/plater99)
 
 Insipiration taken from fellow developers
 you can check out their repo and create your own dotfiles if you needed.
 
 - [ThePrimeagen/.dotfiles](https://github.com/ThePrimeagen/.dotfiles.git)
+
+
+Rofi Themes are taken from the fellow developer adi1090x. 
+Check out his repo and create your own rofi theme.
+
+- [adi1090x/rofi](https://github.com/adi1090x/rofi)
+
+I appreciate their work which helps me alot. Thank you for your fabulous works..:)
 
 ## License
 
@@ -98,18 +136,20 @@ The last section of a high-quality README file is the license. This lets other d
 
 ## Badges
 
-![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
+![badmath](https://img.shields.io/badge/100%-Shell-blue)
 
-Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
+This repo includes the shell scripts and the configs for the component.
 
 ## Features
 
-If your project has a lot of features, list them here.
+Dotfiles with i3wm and polybar , rofi 
+- Theme : Gruvbox
+
 
 ## How to Contribute
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
 
 ## Tests
 
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.
+All the configs files are here are tested
