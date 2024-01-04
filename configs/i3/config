@@ -56,9 +56,9 @@ floating_modifier $mod
 # tiling_drag modifier titlebar
 
 # start a terminal
-# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec i3-sensible-terminal
 # changed the default terminal to alacritty
-bindsym $mod+Return exec --no-startup-id alacritty -vv
+# bindsym $mod+Return exec --no-startup-id alacritty -vv
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -73,8 +73,8 @@ bindsym $mod+b exec --no-startup-id polybar-msg cmd toggle
 # Reload Polybar after modifications
 bindsym $mod+Shift+b exec --no-startup-id pkill polybar && polybar --config=~/.config/polybar/config.ini &
 
-bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/launcher.sh
-bindsym $mod+p exec --no-startup-id ~/.config/rofi/powermenu/powermenu.sh
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/scripts/launcher_t4
+bindsym $mod+x exec --no-startup-id ~/.config/rofi/scripts/powermenu_t1
 
 bindsym $mod+Shift+s exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
 bindsym $mod+t exec --no-startup-id ~/.config/rofi/applets/bin/mpd.sh
@@ -205,7 +205,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 # display - add --dpi 125 to scaling
-exec --no-startup-id xrandr --output eDP --mode 1920x1080 --dpi 125 --rate 144.00
+exec_always --no-startup-id xrandr --output eDP --mode 1920x1080 --dpi 125 --rate 144.00
 
 # to load gtk theme
 exec_always --no-startup-id /usr/libexec/gsd-xsettings &
@@ -240,6 +240,7 @@ bindsym $mod+Shift+period exec systemctl suspend
 
 # Inner gaps for all windows: space between two adjacent windows (or split containers).
 gaps inner 5
+# gaps outer 5
 
 # Outer gaps for all windows: space along the screen edges.
 # gaps outer 2
@@ -255,7 +256,6 @@ gaps inner 5
 # inverse_outer only enables outer gaps when there is exactly one
 # window or split container on the workspace.
 smart_gaps on
-
 default_border pixel 10
 hide_edge_borders smart
 
