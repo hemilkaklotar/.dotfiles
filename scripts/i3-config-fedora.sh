@@ -1,5 +1,6 @@
 # install i3wm, alacritty and other required packages
-sudo dnf install -y picom alacritty i3 pulseaudio 
+sudo dnf install -y picom kitty i3 pulseaudio 
+# sudo dnf install -y alacritty
 sudo dnf install -y pavucontrol 
 sudo dnf install -y blueman feh 
 sudo dnf install -y polybar rofi light
