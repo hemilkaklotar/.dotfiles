@@ -17,16 +17,19 @@ source ~/.bashrc
 nvm install --lts
 
 sudo dnf install tmux htop neofetch python3-pip python3-venv -y
+# flatremix theme for fedora gnome
+sudo dnf install gnome-shell-theme-flat-remix
+
 #neovim installation
-# curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-# chmod u+x nvim.appimage
-# ./nvim.appimage --appimage-extract
-# ./squashfs-root/AppRun --version
-# # Optional: exposing nvim globally.
-# sudo mv squashfs-root /
-# sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
-# rm -rf ./nvim.appimage
-# rm -rf ./squashfs-root
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+./nvim.appimage --appimage-extract
+./squashfs-root/AppRun --version
+# Optional: exposing nvim globally.
+sudo mv squashfs-root /
+sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
+rm -rf ./nvim.appimage
+rm -rf ./squashfs-root
 
 # remove unneccessary packages
 sudo dnf autoclean
