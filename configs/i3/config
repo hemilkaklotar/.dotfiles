@@ -68,6 +68,8 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# Green clip for clipboard
+exec --no-startup-id greenclip daemon &
 # Polybar Toggle
 bindsym $mod+b exec --no-startup-id polybar-msg cmd toggle
 
@@ -79,6 +81,7 @@ bindsym $mod+x exec --no-startup-id ~/.config/rofi/scripts/powermenu_t1
 
 bindsym $mod+Shift+s exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
 bindsym $mod+t exec --no-startup-id ~/.config/rofi/applets/bin/mpd.sh
+bindsym $mod+Shift+v exec --no-startup-id ~/.config/rofi/clipboard/type-1/launcher.sh
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping 

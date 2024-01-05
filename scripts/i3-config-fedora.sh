@@ -12,3 +12,7 @@ sudo dnf install -y lxappearance qt5ct
 sudo dnf install -y dunst xclip xdotool
 sudo dnf install -y polkit-gnome 
 sudo dnf install -y mpd --allowerasing
+
+
+wget https://github.com/erebe/greenclip/releases/download/v4.2/greenclip -P ~/.dotfiles/
+chmod +x ~/.dotfiles/greenclip
