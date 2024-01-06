@@ -83,14 +83,14 @@ then add the `--password-store=gnome-libsecret` after all `Exec` commands :)
 
 ## Configuration includes
 
-- [] i3wm
-- [] polybar
-- [] rofi
-- [] alacritty
-- [] dunst
-- [] lxappearance
-- [] qt5ct
-- [] zsh
+- [x] i3wm
+- [x] polybar
+- [x] rofi
+- [x] alacritty
+- [x] dunst
+- [x] lxappearance
+- [x] qt5ct
+- [x] zsh
 
 In future more module will be added!
 

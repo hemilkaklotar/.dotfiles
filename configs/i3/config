@@ -76,7 +76,7 @@ bindsym $mod+b exec --no-startup-id polybar-msg cmd toggle
 # Reload Polybar after modifications
 bindsym $mod+Shift+b exec --no-startup-id pkill polybar && polybar --config=~/.config/polybar/config.ini &
 
-bindsym $mod+d exec --no-startup-id ~/.config/rofi/scripts/launcher_t4
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/scripts/launcher_t1
 bindsym $mod+x exec --no-startup-id ~/.config/rofi/scripts/powermenu_t1
 
 bindsym $mod+Shift+s exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
