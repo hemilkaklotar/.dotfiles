@@ -82,6 +82,7 @@ bindsym $mod+x exec --no-startup-id ~/.config/rofi/scripts/powermenu_t1
 bindsym $mod+Shift+s exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
 bindsym $mod+t exec --no-startup-id ~/.config/rofi/applets/bin/mpd.sh
 bindsym $mod+Shift+v exec --no-startup-id ~/.config/rofi/scripts/clipboard.sh
+bindsym $mod+comma exec --no-startup-id ~/.config/rofi/scripts/emoji.sh
 
 bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/scripts/windower.sh
 # A more modern dmenu replacement is rofi:
@@ -236,9 +237,9 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5 & # decrease scree
 
 
 # Alsa audio controls.
-bindsym $mod+Shift+comma exec ~/.config/i3/scripts/alsa restore
-bindsym $mod+semicolon exec ~/.config/i3/scripts/alsa down Headphone
-bindsym $mod+comma exec ~/.config/i3/scripts/alsa up Headphone
+# bindsym $mod+Shift+comma exec ~/.config/i3/scripts/alsa restore
+# bindsym $mod+semicolon exec ~/.config/i3/scripts/alsa down Headphone
+# bindsym $mod+comma exec ~/.config/i3/scripts/alsa up Headphone
 bindsym $mod+m move workspace to output left
 
 # Suspend
