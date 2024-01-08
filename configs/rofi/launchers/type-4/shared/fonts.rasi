@@ -1,12 +1,1 @@
-/**
- *
- * Author : Aditya Shakya (adi1090x)
- * Github : @adi1090x
- * 
- * Fonts
- *
- **/
-
-* {
-    font: "FiraCode Nerd Font 14";
-}
+@import "~/.config/rofi/fonts.rasi"

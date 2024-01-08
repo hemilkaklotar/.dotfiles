@@ -11,10 +11,10 @@
 ## style-6     style-7     style-8     style-9     style-10
 ## style-11    style-12    style-13    style-14    style-15
 
-dir="$HOME/.config/rofi/clipboard/type-1"
-theme='style-6'
+dir="$HOME/.config/rofi/launchers/type-1"
+theme='style-7'
 
 ## Run
 rofi \
-    -modi "clipboard:$HOME/.dotfiles/executables/greenclip print" -show clipboard \
+    -show window \
     -theme ${dir}/${theme}.rasi

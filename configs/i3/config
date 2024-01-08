@@ -81,7 +81,9 @@ bindsym $mod+x exec --no-startup-id ~/.config/rofi/scripts/powermenu_t1
 
 bindsym $mod+Shift+s exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
 bindsym $mod+t exec --no-startup-id ~/.config/rofi/applets/bin/mpd.sh
-bindsym $mod+Shift+v exec --no-startup-id ~/.config/rofi/clipboard/type-1/launcher.sh
+bindsym $mod+Shift+v exec --no-startup-id ~/.config/rofi/scripts/clipboard.sh
+
+bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/scripts/windower.sh
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping 
@@ -273,6 +275,9 @@ exec_always --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1 &
 
 exec_always --no-startup-id gsettings set org.gnome.desktop.interface color-scheme prefer-dark &
 
-exec_always --no-startup-id ~/.config/polybar/launch.sh &
+exec --no-startup-id ~/.config/polybar/launch.sh &
 exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures/walls/* &
 exec_always --no-startup-id blueman-applet &
+
+#for night light using redshift
+#exec --no-startup-id redshift &

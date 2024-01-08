@@ -40,3 +40,4 @@ if [ "$0" = "/usr/sbin/lightdm-session" -a "$DESKTOP_SESSION" = "i3" ]; then
 	# remove '#' from below line to activate wallpaper loop in i3
 	#feh --randomize --bg-fill ~/Pictures/*
 fi
+. "$HOME/.cargo/env"
