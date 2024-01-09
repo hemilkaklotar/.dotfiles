@@ -282,3 +282,12 @@ exec_always --no-startup-id blueman-applet &
 
 #for night light using redshift
 #exec --no-startup-id redshift &
+
+
+# catppuccin
+set $ctp-version v0.7.1
+exec_always if [ ! -e ~/.themes/Catppuccin-Mocha-Standard-Mauve-Dark ]; then \
+  mkdir -p ~/.themes \
+  && curl -L https://github.com/catppuccin/gtk/releases/download/$ctp-version/Catppuccin-Mocha-Standard-Mauve-Dark.zip -o ~/.themes/catppuccin.zip \
+  && unzip ~/.themes/catppuccin.zip -d ~/.themes/ \
+  && rm -rf ~/.themes/catppuccin.zip; fi

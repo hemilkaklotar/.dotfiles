@@ -41,3 +41,5 @@ if [ "$0" = "/usr/sbin/lightdm-session" -a "$DESKTOP_SESSION" = "i3" ]; then
 	#feh --randomize --bg-fill ~/Pictures/*
 fi
 . "$HOME/.cargo/env"
+
+export GTK_THEME='Catppuccin-Frappe-Standard-Lavender-dark:dark'
