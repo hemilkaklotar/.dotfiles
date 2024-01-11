@@ -11,11 +11,6 @@ sudo dnf install curl ripgrep -y
 # install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-#install nvm and latest node version
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash # change the version number as per current version
-source ~/.bashrc
-nvm install --lts
-
 sudo dnf install tmux htop neofetch python3-pip python3-venv -y
 # flatremix theme for fedora gnome
 sudo dnf install gnome-shell-theme-flat-remix

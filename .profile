@@ -42,4 +42,4 @@ if [ "$0" = "/usr/sbin/lightdm-session" -a "$DESKTOP_SESSION" = "i3" ]; then
 fi
 . "$HOME/.cargo/env"
 
-export GTK_THEME='Catppuccin-Frappe-Standard-Lavender-dark:dark'
+export GTK_THEME='Catppuccin-Mocha-Standard-Mauve-Dark:dark'
