@@ -10,5 +10,7 @@ ln -sf ~/.dotfiles/tmux/.* ~/
 
 #mkdir if not exist
 mkdir -p ~/.dotfiles/executables
-echo 'export PATH="$HOME/.dotfiles/executables:$PATH"' >> ~/.bashrc
-echo 'export PATH="$HOME/.dotfiles/executables:$PATH"' >> ~/.zshrc
+
+echo 'export DOTFILES="$HOME/.dotfiles"\nexport PATH="$DOTFILES/executables:$PATH"\nexport PATH="$DOTFILES/scripts/user_scripts:$PATH"' >> $HOME/.bashrc
+echo 'export DOTFILES="$HOME/.dotfiles"\nexport PATH="$DOTFILES/executables:$PATH"\nexport PATH="$DOTFILES/scripts/user_scripts:$PATH"' >> $HOME/.zshrc
+

@@ -87,7 +87,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker)
+plugins=(git sudo docker fzf golang zsh-autosuggestions sudo web-search copyfile copybuffer dirhistory history jsontools)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -124,7 +124,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-# bun completions
+# bun completions:
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
@@ -133,5 +133,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-export PATH="$HOME/.dotfiles/executables:$PATH"
 export GTK_THEME='Catppuccin-Mocha-Standard-Mauve-Dark:dark'
+export DOTFILES="$HOME/.dotfiles"
+export PATH="$DOTFILES/executables:$PATH"
+export PATH="$DOTFILES/scripts/user_scripts:$PATH"
