@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/zsh
 
 # Specify the URL of the latest release
 RELEASE_URL="https://github.com/rose-pine/gtk/releases/latest/download/"

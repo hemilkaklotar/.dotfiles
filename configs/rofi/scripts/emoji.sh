@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/zsh
 ## /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
 # Rofi Emoticons. Not my own. Cant remember the source
 
