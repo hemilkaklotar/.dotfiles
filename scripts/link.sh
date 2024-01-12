@@ -6,10 +6,11 @@ ln -sf ~/.dotfiles/.Xresources ~/.Xresources
 ln -sf ~/.dotfiles/.gitconfig ~/
 ln -sf ~/.dotfiles/.xinitrc ~/
 ln -sf ~/.dotfiles/tmux/.* ~/
-
+ln -sf ~/.dotfiles/scripts/user_scripts/* ~/.local/bin/
 
 #mkdir if not exist
 mkdir -p ~/.dotfiles/executables
+
 
 echo 'export DOTFILES="$HOME/.dotfiles"\nexport PATH="$DOTFILES/executables:$PATH"\nexport PATH="$DOTFILES/scripts/user_scripts:$PATH"' >> $HOME/.bashrc
 echo 'export DOTFILES="$HOME/.dotfiles"\nexport PATH="$DOTFILES/executables:$PATH"\nexport PATH="$DOTFILES/scripts/user_scripts:$PATH"' >> $HOME/.zshrc

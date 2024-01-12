@@ -137,3 +137,6 @@ export GTK_THEME='Catppuccin-Mocha-Standard-Mauve-Dark:dark'
 export DOTFILES="$HOME/.dotfiles"
 export PATH="$DOTFILES/executables:$PATH"
 export PATH="$DOTFILES/scripts/user_scripts:$PATH"
+export DOTFILES="$HOME/.dotfiles"
+export PATH="$DOTFILES/executables:$PATH"
+export PATH="$DOTFILES/scripts/user_scripts:$PATH"
