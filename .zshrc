@@ -25,7 +25,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="amuse"
 #ZSH_THEME="powerlevel10k/powerlevel10k"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -140,3 +141,21 @@ export PATH="$DOTFILES/scripts/user_scripts:$PATH"
 export DOTFILES="$HOME/.dotfiles"
 export PATH="$DOTFILES/executables:$PATH"
 export PATH="$DOTFILES/scripts/user_scripts:$PATH"
+
+
+
+## EZA ## COLORED LS MODULE ##
+#
+# LS Command remap
+#
+##############################
+
+alias ls='eza --icons --color=always --group-directories-first'
+
+alias ll='eza -alF --icons --color=always --group-directories-first'
+
+alias la='eza -a --icons --color=always --group-directories-first'
+
+alias l='eza -F --icons --color=always --group-directories-first'
+
+alias l.='eza -a | egrep "^\."'
