@@ -42,4 +42,9 @@ if [ "$0" = "/usr/sbin/lightdm-session" -a "$DESKTOP_SESSION" = "i3" ]; then
 fi
 . "$HOME/.cargo/env"
 
-export GTK_THEME='Catppuccin-Mocha-Standard-Mauve-Dark:dark'
+# export GTK_THEME='Catppuccin-Mocha-Standard-Mauve-Dark:dark'
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

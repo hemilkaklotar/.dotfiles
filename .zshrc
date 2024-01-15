@@ -1,10 +1,6 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -118,31 +114,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# pnpm
-export PNPM_HOME="$HOME/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-# bun completions:
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-export GTK_THEME='Catppuccin-Mocha-Standard-Mauve-Dark:dark'
-export DOTFILES="$HOME/.dotfiles"
-export PATH="$DOTFILES/executables:$PATH"
-export PATH="$DOTFILES/scripts/user_scripts:$PATH"
-export DOTFILES="$HOME/.dotfiles"
-export PATH="$DOTFILES/executables:$PATH"
-export PATH="$DOTFILES/scripts/user_scripts:$PATH"
-
-
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# export GTK_THEME='Catppuccin-Mocha-Standard-Mauve-Dark:dark'
 
 ## EZA ## COLORED LS MODULE ##
 #
@@ -159,3 +134,8 @@ alias la='eza -a --icons --color=always --group-directories-first'
 alias l='eza -F --icons --color=always --group-directories-first'
 
 alias l.='eza -a | egrep "^\."'
+
+
+export DOTFILES="$HOME/.dotfiles"
+export PATH="$DOTFILES/executables:$PATH"
+export PATH="$DOTFILES/scripts/user_scripts:$PATH"
