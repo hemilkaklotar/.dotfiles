@@ -8,4 +8,4 @@ source $HOME/.dotfiles/scripts/link.sh
 #source $HOME/.dotfiles/scripts/apps.sh
 
 # install the i3 wm with the necessary dependacies
-#source $HOME/.dotfiles/scripts/i3-config.sh
+# source $HOME/.dotfiles/scripts/i3-config.sh
