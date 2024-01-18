@@ -26,10 +26,13 @@ if [ -d "$HOME/.local/bin" ]; then
 	PATH="$HOME/.local/bin:$PATH"
 fi
 
-# alias for python
-alias python="python3"
-alias pip="pip3"
-alias vim="nvim"
+# Tmux autostart on terminal start
+# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+#   exec tmux
+# fi
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    tmux attach -t default || tmux new -s default
+fi
 
 . "$HOME/.cargo/env"
 
@@ -38,8 +41,6 @@ alias vim="nvim"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-#
-#
 
  if [[ $DESKTOP_SESSION=~"^i3.*$" ]]; then
 	# export DESKTOP_SESSION="gnome" 
@@ -55,4 +56,9 @@ export NVM_DIR="$HOME/.nvm"
  fi
 
 
- # eval "$(zoxide init bash)"
+# eval "$(zoxide init bash)"
+
+# alias for python
+alias python="python3"
+alias pip="pip3"
+alias vim="nvim"
