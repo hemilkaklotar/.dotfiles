@@ -1,3 +1,7 @@
 /squashfs-root
 nvim.appimage
 /executables
+*.log
+*.pid
+*.db
+mpdstate

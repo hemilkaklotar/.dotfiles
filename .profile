@@ -53,3 +53,6 @@ export NVM_DIR="$HOME/.nvm"
 	# remove '#' from below line to activate wallpaper loop in i3
 	#feh --randomize --bg-fill ~/Pictures/*
  fi
+
+
+ # eval "$(zoxide init bash)"

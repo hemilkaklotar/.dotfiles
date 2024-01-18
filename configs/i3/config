@@ -78,9 +78,9 @@ bindsym $mod+Shift+b exec --no-startup-id pkill polybar && polybar --config=~/.c
 
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/scripts/launcher_t1
 bindsym $mod+x exec --no-startup-id ~/.config/rofi/scripts/powermenu_t1
+bindsym $mod+t exec --no-startup-id ~/.config/rofi/music/music
 
 bindsym $mod+Shift+s exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
-bindsym $mod+t exec --no-startup-id ~/.config/rofi/applets/bin/mpd.sh
 bindsym $mod+Shift+v exec --no-startup-id ~/.config/rofi/scripts/clipboard.sh
 bindsym $mod+comma exec --no-startup-id ~/.config/rofi/scripts/emoji.sh
 

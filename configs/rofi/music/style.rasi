@@ -1,0 +1,11 @@
+
+* {
+bg: #1A1B26;
+bgAlt: #24283B;
+fg: #BB9AF7;
+button: #414868;
+background-color: @bg;
+text-color: @fg;
+}
+
+@import "../fonts.rasi"
