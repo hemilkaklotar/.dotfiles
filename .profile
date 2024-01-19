@@ -58,6 +58,10 @@ export NVM_DIR="$HOME/.nvm"
 
 # eval "$(zoxide init bash)"
 
+export VISUAL=nvim;
+export EDITOR=nvim;
+
+
 # alias for python
 alias python="python3"
 alias pip="pip3"

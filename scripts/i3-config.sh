@@ -12,5 +12,5 @@ sudo apt-get install gnome-sushi -y
 #add policykit
 sudo apt-get install policykit-1-gnome -y
 
-wget https://github.com/erebe/greenclip/releases/download/v4.2/greenclip -P ~/.dotfiles/executables/
-chmod +x ~/.dotfiles/executables/greenclip
+wget https://github.com/erebe/greenclip/releases/download/v4.2/greenclip -P ~/.local/bin/
+chmod +x ~/.local/bin/greenclip

@@ -16,5 +16,5 @@ theme='style-7'
 
 ## Run
 rofi \
-    -modi "clipboard:$HOME/.dotfiles/executables/greenclip print" -show clipboard \
+    -modi "clipboard:greenclip print" -show clipboard \
     -theme ${dir}/${theme}.rasi
