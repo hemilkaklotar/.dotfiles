@@ -295,3 +295,5 @@ exec --no-startup-id source ~/.fehbg
 #for night light using redshift
 #exec --no-startup-id redshift &
 
+exec_always --no-startup-id service mpd restart &
+exec_always --no-startup-id mpd &
