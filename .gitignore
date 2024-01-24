@@ -5,3 +5,4 @@ nvim.appimage
 *.pid
 *.db
 mpdstate
+./configs/mpd/playlists/*
