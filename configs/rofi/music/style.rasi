@@ -1,11 +1,14 @@
 
 * {
-bg: #1A1B26;
-bgAlt: #24283B;
-fg: #BB9AF7;
-button: #414868;
+bg: #282828FF;
+bgAlt: #353535FF;
+fg: #EBDBB2FF;
+button: #B8BB26FF;
 background-color: @bg;
 text-color: @fg;
 }
 
-@import "../fonts.rasi"
+configuration {
+  font: "SFMono Nerd Font 13";
+}
+

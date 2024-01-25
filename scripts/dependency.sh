@@ -28,6 +28,7 @@ sudo mv squashfs-root /
 sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
 rm -rf ./nvim.appimage
 rm -rf ./squashfs-root
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo "[Settings]
 gtk-application-prefer-dark-theme=1" >> ~/.config/gtk-3.0/settings.ini

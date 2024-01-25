@@ -216,11 +216,11 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 # display - add --dpi 125 to scaling
-exec_always --no-startup-id xrandr --output eDP --mode 1920x1080 --dpi 125 --rate 144.00
+#exec_always --no-startup-id xrandr --output eDP --mode 1920x1080 --dpi 125 --rate 144.00
 
 # to load gtk theme
-exec_always --no-startup-id /usr/libexec/gsd-xsettings &
-exec_always --no-startup-id  xrdb ~/.Xresources &
+# exec_always --no-startup-id /usr/libexec/gsd-xsettings &
+# exec_always --no-startup-id  xrdb ~/.Xresources &
 
 # for transparency
 # exec --no-startup-id compton
@@ -281,7 +281,6 @@ exec_always --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1 &
 exec_always --no-startup-id gsettings set org.gnome.desktop.interface color-scheme prefer-dark &
 
 exec --no-startup-id ~/.config/polybar/launch.sh &
-# exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures/walls/* &
 exec_always --no-startup-id blueman-applet &
 exec_always --no-startup-id dunst &
 
@@ -295,5 +294,5 @@ exec --no-startup-id source ~/.fehbg
 #for night light using redshift
 #exec --no-startup-id redshift &
 
-exec_always --no-startup-id service mpd restart &
+# exec_always --no-startup-id service mpd restart &
 exec_always --no-startup-id mpd &

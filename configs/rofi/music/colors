@@ -29,6 +29,7 @@ options:
   tokyoblue
   tokyogreen
   tokyopurple
+  gruvbox
 EOF
 }
 
@@ -149,6 +150,13 @@ bg="#1A1B26"
 fg="#BB9AF7"
 bgAlt="#24283B"
 button="#414868"
+}
+
+gruvbox() {
+bg="#282828FF"
+fg="#EBDBB2FF"
+bgAlt="#353535FF"
+button="#B8BB26FF"
 }
 
 

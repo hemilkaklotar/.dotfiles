@@ -1,5 +1,5 @@
 xrdb -merge ~/.Xresources
-xrandr --rate 60.00
+# xrandr --rate 60.00
 exec i3
 # set desktop background with custom effect
 betterlockscreen -w dim
