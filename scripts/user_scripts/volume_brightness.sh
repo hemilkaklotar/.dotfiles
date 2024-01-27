@@ -3,7 +3,7 @@
 # See README.md for usage instructions
 volume_step=5
 brightness_step=5
-max_volume=100
+max_volume=153
 notification_timeout=1000
 download_album_art=true
 show_album_art=true
@@ -29,7 +29,7 @@ function get_volume_icon {
     volume=$(get_volume)
     mute=$(get_mute)
     if [ "$volume" -eq 0 ] || [ "$mute" == "yes" ] ; then
-        volume_icon=""
+        volume_icon="󰝟"
     elif [ "$volume" -lt 50 ]; then
         volume_icon=""
     else
