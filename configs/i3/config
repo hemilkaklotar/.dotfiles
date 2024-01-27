@@ -68,26 +68,6 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-# Green clip for clipboard
-exec --no-startup-id greenclip daemon &
-# Polybar Toggle
-bindsym $mod+b exec --no-startup-id polybar-msg cmd toggle
-
-# Reload Polybar after modifications
-bindsym $mod+Shift+b exec --no-startup-id pkill polybar && polybar --config=~/.config/polybar/config.ini &
-
-bindsym $mod+d exec --no-startup-id ~/.config/rofi/scripts/launcher_t1
-bindsym $mod+x exec --no-startup-id ~/.config/rofi/scripts/powermenu_t1
-bindsym $mod+t exec --no-startup-id ~/.config/rofi/music/music
-
-bindsym $mod+Shift+s exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
-bindsym $mod+Shift+v exec --no-startup-id ~/.config/rofi/scripts/clipboard.sh
-bindsym $mod+comma exec --no-startup-id ~/.config/rofi/scripts/emoji.sh
-
-bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/scripts/windower.sh
-
-bindsym $mod+shift+x exec betterlockscreen -l dim
-
 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
@@ -187,19 +167,19 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t error -m 'You want to logout the i3 session?' -B 'Yes, logout' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
         # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym h resize shrink width 10 px or 10 ppt
+        # Pressing down will grow the window’s height.
         bindsym j resize grow height 10 px or 10 ppt
+        # Pressing up will shrink the window’s height.
         bindsym k resize shrink height 10 px or 10 ppt
+        # Pressing right will grow the window’s width.
         bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
@@ -215,39 +195,6 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-# display - add --dpi 125 to scaling
-#exec_always --no-startup-id xrandr --output eDP --mode 1920x1080 --dpi 125 --rate 144.00
-
-# to load gtk theme
-# exec_always --no-startup-id /usr/libexec/gsd-xsettings &
-# exec_always --no-startup-id  xrdb ~/.Xresources &
-
-# for transparency
-# exec --no-startup-id compton
-# Picom
-exec_always --no-startup-id picom &
-
-# FKeys
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% & #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% & #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-#
-# # Sreen brightness controls
-# bindsym --release XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-# bindsym --release XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5 & # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5 & # decrease screen brightness
-
-
-# Alsa audio controls.
-# bindsym $mod+Shift+comma exec ~/.config/i3/scripts/alsa restore
-# bindsym $mod+semicolon exec ~/.config/i3/scripts/alsa down Headphone
-# bindsym $mod+comma exec ~/.config/i3/scripts/alsa up Headphone
-bindsym $mod+m move workspace to output left
-
-# Suspend
-bindsym $mod+Shift+period exec systemctl suspend
 
 # Inner gaps for all windows: space between two adjacent windows (or split containers).
 gaps inner 5
@@ -270,7 +217,48 @@ smart_gaps on
 default_border pixel 10
 hide_edge_borders smart
 
+#######################################
+#       Custom Config/Keymaps       #
+#######################################
+
+# display - add --dpi 125 to scaling
+#exec_always --no-startup-id xrandr --output eDP --mode 1920x1080 --dpi 125 --rate 144.00
+
+# to load gtk theme
+# exec_always --no-startup-id /usr/libexec/gsd-xsettings &
+# exec_always --no-startup-id  xrdb ~/.Xresources &
+
+# for transparency
+# exec --no-startup-id compton
+
+
+# Alsa audio controls.
+# bindsym $mod+Shift+comma exec ~/.config/i3/scripts/alsa restore
+# bindsym $mod+semicolon exec ~/.config/i3/scripts/alsa down Headphone
+# bindsym $mod+comma exec ~/.config/i3/scripts/alsa up Headphone
+
+bindsym $mod+m move workspace to output left
+
+# Suspend
+bindsym $mod+Shift+period exec systemctl suspend
 bindsym Super+Shift+R exec picom &
+
+# Picom
+exec_always --no-startup-id picom &
+
+# FKeys
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% & #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% & #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+#
+# # Sreen brightness controls
+# bindsym --release XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+# bindsym --release XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5 & # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5 & # decrease screen brightness
+
+
 
 exec_always --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11 &
 
@@ -291,8 +279,28 @@ exec --no-startup-id betterlockscreen -w dim
 exec --no-startup-id source ~/.fehbg
 
 
+# Green clip for clipboard
+exec --no-startup-id greenclip daemon &
+# Polybar Toggle
+bindsym $mod+b exec --no-startup-id polybar-msg cmd toggle
+
+# Reload Polybar after modifications
+bindsym $mod+Shift+b exec --no-startup-id pkill polybar && polybar --config=~/.config/polybar/config.ini &
+
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/scripts/launcher_t1
+bindsym $mod+x exec --no-startup-id ~/.config/rofi/scripts/powermenu_t1
+bindsym $mod+t exec --no-startup-id ~/.config/rofi/music/music
+
+bindsym $mod+Shift+s exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
+bindsym $mod+Shift+v exec --no-startup-id ~/.config/rofi/scripts/clipboard.sh
+bindsym $mod+comma exec --no-startup-id ~/.config/rofi/scripts/emoji.sh
+
+bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/scripts/windower.sh
+
+bindsym $mod+shift+x exec betterlockscreen -l dim
+
 #for night light using redshift
 #exec --no-startup-id redshift &
 
-# exec_always --no-startup-id service mpd restart &
 exec_always --no-startup-id mpd &
+
