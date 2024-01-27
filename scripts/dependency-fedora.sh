@@ -6,7 +6,7 @@ sudo dnf install -y zsh
 # source ~/.bashrc
 
 # installing curl and ripgrep for neovim
-sudo dnf install -y curl ripgrep
+sudo dnf install -y curl ripgrep playerctl
 
 # install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
