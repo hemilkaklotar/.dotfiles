@@ -246,18 +246,28 @@ bindsym Super+Shift+R exec picom &
 # Picom
 exec_always --no-startup-id picom &
 
-# FKeys
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% & #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% & #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-#
-# # Sreen brightness controls
-# bindsym --release XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-# bindsym --release XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5 & # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5 & # decrease screen brightness
+# # FKeys
+# # Pulse Audio controls
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% & #increase sound volume
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% & #decrease sound volume
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+# #
+# # # Sreen brightness controls
+# # bindsym --release XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+# # bindsym --release XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+# bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5 & # increase screen brightness
+# bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5 & # decrease screen brightness
 
+bindsym XF86AudioRaiseVolume exec --no-startup-id volume_brightness.sh volume_up
+bindsym XF86AudioLowerVolume exec --no-startup-id volume_brightness.sh volume_down
+bindsym XF86AudioMute exec --no-startup-id volume_brightness.sh volume_mute
+bindsym XF86MonBrightnessUp exec --no-startup-id volume_brightness.sh brightness_up
+bindsym XF86MonBrightnessDown exec --no-startup-id volume_brightness.sh brightness_down
+bindsym XF86AudioPlayPause exec --no-startup-id volume_brightness.sh play_pause
+bindsym XF86AudioPause exec --no-startup-id volume_brightness.sh play_pause
+bindsym XF86AudioPlay exec --no-startup-id volume_brightness.sh play_pause
+bindsym XF86AudioNext exec --no-startup-id volume_brightness.sh next_track
+bindsym XF86AudioPrev exec --no-startup-id volume_brightness.sh prev_track
 
 
 exec_always --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11 &
