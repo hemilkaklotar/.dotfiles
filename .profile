@@ -27,9 +27,6 @@ if [ -d "$HOME/.local/bin" ]; then
 fi
 
 # Tmux autostart on terminal start
-# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-#   exec tmux
-# fi
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     tmux attach -t default || tmux new -s default
 fi
@@ -45,14 +42,12 @@ export NVM_DIR="$HOME/.nvm"
  if [[ $DESKTOP_SESSION=~"^i3.*$" ]]; then
 	# export DESKTOP_SESSION="gnome" 
 	export DESKTOP_SESSION="kde" 
-	export XDG_CURRENT_DESKTOP="KDE" 
+	export XDG_CURRENT_DESKTOP="KDE"
+	export XDG_SESSION_DESKTOP="plasma"
+
 	# export $(gnome-keyring-daemon -s)
 	alias pactl="/usr/bin/pactl"
-	#alias light="/usr/bin/light"
 
-        # export GTK_THEME='Catppuccin-Mocha-Standard-Mauve-Dark:dark'
-	# remove '#' from below line to activate wallpaper loop in i3
-	#feh --randomize --bg-fill ~/Pictures/*
  fi
 
 
