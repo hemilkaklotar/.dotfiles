@@ -313,4 +313,5 @@ bindsym $mod+shift+x exec betterlockscreen -l dim
 #exec --no-startup-id redshift &
 
 exec_always --no-startup-id mpd &
+exec --no-startup-id /usr/libexec/pam_kwallet_init
 

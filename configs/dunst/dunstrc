@@ -30,7 +30,7 @@
     height = 300
 
     # Position the notification in the top right corner
-    origin = top-center
+    origin = top-right
 
     # Offset from the origin
     offset = 10x50
@@ -95,7 +95,8 @@
     frame_width = 1
 
     # Defines color of the frame around the notification window.
-    frame_color = "#83A598"
+    # frame_color = "#83A598" #gruvbox
+    frame_color = "#31748f"  #rosepine
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
     # of size frame_width will be drawn around each notification instead.
@@ -312,23 +313,47 @@
     per_monitor_dpi = true
 ###########GruvBox##################
 
+# [urgency_low]
+#     background = "#1D2021"
+#     foreground = "#D5C4A1"
+#     highlight = "#83A598"
+#     timeout = 5
+#
+# [urgency_normal]
+#     background = "#1D2021"
+#     foreground = "#D5C4A1"
+#     highlight = "#83A598"
+#     timeout = 20
+#
+# [urgency_critical]
+#     background = "#1D2021"
+#     foreground = "#D5C4A1"
+#     frame_color = "#9D0006"
+#     timeout = 0
+#
+################# RosePine ########################
+
+
 [urgency_low]
-    background = "#1D2021"
-    foreground = "#D5C4A1"
-    highlight = "#83A598"
+    background = "#191724"
+    foreground = "#ebbcba"
+    highlight = "#31748f"
     timeout = 5
 
 [urgency_normal]
-    background = "#1D2021"
-    foreground = "#D5C4A1"
-    highlight = "#83A598"
+    background = "#191724"
+    foreground = "#ebbcba"
+    highlight = "#31748f"
     timeout = 20
 
 [urgency_critical]
-    background = "#1D2021"
-    foreground = "#D5C4A1"
-    frame_color = "#9D0006"
+    background = "#191724"
+    foreground = "#ebbcba"
+    frame_color = "#eb6f92"
     timeout = 0
+
+
+
 
 ##############Catppuccin Mocha #####################################
 # [urgency_low]
