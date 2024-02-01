@@ -29,6 +29,7 @@ options:
   tokyoblue
   tokyogreen
   tokyopurple
+  rosepine
   gruvbox
 EOF
 }
@@ -159,6 +160,12 @@ bgAlt="#353535FF"
 button="#B8BB26FF"
 }
 
+rosepine() {
+bg="#191724"
+fg="#ebbcba"
+bgAlt="#26233a"
+button="#31748f"
+}
 
 case "$1" in
   "")

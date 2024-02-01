@@ -1,5 +1,4 @@
 @theme "/dev/null"
-
 * {
   bg:			#0C0F09;
   fg:			#05E289;
@@ -12,41 +11,49 @@
 
 window {
   transparency:		"real";
-  width:		500px;
-  height:		525px;
+  width:		490px;
+  height:		580px;
+  border-radius:	25px;
 }
 
 prompt {
-  padding:		15px;
+  padding:		10px;
   border-radius:	10px;
-  expand: false;
+  expand: 		false;
+  font: 		"inherit 14px";
 }
 
 inputbar {
   children:		[ prompt ];
-  background-image:	url("/tmp/cover.png");
+  background-image:	url("/tmp/cover.png",both);
   expand:		false;
   border-radius:	8px 8px 0px 0px;
-  padding:		290px 15px 15px 15px;
+  padding:		360px 30px 30px 30px;
 }
 
 listview {
   cycle:		true;
   layout:		horizontal;
-  padding:		10px 10px 10px 10px;
+  padding:		10px;
+  border-radius:	10px;
 }
 
-mainbox { children: [ inputbar, listview ]; }
+mainbox { 
+  children: [ inputbar, listview ]; 
+  border-radius:	15px;
+}
 
 element {
-  padding:		0px 10px 0px 10px;
+  padding:		0px 15px 0px 15px;
   border-radius:	15px;
+  position:		center;
+  expand: 		true;
 }
 
 element-text {
   margin:		5px 18px 5px 18px;
-  padding:		0px 0px 0px 0px;
-  font: 		"SFMono Nerd Font 50px";
+  padding:		0px;
+  font: 		"JetBrainsMono Nerd Font 40px";
   background-color:	inherit;
   text-color:		inherit; 
 }
