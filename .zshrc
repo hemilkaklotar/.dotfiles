@@ -22,3 +22,5 @@ export PATH="$DOTFILES/executables:$PATH"
 export PATH="$DOTFILES/scripts/user_scripts:$PATH"
 
 eval "$(zoxide init zsh)"
+
+export PATH="$HOME/.spicetify:$PATH"
