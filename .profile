@@ -47,10 +47,11 @@ export NVM_DIR="$HOME/.nvm"
 
 	# export $(gnome-keyring-daemon -s)
 	alias pactl="/usr/bin/pactl"
-
  fi
 
-
+if [[ $DESKTOP_SESSION=~"^sway.*$" ]]; then
+	export QT_QPA_PLATFORM=wayland
+fi
 # eval "$(zoxide init bash)"
 
 export VISUAL=nvim;
@@ -61,7 +62,6 @@ export FZF_DEFAULT_OPTS="
 	--color=border:#403d52,header:#31748f,gutter:#191724
 	--color=spinner:#f6c177,info:#9ccfd8,separator:#403d52
 	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
-export QT_QPA_PLATFORM=wayland
 
 # alias for python
 alias python="python3"
