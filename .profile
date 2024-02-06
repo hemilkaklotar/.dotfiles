@@ -27,9 +27,9 @@ if [ -d "$HOME/.local/bin" ]; then
 fi
 
 # Tmux autostart on terminal start
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-    tmux attach -t default || tmux new -s default
-fi
+# if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    # tmux attach -t default || tmux new -s default
+# fi
 
 . "$HOME/.cargo/env"
 
@@ -66,3 +66,4 @@ export FZF_DEFAULT_OPTS="
 alias python="python3"
 alias pip="pip3"
 alias vim="nvim"
+alias tmx="tmux attach -t default || tmux new -s default"
