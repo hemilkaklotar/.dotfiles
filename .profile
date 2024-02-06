@@ -61,6 +61,7 @@ export FZF_DEFAULT_OPTS="
 	--color=border:#403d52,header:#31748f,gutter:#191724
 	--color=spinner:#f6c177,info:#9ccfd8,separator:#403d52
 	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
+export QT_QPA_PLATFORM=wayland
 
 # alias for python
 alias python="python3"
