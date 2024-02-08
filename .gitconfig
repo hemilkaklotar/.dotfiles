@@ -7,3 +7,5 @@
 	process = git-lfs filter-process
 	required = true
 
+[safe]
+	directory = /mnt/0842C44342C4376A/Thesis/diverse_sampling

@@ -305,6 +305,10 @@ bindsym $mod+Shift+s exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.
 bindsym $mod+Shift+v exec --no-startup-id ~/.config/rofi/scripts/clipboard.sh
 bindsym $mod+comma exec --no-startup-id ~/.config/rofi/scripts/emoji.sh
 
+## keyboard layouts -- us --- dvorak
+bindsym --release Mod4+Mod1+1 exec --no-startup-id setxkbmap us dvorak 
+bindsym --release Mod4+Mod1+2 exec --no-startup-id setxkbmap us
+
 bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/scripts/windower.sh
 
 bindsym $mod+shift+x exec betterlockscreen -l dim

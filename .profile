@@ -44,16 +44,12 @@ export NVM_DIR="$HOME/.nvm"
 	# export DESKTOP_SESSION="kde" 
 	export XDG_CURRENT_DESKTOP="KDE"
 	export XDG_SESSION_DESKTOP="plasma"
-
 	# export $(gnome-keyring-daemon -s)
 	alias pactl="/usr/bin/pactl"
  fi
 
-if [[ $DESKTOP_SESSION=~"^sway.*$" ]]; then
-	export QT_QPA_PLATFORM=wayland
-fi
 # eval "$(zoxide init bash)"
-
+# export QT_QPA_PLATFORM=xcb
 export VISUAL=nvim;
 export EDITOR=nvim;
 export FZF_DEFAULT_OPTS="
@@ -62,7 +58,6 @@ export FZF_DEFAULT_OPTS="
 	--color=border:#403d52,header:#31748f,gutter:#191724
 	--color=spinner:#f6c177,info:#9ccfd8,separator:#403d52
 	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
-
 # alias for python
 alias python="python3"
 alias pip="pip3"
