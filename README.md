@@ -1,11 +1,9 @@
 # .dotfiles
 
-Recently swithed to Fedora with gnome and i3wm, 
+Recently swithed to Fedora with gnome and i3wm,
 Before that I was using Ubuntu with gnome and i3wm
 
-
-
-I am using `zsh` shell as my default 
+I am using `zsh` shell as my default
 
 <pre>
 <img src="assets/images/i3wm_Polybar_setup.png" alt="i3wm setup" width="49%" /> <img src="assets/images/AppLauncher.png" alt="i3wm Applauncher Rofi" width="49%"/> <br />
@@ -40,7 +38,7 @@ source ~/.dotfiles/install.sh
 bash ./link.sh
 ```
 
-OR 
+OR
 
 ```zsh
 . ./link.sh
@@ -51,6 +49,7 @@ OR
 - comment the lines or block of code that you don't want in your system in `./dependency.sh`
 
 - run below command to install the dependancy
+
 ```zsh
 sudo bash ./dependancy.sh
 ```
@@ -69,7 +68,7 @@ Section "InputClass"
 EndSection
 ```
 
-- For Google chrome keyring issue for gnome follow below 
+- For Google chrome keyring issue for gnome follow below
 
 ```
 sudo vim /usr/share/applications/google-chrome.desktop
@@ -77,7 +76,7 @@ sudo vim /usr/share/applications/google-chrome.desktop
 
 then add the `--password-store=gnome-libsecret` after all `Exec` commands :)
 
-- add qt5ct and lxappareance then add below to file 
+- add qt5ct and lxappareance then add below to file
 
 `sudo echo "QT_QPA_PLATFORMTHEME=qt5ct" >> /etc/environment`
 
@@ -96,9 +95,9 @@ In future more module will be added!
 
 ## Usage
 
-Follow the above instruction to clone and run scripts 
+Follow the above instruction to clone and run scripts
 
-- to more customization please fork this repo and then modify  the your changes as per your distribution.
+- to more customization please fork this repo and then modify the your changes as per your distribution.
 
 - I have created the config file and scripts for fedora and ubuntu with gnome and kde.
 
@@ -106,8 +105,8 @@ Follow the above instruction to clone and run scripts
 
 Thanks for your contribution!
 
-
 ## Credits
+
 <!-- ![.dotfiles](assets/images/the_person.jpg) -->
 <img src="assets/images/the_person.jpg" alt=".dotfiles" width="200"/>
 
@@ -118,21 +117,12 @@ you can check out their repo and create your own dotfiles if you needed.
 
 - [ThePrimeagen/.dotfiles](https://github.com/ThePrimeagen/.dotfiles.git)
 
-
-Rofi Themes are taken from the fellow developer adi1090x. 
+Rofi Themes are taken from the fellow developer adi1090x.
 Check out his repo and create your own rofi theme.
 
 - [adi1090x/rofi](https://github.com/adi1090x/rofi)
 
 I appreciate their work which helps me alot. Thank you for your fabulous works..:)
-
-## License
-
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
-
----
-
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
 
 ## Badges
 
@@ -142,13 +132,13 @@ This repo includes the shell scripts and the configs for the component.
 
 ## Features
 
-Dotfiles with i3wm and polybar , rofi 
+Dotfiles with i3wm and polybar , rofi
+
 - Theme : Gruvbox
 
-
 ## How to Contribute
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
 ## Tests
 
