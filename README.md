@@ -126,7 +126,7 @@ I appreciate their work which helps me alot. Thank you for your fabulous works..
 
 ## Badges
 
-![badmath](https://img.shields.io/badge/100%-Shell-blue)
+![Static Badge](https://img.shields.io/badge/100%25-Shell-blue)
 
 This repo includes the shell scripts and the configs for the component.
 
