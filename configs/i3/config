@@ -305,18 +305,16 @@ bindsym $mod+Shift+s exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.
 bindsym $mod+Shift+v exec --no-startup-id ~/.config/rofi/scripts/clipboard.sh
 bindsym $mod+comma exec --no-startup-id ~/.config/rofi/scripts/emoji.sh
 
-## keyboard layouts -- us --- dvorak
-bindsym --release Mod4+Mod1+1 exec --no-startup-id setxkbmap us dvorak 
-bindsym --release Mod4+Mod1+2 exec --no-startup-id setxkbmap us
-
 bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/scripts/windower.sh
 
 bindsym $mod+shift+x exec betterlockscreen -l dim
-
-#for night light using redshift
-#exec --no-startup-id redshift &
 
 exec_always --no-startup-id mpd &
 exec --no-startup-id /usr/libexec/pam_kwallet_init &
 exec --no-startup-id input-remapper-control --command autoload &
 
+#for night light using redshift
+#exec --no-startup-id redshift &
+
+## keyboard layouts -- us --- dvorak
+exec --no-startup-id setxkbmap -layout us,us -variant ,dvorak -option "lv3:rwin_switch,grp:ctrl_shift_toggle"

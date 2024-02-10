@@ -6,3 +6,4 @@ nvim.appimage
 *.db
 mpdstate
 ./configs/mpd/playlists/*
+.gitconfig
