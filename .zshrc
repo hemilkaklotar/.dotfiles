@@ -17,6 +17,8 @@ alias la='eza -a --icons --color=always --group-directories-first'
 alias l='eza -F --icons --color=always --group-directories-first'
 alias l.='eza -a | egrep "^\."'
 
+alias cwall='shuf -e -n1 $HOME/Pictures/Anime/* | xargs feh --bg-fill'
+
 export DOTFILES="$HOME/.dotfiles"
 export PATH="$DOTFILES/executables:$PATH"
 export PATH="$DOTFILES/scripts/user_scripts:$PATH"

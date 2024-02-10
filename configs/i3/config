@@ -36,7 +36,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -w dim
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -44,10 +44,8 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -57,8 +55,6 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-# changed the default terminal to alacritty
-# bindsym $mod+Return exec --no-startup-id alacritty -vv
 bindsym $mod+Return exec --no-startup-id kitty
 
 # kill focused window
@@ -67,13 +63,6 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
-
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping 
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -218,46 +207,10 @@ default_border pixel 10
 hide_edge_borders smart
 
 #######################################
-#       Custom Config/Keymaps       #
+#           Custom Keymaps            #
 #######################################
 
-# display - add --dpi 125 to scaling
-#exec_always --no-startup-id xrandr --output eDP --mode 1920x1080 --dpi 125 --rate 144.00
-
-# to load gtk theme
-# exec_always --no-startup-id /usr/libexec/gsd-xsettings &
-# exec_always --no-startup-id  xrdb ~/.Xresources &
-
-# for transparency
-# exec --no-startup-id compton
-
-
-# Alsa audio controls.
-# bindsym $mod+Shift+comma exec ~/.config/i3/scripts/alsa restore
-# bindsym $mod+semicolon exec ~/.config/i3/scripts/alsa down Headphone
-# bindsym $mod+comma exec ~/.config/i3/scripts/alsa up Headphone
-
-bindsym $mod+m move workspace to output left
-
-# Suspend
-bindsym $mod+Shift+period exec systemctl suspend
-bindsym Super+Shift+R exec picom &
-
-# Picom
-exec_always --no-startup-id picom &
-
-# # FKeys
-# # Pulse Audio controls
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% & #increase sound volume
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% & #decrease sound volume
-# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-# #
-# # # Sreen brightness controls
-# # bindsym --release XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-# # bindsym --release XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-# bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5 & # increase screen brightness
-# bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5 & # decrease screen brightness
-
+## Media Keys bindings
 bindsym XF86AudioRaiseVolume exec --no-startup-id volume_brightness.sh volume_up
 bindsym XF86AudioLowerVolume exec --no-startup-id volume_brightness.sh volume_down
 bindsym XF86AudioMute exec --no-startup-id volume_brightness.sh volume_mute
@@ -268,53 +221,56 @@ bindsym XF86AudioPause exec --no-startup-id volume_brightness.sh play_pause
 bindsym XF86AudioPlay exec --no-startup-id volume_brightness.sh play_pause
 bindsym XF86AudioNext exec --no-startup-id volume_brightness.sh next_track
 bindsym XF86AudioPrev exec --no-startup-id volume_brightness.sh prev_track
+# Suspend keybinding
+bindsym $mod+Shift+period exec systemctl suspend
+# Picom keybinding
+bindsym Super+Shift+R exec picom &
+# Keyboard Layout keybinding
+bindsym --release Mod4+Mod1+1 exec --no-startup-id setxkbmap us dvorak 
+bindsym --release Mod4+Mod1+2 exec --no-startup-id setxkbmap us
+# Polybar Toggle
+bindsym $mod+b exec --no-startup-id polybar-msg cmd toggle
+# Reload Polybar after modifications
+bindsym $mod+Shift+b exec --no-startup-id pkill polybar && polybar --config=~/.config/polybar/config.ini &
+# Rofi scripts keybindings
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/scripts/launcher_t1 &
+bindsym $mod+x exec --no-startup-id ~/.config/rofi/scripts/powermenu_t1 &
+bindsym $mod+t exec --no-startup-id ~/.config/rofi/music/music &
+bindsym $mod+Shift+s exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh &
+bindsym $mod+Shift+v exec --no-startup-id ~/.config/rofi/scripts/clipboard.sh &
+bindsym $mod+comma exec --no-startup-id ~/.config/rofi/scripts/emoji.sh &
+bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/scripts/windower.sh &
+# lockscreen
+bindsym $mod+shift+x exec betterlockscreen -l dim &
 
+#######################################
+#   Custom Startup Commands / Apps    #
+#######################################
 
-exec_always --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11 &
-
-exec_always --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-
-exec_always --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1 &
-
-exec_always --no-startup-id gsettings set org.gnome.desktop.interface color-scheme prefer-dark &
-
+# display - add --dpi 125 to scaling
+exec --no-startup-id xrandr --output eDP --mode 1920x1080@144 &
+# Picom
+exec --no-startup-id picom &
+# Gnome Policy kit
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11 &
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1 &
+#KDE Policykit
+exec --no-startup-id /usr/libexec/pam_kwallet_init &
+# Polybar
 exec --no-startup-id ~/.config/polybar/launch.sh &
 exec_always --no-startup-id blueman-applet &
 exec_always --no-startup-id dunst &
-
 # set desktop background with custom effect
-exec --no-startup-id betterlockscreen -w dim
-
+exec --no-startup-id betterlockscreen -w dim &
 # Alternative (set last used background)
-exec --no-startup-id source ~/.fehbg
-
-
+exec --no-startup-id shuf -e -n1 $HOME/Pictures/Anime/* | xargs feh --bg-fill &
+exec --no-startup-id source ~/.fehbg &
 # Green clip for clipboard
 exec --no-startup-id greenclip daemon &
-# Polybar Toggle
-bindsym $mod+b exec --no-startup-id polybar-msg cmd toggle
-
-# Reload Polybar after modifications
-bindsym $mod+Shift+b exec --no-startup-id pkill polybar && polybar --config=~/.config/polybar/config.ini &
-
-bindsym $mod+d exec --no-startup-id ~/.config/rofi/scripts/launcher_t1
-bindsym $mod+x exec --no-startup-id ~/.config/rofi/scripts/powermenu_t1
-bindsym $mod+t exec --no-startup-id ~/.config/rofi/music/music
-
-bindsym $mod+Shift+s exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
-bindsym $mod+Shift+v exec --no-startup-id ~/.config/rofi/scripts/clipboard.sh
-bindsym $mod+comma exec --no-startup-id ~/.config/rofi/scripts/emoji.sh
-
-bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/scripts/windower.sh
-
-bindsym $mod+shift+x exec betterlockscreen -l dim
-
-exec_always --no-startup-id mpd &
-exec --no-startup-id /usr/libexec/pam_kwallet_init &
-exec --no-startup-id input-remapper-control --command autoload &
-
+exec --no-startup-id mpd &
+exec_always --no-startup-id input-remapper-control --command autoload &
 #for night light using redshift
-#exec --no-startup-id redshift &
-
+exec --no-startup-id redshift &
 ## keyboard layouts -- us --- dvorak
-exec --no-startup-id setxkbmap -layout us,us -variant ,dvorak -option "lv3:rwin_switch,grp:ctrl_shift_toggle"
+exec --no-startup-id setxkbmap -layout us,us -variant ,dvorak -option "lv3:rwin_switch,grp:ctrl_space_toggle" &
