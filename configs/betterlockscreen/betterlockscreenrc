@@ -10,7 +10,7 @@ blur_level=1
 pixel_scale=10,1000
 solid_color=333333
 wallpaper_cmd="feh --bg-fill"
-quiet=false
+quiet=true
 
 # default theme
 loginbox=00000066
@@ -25,14 +25,14 @@ insidevercolor=00000000
 ringwrongcolor=ffffffff
 insidewrongcolor=d23c3dff
 timecolor=ffffffff
-time_format="%H:%M:%S"
+time_format="%I:%M:%S %p"
 greetercolor=ffffffff
 layoutcolor=ffffffff
 keyhlcolor=d23c3dff
 bshlcolor=d23c3dff
-veriftext="Verifying..."
+veriftext="Logining..."
 verifcolor=ffffffff
-wrongtext="Failure!"
+wrongtext="Login Failed!"
 wrongcolor=d23c3dff
 modifcolor=d23c3dff
 bgcolor=000000ff

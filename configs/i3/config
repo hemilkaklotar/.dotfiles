@@ -36,7 +36,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -w dim
+exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l dim
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -225,9 +225,6 @@ bindsym XF86AudioPrev exec --no-startup-id volume_brightness.sh prev_track
 bindsym $mod+Shift+period exec systemctl suspend
 # Picom keybinding
 bindsym Super+Shift+R exec picom &
-# Keyboard Layout keybinding
-bindsym --release Mod4+Mod1+1 exec --no-startup-id setxkbmap us dvorak 
-bindsym --release Mod4+Mod1+2 exec --no-startup-id setxkbmap us
 # Polybar Toggle
 bindsym $mod+b exec --no-startup-id polybar-msg cmd toggle
 # Reload Polybar after modifications
@@ -248,7 +245,7 @@ bindsym $mod+shift+x exec betterlockscreen -l dim &
 #######################################
 
 # display - add --dpi 125 to scaling
-exec --no-startup-id xrandr --output eDP --mode 1920x1080@144 &
+exec --no-startup-id xrandr --output eDP --mode 1920x1080 --rate 144 &
 # Picom
 exec --no-startup-id picom &
 # Gnome Policy kit
@@ -264,13 +261,15 @@ exec_always --no-startup-id dunst &
 # set desktop background with custom effect
 exec --no-startup-id betterlockscreen -w dim &
 # Alternative (set last used background)
-exec --no-startup-id shuf -e -n1 $HOME/Pictures/Anime/* | xargs feh --bg-fill &
+exec --no-startup-id feh --bg-fill "$(shuf -e -n1 $HOME/Pictures/Anime/*)" &
 exec --no-startup-id source ~/.fehbg &
 # Green clip for clipboard
 exec --no-startup-id greenclip daemon &
 exec --no-startup-id mpd &
 exec_always --no-startup-id input-remapper-control --command autoload &
 #for night light using redshift
-exec --no-startup-id redshift &
+exec --no-startup-id pkill redshift && redshift &
 ## keyboard layouts -- us --- dvorak
-exec --no-startup-id setxkbmap -layout us,us -variant ,dvorak -option "lv3:rwin_switch,grp:ctrl_space_toggle" &
+bindsym --release Mod1+Mod4+1 exec --no-startup-id setxkbmap us
+bindsym --release Mod1+Mod4+2 exec --no-startup-id setxkbmap us dvorak
+exec_always --no-startup-id setxkbmap -model pc105 -layout 'us(dvorak),us' -option grp:ctrl_space_toggle -option compose:rwin
