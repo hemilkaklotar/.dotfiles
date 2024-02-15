@@ -1,7 +1,6 @@
 
 # installing flatpak
 sudo dnf install flatpak -y
-sudo dnf install gnome-software-plugin-flatpak -y
 # add flatpak repo
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
@@ -13,8 +12,6 @@ flatpak install -y --noninteractive flathub com.slack.Slack
 flatpak install -y --noninteractive flathub org.videolan.VLC
 
 flatpak install -y --noninteractive flathub com.visualstudio.code
-
-flatpak install -y --noninteractive flathub com.jetbrains.PyCharm-Community
 
 flatpak install -y --noninteractive flathub com.brave.Browser
 
@@ -42,4 +39,3 @@ flatpak install -y --noninteractive flathub com.getpostman.Postman
 
 flatpak install -y --noninteractive flathub com.mongodb.Compass
 
-flatpak install -y --noninteractive flathub com.jetbrains.IntelliJ-IDEA-Community

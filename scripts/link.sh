@@ -1,3 +1,5 @@
+mkdir -p ~/.local/bin
+
 # sym link the config files to the user config
 ln -sf ~/.dotfiles/configs/* ~/.config/
 ln -sf ~/.dotfiles/.zshrc ~/
@@ -7,11 +9,3 @@ ln -sf ~/.dotfiles/.gitconfig ~/
 ln -sf ~/.dotfiles/.xinitrc ~/
 ln -sf ~/.dotfiles/tmux/.* ~/
 ln -sf ~/.dotfiles/scripts/user_scripts/* ~/.local/bin/
-
-#mkdir if not exist
-mkdir -p ~/.dotfiles/executables
-
-
-echo 'export DOTFILES="$HOME/.dotfiles"\nexport PATH="$DOTFILES/executables:$PATH"\nexport PATH="$DOTFILES/scripts/user_scripts:$PATH"' >> $HOME/.bashrc
-echo 'export DOTFILES="$HOME/.dotfiles"\nexport PATH="$DOTFILES/executables:$PATH"\nexport PATH="$DOTFILES/scripts/user_scripts:$PATH"' >> $HOME/.zshrc
-

@@ -1,5 +1,8 @@
 # install i3wm, alacritty and other required packages
-sudo dnf install -y picom kitty i3 pulseaudio 
+sudo dnf install -y picom 
+sudo dnf install -y kitty 
+sudo dnf install -y i3 
+sudo dnf install -y pulseaudio 
 # sudo dnf install -y alacritty
 sudo dnf install -y pavucontrol 
 sudo dnf install -y blueman feh 
@@ -13,6 +16,6 @@ sudo dnf install -y dunst xclip xdotool
 sudo dnf install -y polkit-gnome 
 sudo dnf install -y mpd --allowerasing
 
-
-wget https://github.com/erebe/greenclip/releases/download/v4.2/greenclip -P ~/.dotfiles/
-chmod +x ~/.dotfiles/greenclip
+mkdir -p ~/.local/bin
+wget https://github.com/erebe/greenclip/releases/download/v4.2/greenclip -P ~/.local/bin
+chmod +x ~/.local/bin/greenclip

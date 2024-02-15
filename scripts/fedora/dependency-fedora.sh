@@ -27,5 +27,6 @@ rm -rf ./nvim.appimage
 rm -rf ./squashfs-root
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # remove unneccessary packages
+mkdir -p ~/.local/bin
 sudo dnf -y autoclean
 sudo dnf -y autoremove
