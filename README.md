@@ -26,35 +26,20 @@ I am using `zsh` shell as my default
 git clone https://github.com/hemilkaklotar/.dotfiles.git ~/
 ```
 
-1.5 To install things run the install script by below command
+2. Modify as per your system and requirement!
+
+```bash
+vim ~/.dotfiles/install.sh
+```
+
+3. To install things run the install script by below command
 
 ```bash
 source ~/.dotfiles/install.sh
 ```
 
-2. run link.sh file in terminal by running bellow command
 
-```bash
-bash ./link.sh
-```
-
-OR
-
-```zsh
-. ./link.sh
-```
-
-3. Install dependancy and required packages
-
-- comment the lines or block of code that you don't want in your system in `./dependency.sh`
-
-- run below command to install the dependancy
-
-```zsh
-sudo bash ./dependancy.sh
-```
-
-4. Enable tap to click and three fingers touch to middle click
+4. (Optional) Enable tap to click and three fingers touch to middle click
 
 ```conf
 # /etc/X11/xorg.conf.d/90-touchpad.conf
@@ -68,7 +53,7 @@ Section "InputClass"
 EndSection
 ```
 
-- For Google chrome keyring issue for gnome follow below
+5. (Optional) For Google chrome keyring issue for gnome follow below
 
 ```
 sudo vim /usr/share/applications/google-chrome.desktop
