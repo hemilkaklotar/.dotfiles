@@ -39,3 +39,10 @@ flatpak install -y --noninteractive flathub com.getpostman.Postman
 
 flatpak install -y --noninteractive flathub com.mongodb.Compass
 
+flatpak install -y --noninteractive flathub org.inkscape.Inkscape
+
+flatpak install -y --noninteractive flathub org.gimp.GIMP
+
+flatpak install -y --noninteractive flathub org.mozilla.Thunderbird
+
+flatpak install -y --noninteractive flathub com.github.IsmaelMartinez.teams_for_linux
