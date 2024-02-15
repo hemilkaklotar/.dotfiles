@@ -18,6 +18,7 @@ alias l='eza -F --icons --color=always --group-directories-first'
 alias l.='eza -a | egrep "^\."'
 
 alias cwall='feh --bg-fill "$(shuf -e -n1 $HOME/Pictures/Anime/*)"'
+alias lwall='betterlockscreen -u "$(shuf -e -n1 $HOME/Pictures/Anime/*)"'
 alias keymaps="setxkbmap \
   -model pc105 \
   -layout 'us(dvorak),us' \
@@ -56,7 +57,7 @@ function act() {
   [ -z "$TMUX" ] && return 0
   act!
 }
-export GTK_THEME='Catppuccin-Mocha-Standard-Mauve-Dark:dark'
+export GTK_THEME='Flat-Remix-GTK-Blue-Dark-Solid:dark'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
