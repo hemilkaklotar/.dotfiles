@@ -1,9 +1,9 @@
 # install i3wm, alacritty and other required packages
 sudo dnf install -y picom 
-sudo dnf install -y kitty 
+#sudo dnf install -y kitty 
 sudo dnf install -y i3 
 sudo dnf install -y pulseaudio 
-# sudo dnf install -y alacritty
+sudo dnf install -y alacritty
 sudo dnf install -y pavucontrol 
 sudo dnf install -y blueman feh 
 sudo dnf install -y polybar rofi light
@@ -14,6 +14,7 @@ sudo dnf install -y lxappearance qt5ct
 # sudo dnf install gnome-sushi gtk-chtheme -y
 sudo dnf install -y dunst xclip xdotool
 sudo dnf install -y polkit-gnome 
+sudo dnf install -y lxpolkit
 sudo dnf install -y mpd --allowerasing
 sudo dnf install -y maim xrandr
 mkdir -p ~/.local/bin

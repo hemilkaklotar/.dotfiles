@@ -1,7 +1,7 @@
 # install i3wm, alacritty and other required packages
 sudo apt install picom i3 pulseaudio pavucontrol blueman xclip feh -y
-#sudo apt install alacritty -y
-sudo apt install kitty -y
+sudo apt install alacritty -y
+# sudo apt install kitty -y
 sudo apt install polybar rofi light -y
 # to give permission run light without sudoers
 sudo chmod +s /usr/bin/light
@@ -11,6 +11,6 @@ sudo apt install lxappearance qt5ct -y
 sudo apt-get install gnome-sushi -y
 #add policykit
 sudo apt-get install policykit-1-gnome -y
-
+sudo apt-get install lxpolkit -y
 wget https://github.com/erebe/greenclip/releases/download/v4.2/greenclip -P ~/.local/bin/
 chmod +x ~/.local/bin/greenclip
