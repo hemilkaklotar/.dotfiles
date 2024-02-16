@@ -27,9 +27,9 @@ if [ -d "$HOME/.local/bin" ]; then
 fi
 
 # Tmux autostart on terminal start
-# if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-    # tmux attach -t default || tmux new -s default
-# fi
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    tmux attach -t default || tmux new -s default
+fi
 
 
 
@@ -38,10 +38,10 @@ export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
  if [[ $DESKTOP_SESSION=~"^i3.*$" ]]; then
-	# export DESKTOP_SESSION="gnome" 
+	export DESKTOP_SESSION="gnome" 
 	# export DESKTOP_SESSION="kde" 
-	export XDG_CURRENT_DESKTOP="KDE"
-	export XDG_SESSION_DESKTOP="plasma"
+	# export XDG_CURRENT_DESKTOP="KDE"
+	# export XDG_SESSION_DESKTOP="plasma"
 	# export $(gnome-keyring-daemon -s)
 	alias pactl="/usr/bin/pactl"
  fi

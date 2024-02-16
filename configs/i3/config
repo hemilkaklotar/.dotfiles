@@ -255,6 +255,9 @@ exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id lxpolkit &
 #KDE Policykit
 exec --no-startup-id /usr/libexec/pam_kwallet_init &
+# Gnome Dark Mode
+exec --no-startup-id /usr/libexec/gsd-xsettings &
+exec --no-startup-id gsettings set org.gnome.desktop.interface color-scheme prefer-dark &
 # Polybar
 exec --no-startup-id ~/.config/polybar/launch.sh &
 exec --no-startup-id blueman-applet &
@@ -262,7 +265,7 @@ exec_always --no-startup-id dunst &
 # set desktop background with custom effect
 exec --no-startup-id betterlockscreen -w dim &
 # Alternative (set last used background)
-exec --no-startup-id feh --bg-fill "$(shuf -e -n1 $HOME/Pictures/Anime/*)" &
+# exec --no-startup-id feh --bg-fill "$(shuf -e -n1 $HOME/Pictures/Anime/*)" &
 exec --no-startup-id source ~/.fehbg &
 # Green clip for clipboard
 exec --no-startup-id greenclip daemon &
@@ -273,4 +276,4 @@ exec --no-startup-id pkill redshift && redshift &
 ## keyboard layouts -- us --- dvorak
 bindsym --release Mod1+Mod4+1 exec --no-startup-id setxkbmap us
 bindsym --release Mod1+Mod4+2 exec --no-startup-id setxkbmap us dvorak
-exec_always --no-startup-id setxkbmap -model pc105 -layout 'us(dvorak),us' -option grp:ctrl_space_toggle -option compose:rwin
+exec_always --no-startup-id setxkbmap -model pc105 -layout 'us,us(dvorak)' -option grp:ctrl_space_toggle -option compose:rwin
