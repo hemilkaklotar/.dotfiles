@@ -60,8 +60,8 @@ status=$(playerctl --player=$Control status)
 status=${status:-Stopped}
 
 icon="ﭥ"
-[ "$status" = "Playing" ] && icon=""
-[ "$status" = "Paused" ] && icon="喇"
+[ "$status" = "Playing" ] && icon="󰏤"
+[ "$status" = "Paused" ] && icon="󰐊"
 
 playlist=$(playerctl --player=$Control metadata xesam:trackNumber)
 playlist=${playlist:-0}
@@ -125,9 +125,9 @@ case $Control in
 esac 2>/dev/null
 
 ## Rofi stuff
-previous="玲"
-next="怜"
-lyrics=""
+previous="󰒮"
+next="󰒭"
+lyrics="󰅞"
 options="$player\n$previous\n$icon\n$next\n$lyrics"
 
 rofi=$(printf $options | rofi -config $roficonfig -dmenu -i -selected-row 2 -hover-select -p "$status: ($playlist)

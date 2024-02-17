@@ -46,13 +46,13 @@ active=""
 urgent=""
 if [[ $status = *"Charging"* ]]; then
     active="-a 1"
-    ICON_CHRG=""
+    ICON_CHRG="󰂄"
 elif [[ $status = *"Full"* ]]; then
     active="-u 1"
-    ICON_CHRG=""
+    ICON_CHRG="󰂄"
 else
     urgent="-u 1"
-    ICON_CHRG=""
+    ICON_CHRG="󰂄"
 fi
 
 # Discharging
@@ -71,15 +71,15 @@ fi
 # Options
 layout=`cat ${theme} | grep 'USE_ICON' | cut -d'=' -f2`
 if [[ "$layout" == 'NO' ]]; then
-	option_1=" Remaining ${percentage}%"
-	option_2=" $status"
+	option_1=" Remaining ${percentage}%"
+	option_2="󰁹 $status"
 	option_3=" Power Manager"
-	option_4=" Diagnose"
+	option_4="󰝳 Diagnose"
 else
 	option_1="$ICON_DISCHRG"
 	option_2="$ICON_CHRG"
-	option_3=""
-	option_4=""
+	option_3=""
+	option_4="󰝳"
 fi
 
 # Rofi CMD

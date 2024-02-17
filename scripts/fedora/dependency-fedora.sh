@@ -14,7 +14,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 sudo dnf install -y tmux htop neofetch python3-pip python3-venv 
 # flatremix theme for fedora gnome
 sudo dnf install -y gnome-shell-theme-flat-remix
-sudo dnf install -y mpd mpc ncmpcpp
+sudo dnf install -y mpd 
+sudo dnf install -y mpc 
+sudo dnf install -y ncmpcpp
 sudo dnf install -y redshift
 #neovim installation
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage

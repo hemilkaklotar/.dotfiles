@@ -9,6 +9,6 @@ text-color: @fg;
 }
 
 configuration {
-  font: "SFMono Nerd Font 13";
+  font: "FiraCode Nerd Font 13";
 }
 

@@ -53,7 +53,7 @@ element {
 element-text {
   margin:		5px 18px 5px 18px;
   padding:		0px;
-  font: 		"JetBrainsMono Nerd Font 40px";
+  font: 		"FiraCode Nerd Font 36px";
   background-color:	inherit;
   text-color:		inherit; 
 }

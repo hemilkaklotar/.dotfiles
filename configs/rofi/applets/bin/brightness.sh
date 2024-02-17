@@ -48,15 +48,15 @@ fi
 # Options
 layout=`cat ${theme} | grep 'USE_ICON' | cut -d'=' -f2`
 if [[ "$layout" == 'NO' ]]; then
-	option_1=" Increase"
-	option_2=" Optimal"
-	option_3=" Decrease"
-	option_4=" Settings"
+	option_1="󰃠 Increase"
+	option_2="󰃟 Optimal"
+	option_3="󰃞 Decrease"
+	option_4="Settings"
 else
-	option_1=""
-	option_2=""
-	option_3=""
-	option_4=""
+	option_1="󰃠"
+	option_2="󰃟"
+	option_3="󰃞"
+	option_4="S"
 fi
 
 # Rofi CMD
@@ -81,7 +81,7 @@ run_cmd() {
 	if [[ "$1" == '--opt1' ]]; then
 		light -A 5
 	elif [[ "$1" == '--opt2' ]]; then
-		light -S 25
+		light -S 35
 	elif [[ "$1" == '--opt3' ]]; then
 		light -U 5
 	elif [[ "$1" == '--opt4' ]]; then

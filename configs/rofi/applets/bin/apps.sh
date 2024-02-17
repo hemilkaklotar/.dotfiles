@@ -11,7 +11,7 @@ theme="$type/$style"
 
 # Theme Elements
 prompt='Applications'
-mesg="Installed Packages : `pacman -Q | wc -l` (pacman)"
+mesg="Installed Packages : `dnf list installed | wc -l`"
 
 if [[ ( "$theme" == *'type-1'* ) || ( "$theme" == *'type-3'* ) || ( "$theme" == *'type-5'* ) ]]; then
 	list_col='1'
@@ -22,29 +22,29 @@ elif [[ ( "$theme" == *'type-2'* ) || ( "$theme" == *'type-4'* ) ]]; then
 fi
 
 # CMDs (add your apps here)
-term_cmd='alacritty'
-file_cmd='thunar'
-text_cmd='geany'
-web_cmd='firefox'
-music_cmd='alacritty -e ncmpcpp'
-setting_cmd='xfce4-settings-manager'
+term_cmd='kitty'
+file_cmd='nautilus'
+text_cmd='code'
+web_cmd='google-chrome'
+music_cmd='flatpak run com.spotify.Client'
+setting_cmd='gsettings'
 
 # Options
 layout=`cat ${theme} | grep 'USE_ICON' | cut -d'=' -f2`
 if [[ "$layout" == 'NO' ]]; then
-	option_1=" Terminal <span weight='light' size='small'><i>($term_cmd)</i></span>"
-	option_2=" Files <span weight='light' size='small'><i>($file_cmd)</i></span>"
-	option_3=" Editor <span weight='light' size='small'><i>($text_cmd)</i></span>"
-	option_4=" Browser <span weight='light' size='small'><i>($web_cmd)</i></span>"
-	option_5=" Music <span weight='light' size='small'><i>($music_cmd)</i></span>"
-	option_6=" Settings <span weight='light' size='small'><i>($setting_cmd)</i></span>"
+	option_1=" Terminal <span weight='light' size='small'><i>($term_cmd)</i></span>"
+	option_2="󰉋 Files <span weight='light' size='small'><i>($file_cmd)</i></span>"
+	option_3="󰨞 Editor <span weight='light' size='small'><i>($text_cmd)</i></span>"
+	option_4=" Browser <span weight='light' size='small'><i>($web_cmd)</i></span>"
+	option_5="󰓇 Music <span weight='light' size='small'><i>($music_cmd)</i></span>"
+	option_6=" Settings <span weight='light' size='small'><i>($setting_cmd)</i></span>"
 else
-	option_1=""
-	option_2=""
-	option_3=""
-	option_4=""
-	option_5=""
-	option_6=""
+	option_1=""
+	option_2="󰉋"
+	option_3="󰨞"
+	option_4=""
+	option_5="󰓇"
+	option_6=""
 fi
 
 # Rofi CMD

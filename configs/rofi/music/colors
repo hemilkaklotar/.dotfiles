@@ -1,6 +1,6 @@
 #!/bin/sh
 
-uifont="SFMono Nerd Font 13"
+uifont="FiraCode Nerd Font 13"
 
 help() {
   cat <<- EOF
