@@ -3,7 +3,7 @@
 # Rofi Emoticons. Not my own. Cant remember the source
 
 sed '1,/^### DATA ###$/d' $0 | 
-rofi -dmenu -i -theme ~/.config/rofi/launchers/type-1/style-8.rasi | 
+rofi -dmenu -i -theme ~/.config/rofi/launchers/style-8.rasi | 
 cut -d ' ' -f 1 | tr -d '\n' | xclip -sel clip
 
 

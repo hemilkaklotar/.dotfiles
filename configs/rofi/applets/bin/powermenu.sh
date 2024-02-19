@@ -6,7 +6,7 @@
 ## Applets : Power Menu
 
 # Import Current Theme
-source "$HOME"/.config/rofi/applets/shared/theme.bash
+source "$HOME"/.config/rofi/applets/theme.bash
 theme="$type/$style"
 
 # Theme Elements
@@ -19,6 +19,9 @@ if [[ ( "$theme" == *'type-1'* ) || ( "$theme" == *'type-3'* ) || ( "$theme" == 
 elif [[ ( "$theme" == *'type-2'* ) || ( "$theme" == *'type-4'* ) ]]; then
 	list_col='6'
 	list_row='1'
+else
+	list_col='1'
+	list_row='6'
 fi
 
 # Options
@@ -78,13 +81,13 @@ confirm_exit() {
 }
 
 # Confirm and execute
-confirm_run () {	
+confirm_run () {
 	selected="$(confirm_exit)"
 	if [[ "$selected" == "$yes" ]]; then
         ${1} && ${2} && ${3}
     else
         exit
-    fi	
+    fi
 }
 
 # Execute Command

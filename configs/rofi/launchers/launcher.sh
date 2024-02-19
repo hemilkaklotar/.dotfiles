@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-## Author : plater99
-## Github : @plater99
+## Author : Aditya Shakya (adi1090x)
+## Github : @adi1090x
 #
 ## Rofi   : Launcher (Modi Drun, Run, File Browser, Window)
 #
@@ -16,5 +16,5 @@ theme='style-6'
 
 ## Run
 rofi \
-    -show window \
+    -show drun \
     -theme ${dir}/${theme}.rasi

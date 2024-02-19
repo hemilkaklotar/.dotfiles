@@ -6,7 +6,7 @@
 ## Applets : Volume
 
 # Import Current Theme
-source "$HOME"/.config/rofi/applets/shared/theme.bash
+source "$HOME"/.config/rofi/applets/theme.bash
 theme="$type/$style"
 
 # Volume Info
@@ -60,6 +60,10 @@ elif [[ "$theme" == *'type-5'* ]]; then
 elif [[ ( "$theme" == *'type-2'* ) || ( "$theme" == *'type-4'* ) ]]; then
 	list_col='5'
 	list_row='1'
+	win_width='670px'
+else
+	list_col='1'
+	list_row='5'
 	win_width='670px'
 fi
 

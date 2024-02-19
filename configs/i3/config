@@ -230,8 +230,8 @@ bindsym $mod+b exec --no-startup-id polybar-msg cmd toggle
 # Reload Polybar after modifications
 bindsym $mod+Shift+b exec --no-startup-id pkill polybar && polybar --config=~/.config/polybar/config.ini &
 # Rofi scripts keybindings
-bindsym $mod+d exec --no-startup-id ~/.config/rofi/scripts/launcher_t1 &
-bindsym $mod+x exec --no-startup-id ~/.config/rofi/scripts/powermenu_t5 &
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/scripts/launcher.sh &
+bindsym $mod+x exec --no-startup-id ~/.config/rofi/scripts/powermenu.sh &
 bindsym $mod+t exec --no-startup-id ~/.config/rofi/music/music &
 bindsym $mod+Shift+s exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh &
 bindsym $mod+Shift+v exec --no-startup-id ~/.config/rofi/scripts/clipboard.sh &

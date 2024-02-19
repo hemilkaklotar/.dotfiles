@@ -1,0 +1,14 @@
+/**
+ * Colors
+ *
+ * Available Colors Schemes
+ *
+ * adapta    catppuccin    everforest    navy       paper       tokyonight
+ * arc       cyberpunk     gruvbox       nord       rosepine    yousai
+ * black     dracula       lovelace      onedark    solarized
+ *
+ **/
+
+/* Import color-scheme from `colors` directory */
+
+@import "~/.config/rofi/colors/rosepine.rasi"

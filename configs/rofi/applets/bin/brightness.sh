@@ -6,7 +6,7 @@
 ## Applets : Brightness
 
 # Import Current Theme
-source "$HOME"/.config/rofi/applets/shared/theme.bash
+source "$HOME"/.config/rofi/applets/theme.bash
 theme="$type/$style"
 
 # Brightness Info
@@ -42,6 +42,10 @@ elif [[ "$theme" == *'type-5'* ]]; then
 elif [[ ( "$theme" == *'type-2'* ) || ( "$theme" == *'type-4'* ) ]]; then
 	list_col='4'
 	list_row='1'
+	win_width='550px'
+else
+	list_col='1'
+	list_row='4'
 	win_width='550px'
 fi
 
