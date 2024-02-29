@@ -31,7 +31,7 @@ flatpak install -y --noninteractive flathub com.discordapp.Discord
 
 flatpak install -y --noninteractive flathub us.zoom.Zoom
 
-flatpak install -y --noninteractive flathub io.github.mimbrero.WhatsAppDesktop
+flatpak install -y --noninteractive flathub com.github.eneshecan.WhatsAppForLinux
 
 flatpak install -y --noninteractive flathub com.bitwarden.desktop
 

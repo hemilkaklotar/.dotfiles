@@ -31,5 +31,17 @@ rm -rf ./squashfs-root
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # remove unneccessary packages
 mkdir -p ~/.local/bin
+
+# battery saver for laptops 
+sudo dnf install tlp -y
+sudo systemctl enable tlp.service
+sudo systemctl mask power-profiles-daemon.service
+sudo systemctl mask systemd-rfkill.service
+sudo systemctl mask systemd-rfkill.socket
+sudo systemctl mask systemd-rfkill.socket
+sudo dnf install tlp-rdw -y
+sudo dnf install smartmontools -y
+
 sudo dnf -y autoclean
 sudo dnf -y autoremove
+
