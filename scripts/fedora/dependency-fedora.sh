@@ -6,12 +6,17 @@ sudo dnf install -y zsh
 # source ~/.bashrc
 
 # installing curl and ripgrep for neovim
-sudo dnf install -y curl ripgrep playerctl
+sudo dnf install -y curl
+sudo dnf install -y ripgrep
+sudo dnf install -y playerctl
 
 # install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-sudo dnf install -y tmux htop neofetch python3-pip python3-venv 
+sudo dnf install -y tmux 
+sudo dnf install -y btop 
+sudo dnf install -y fastfetch
+sudo dnf install -y python3-pip
 # flatremix theme for fedora gnome
 sudo dnf install -y gnome-shell-theme-flat-remix
 sudo dnf install -y mpd 
