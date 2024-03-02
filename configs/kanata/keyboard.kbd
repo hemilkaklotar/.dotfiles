@@ -33,7 +33,7 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   @cap a    s    d    f    g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  @ctl lmet lalt           spc            ralt rmet rctl
+  lctl lmet lalt           spc            ralt rmet rctl
 )
 
 ;; The dvorak layer remaps the keys to the dvorak layout. In addition there is
@@ -44,7 +44,7 @@
   tab  '    ,    .    p    y    f    g    c    r    l    /    =    \
   @cap a    o    e    u    i    d    h    t    n    s    -    ret
   lsft ;    q    j    k    x    b    m    w    v    z    rsft
-  @ctl lmet lalt           spc            ralt rmet rctl
+  lctl lmet lalt           spc            ralt rmet rctl
 )
 
 ;; defalias is used to declare a shortcut for a more complicated action to keep
@@ -58,8 +58,7 @@
   qwr (layer-switch qwerty)
 
   ;; tap for capslk, hold for lctl
-  cap (tap-hold 200 200 lctl (layer-toggle layers))
-  ctl (tap-hold 200 200 lctl (layer-toggle layersone))
+  cap (tap-hold 100 100 _ (layer-toggle layers))
 )
 
 ;; The `lrld` action stands for "live reload". This will re-parse everything
@@ -74,15 +73,7 @@
 (deflayer layers
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    @qwr _    lrld _    _    _    _    _    _    bspc _    _    _
-  _    _    _    _    _    _    left down up   rght ret  _    _
+  _    caps _    _    _    _    left down up   rght ret  _    _
   _    _    _    _    _    _    _    _    _    _    \    _
-  _    _    _              _              _    _    _
-)
-
-(deflayer layersone
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _ _    _    _
-  caps    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _              _              _    _    _
 )
