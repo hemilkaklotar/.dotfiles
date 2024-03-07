@@ -1,5 +1,13 @@
-#!/usr/bin/zsh
 
+########################################
+#         SF Mono / Pro               #
+########################################
+git clone https://github.com/epk/SF-Mono-Nerd-Font.git ~/.fonts/sf
+git clone https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts.git ~/.fonts/sf/pro
+
+#########################################
+#         Geist Mono by Vercel         #
+########################################
 # Specify the URL of the latest release
 RELEASE_URL="https://github.com/vercel/geist-font/releases/latest/download"
 

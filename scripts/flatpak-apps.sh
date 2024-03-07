@@ -1,9 +1,32 @@
 # installing flatpak
-sudo apt install flatpak -y
-sudo apt install gnome-software-plugin-flatpak -y
+if [[ ! -z $(which dnf) ]]; then
+  sudo dnf install flatpak -y
+
+    ##########################
+    #
+    #  Figma Linux Installation
+    #
+    ##########################
+    # Get the latest release URL
+    RELEASE_URL=$(curl -sL "https://api.github.com/repos/Figma-Linux/figma-linux/releases/latest" | grep "browser_download_url.*_x86_64.rpm" | cut -d '"' -f 4)
+
+    # Download the latest release
+    wget "$RELEASE_URL" -O /tmp/figma-linux.rpm
+
+    sudo dnf install /tmp/figma-linux.rpm
+
+    sudo rm /tmp/figma-linux.rpm
+
+
+elif [[ ! -z $(which apt-get) ]]; then
+  sudo apt install flatpak -y
+  sudo apt install gnome-software-plugin-flatpak -y
+fi
+
 # add flatpak repo
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
+source ~/.zshrc
 # install slack using flatpak
 flatpak install -y --noninteractive flathub com.slack.Slack
 
@@ -41,3 +64,5 @@ flatpak install -y --noninteractive flathub com.getpostman.Postman
 flatpak install -y --noninteractive flathub com.mongodb.Compass
 
 flatpak install -y --noninteractive flathub com.jetbrains.IntelliJ-IDEA-Community
+
+

@@ -6,7 +6,8 @@ sudo apt install zsh -y
 source ~/.bashrc
 
 # installing curl and ripgrep for neovim
-sudo apt install curl ripgrep playerctl -y
+sudo apt install curl ripgrep -y
+sudo apt install playerctl -y
 
 # install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -30,8 +31,8 @@ rm -rf ./nvim.appimage
 rm -rf ./squashfs-root
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-echo "[Settings]
-gtk-application-prefer-dark-theme=1" >> ~/.config/gtk-3.0/settings.ini
+# echo "[Settings]
+# gtk-application-prefer-dark-theme=1" >> ~/.config/gtk-3.0/settings.ini
 
 # remove unneccessary packages
 sudo apt autoclean

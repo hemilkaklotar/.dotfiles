@@ -26,6 +26,11 @@ if [ -d "$HOME/.local/bin" ]; then
 	PATH="$HOME/.local/bin:$PATH"
 fi
 
+if [ -d "$HOME/.cargo/bin" ]; then
+	PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+
 # Tmux autostart on terminal start
 # if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
 #     tmux attach -t default || tmux new -s default
@@ -37,23 +42,23 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
- if [[ $DESKTOP_SESSION=~"^i3.*$" ]]; then
-	# export XDG_CURRENT_DESKTOP="KDE"
-	# export XDG_SESSION_DESKTOP="plasma"
-	# export $(gnome-keyring-daemon -s)
-	alias pactl="/usr/bin/pactl"
- fi
-
+# if [[ $DESKTOP_SESSION=~"^i3.*$" ]]; then
+# 	# export XDG_CURRENT_DESKTOP="KDE"
+# 	# export XDG_SESSION_DESKTOP="plasma"
+# 	# export $(gnome-keyring-daemon -s)
+# 	alias pactl="/usr/bin/pactl"
+# fi
+#
 # eval "$(zoxide init bash)"
 # export QT_QPA_PLATFORM=xcb
 export VISUAL=nvim;
 export EDITOR=nvim;
-export FZF_DEFAULT_OPTS="
-	--color=fg:#908caa,bg:#191724,hl:#ebbcba
-	--color=fg+:#e0def4,bg+:#26233a,hl+:#ebbcba
-	--color=border:#403d52,header:#31748f,gutter:#191724
-	--color=spinner:#f6c177,info:#9ccfd8,separator:#403d52
-	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
+# export FZF_DEFAULT_OPTS="
+# 	--color=fg:#908caa,bg:#191724,hl:#ebbcba
+# 	--color=fg+:#e0def4,bg+:#26233a,hl+:#ebbcba
+# 	--color=border:#403d52,header:#31748f,gutter:#191724
+# 	--color=spinner:#f6c177,info:#9ccfd8,separator:#403d52
+# 	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
 # alias for python
 alias python="python3"
 alias pip="pip3"
