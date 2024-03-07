@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # updating the packages and repository
 sudo apt update && sudo apt upgrade
 

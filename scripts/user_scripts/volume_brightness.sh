@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # See README.md for usage instructions
 volume_step=5
@@ -59,7 +59,7 @@ function get_album_art {
     elif [[ $url == "https://"* ]] && [[ $download_album_art == "true" ]]; then
         # Identify filename from URL
         filename="$(echo $url | sed "s/.*\///")"
-        
+
         # Download file to /tmp if it doesn't exist
         if [ ! -f "/tmp/$filename" ]; then
             wget -O "/tmp/$filename" "$url"
@@ -138,7 +138,7 @@ case $1 in
 
     brightness_up)
     # Increases brightness and displays the notification
-    light -A $brightness_step 
+    light -A $brightness_step
     show_brightness_notif
     ;;
 

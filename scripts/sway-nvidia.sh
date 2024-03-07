@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 if [[ ! -z $(which dnf) ]]; then
   sudo dnf install -y sway waybar
 elif [[ ! -z $(which apt) ]]; then

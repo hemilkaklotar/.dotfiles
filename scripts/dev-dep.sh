@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Check if a folder was provided as an argument
 # if [ $# -eq 0 ]; then

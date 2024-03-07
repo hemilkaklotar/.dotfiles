@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # install all dependacies for debian or fedora based system
 $HOME/.dotfiles/scripts/dependency.sh
 
@@ -7,7 +9,10 @@ $HOME/.dotfiles/scripts/dependency.sh
 # To install i3 dwm and its based apps for fedora or debian
 $HOME/.dotfiles/scripts/i3-config.sh
 
-# install all developer dependency for zsh language fonts and more.
+# To install sway dwm with nvidia uncomment below line
+$HOME/.dotfiles/scripts/sway-nvidia.sh
+
+# install all developer dependency for zsh plugins,language setups, fonts and more.
 $HOME/.dotfiles/scripts/dev-dep.sh
 
 # link all the config to the os config

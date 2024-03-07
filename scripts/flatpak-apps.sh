@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # installing flatpak
 if [[ ! -z $(which dnf) ]]; then
   sudo dnf install flatpak -y

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 mkdir -p ~/.local/bin
 mkdir -p ~/.config
 # sym link the config files to the user config

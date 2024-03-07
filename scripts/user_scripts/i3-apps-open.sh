@@ -1,8 +1,8 @@
-#!/usr/bin/zsh
+#!/usr/bin/env bash
 
 i3-msg 'workspace 1; exec google-chrome;workspace 1'
 sleep 3
-i3-msg 'workspace 2; exec kitty -e tmux;workspace 2' 
+i3-msg 'workspace 2; exec kitty -e tmux;workspace 2'
 sleep 3
 i3-msg 'workspace 3; exec code;workspace 3'
 sleep 3

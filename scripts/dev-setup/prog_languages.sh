@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Go Lang
 if [[ ! -z $(which dnf) ]]; then
   sudo dnf install golang -y

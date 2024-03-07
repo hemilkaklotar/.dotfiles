@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # updating the packages and repository
 sudo dnf -y update && sudo dnf -y upgrade
 
@@ -13,14 +15,14 @@ sudo dnf install -y playerctl
 # install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-sudo dnf install -y tmux 
-sudo dnf install -y btop 
+sudo dnf install -y tmux
+sudo dnf install -y btop
 sudo dnf install -y fastfetch
 sudo dnf install -y python3-pip
 # flatremix theme for fedora gnome
 sudo dnf install -y gnome-shell-theme-flat-remix
-sudo dnf install -y mpd 
-sudo dnf install -y mpc 
+sudo dnf install -y mpd
+sudo dnf install -y mpc
 sudo dnf install -y ncmpcpp
 sudo dnf install -y redshift
 #neovim installation
@@ -37,7 +39,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # remove unneccessary packages
 mkdir -p ~/.local/bin
 
-# battery saver for laptops 
+# battery saver for laptops
 sudo dnf install tlp -y
 sudo systemctl enable tlp.service
 sudo systemctl mask power-profiles-daemon.service
@@ -47,6 +49,6 @@ sudo systemctl mask systemd-rfkill.socket
 sudo dnf install tlp-rdw -y
 sudo dnf install smartmontools -y
 
-sudo dnf -y autoclean
+sudo dnf -y clean all
 sudo dnf -y autoremove
 

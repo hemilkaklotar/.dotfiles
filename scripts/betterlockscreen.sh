@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 if [[ ! -z $(which dnf) ]]; then
   sudo dnf install -y autoconf
   sudo dnf install -y automake
