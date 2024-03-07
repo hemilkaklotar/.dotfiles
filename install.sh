@@ -10,7 +10,7 @@ $HOME/.dotfiles/scripts/dependency.sh
 $HOME/.dotfiles/scripts/i3-config.sh
 
 # To install sway dwm with nvidia uncomment below line
-$HOME/.dotfiles/scripts/sway-nvidia.sh
+# $HOME/.dotfiles/scripts/sway-nvidia.sh
 
 # install all developer dependency for zsh plugins,language setups, fonts and more.
 $HOME/.dotfiles/scripts/dev-dep.sh
