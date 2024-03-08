@@ -17,8 +17,8 @@ alias la='eza -a --icons --color=always --group-directories-first'
 alias l='eza -F --icons --color=always --group-directories-first'
 alias l.='eza -a | egrep "^\."'
 
-alias cwall='feh --bg-fill "$(shuf -e -n1 $HOME/Pictures/Anime/*)"'
-alias lwall='betterlockscreen -u "$(shuf -e -n1 $HOME/Pictures/Anime/*)"'
+alias cwall='feh --bg-fill "$(shuf -e -n1 $HOME/Pictures/*)"'
+alias lwall='betterlockscreen -u "$(shuf -e -n1 $HOME/Pictures/*)"'
 alias keymaps="setxkbmap \
   -model pc105 \
   -layout 'us(dvorak),us' \

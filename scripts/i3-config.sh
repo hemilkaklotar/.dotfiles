@@ -30,15 +30,30 @@ if [[ ! -z $(which dnf) ]]; then
 elif [[ ! -z $(which apt-get) ]]; then
 
   # install i3wm, alacritty and other required packages
-  sudo apt install picom i3 pulseaudio pavucontrol blueman xclip feh -y
-  sudo apt install alacritty -y
+  sudo apt install -y picom 
+  sudo apt install -y i3 
+  sudo apt install -y pulseaudio 
+  sudo apt install -y pavucontrol 
+  sudo apt install -y blueman 
+  sudo apt install -y xclip 
+  sudo apt install -y feh
+  sudo apt install -y mpd
+  sudo apt install -y maim
+  sudo apt install -y arandr
+  sudo apt install -y dunst
+  sudo apt install -y xdotool
+  sudo apt install -y alacritty
   # sudo apt install kitty -y
-  sudo apt install polybar rofi light -y
+  sudo apt install -y polybar 
+  sudo apt install -y rofi 
+  sudo apt install -y light
   # to give permission run light without sudoers
   sudo chmod +s /usr/bin/light
-  sudo apt install gnome-tweaks gnome-shell-extension-manager -y
+  sudo apt install -y gnome-tweaks 
+  sudo apt install -y gnome-shell-extension-manager
   # for gtk dark mode detection
-  sudo apt install lxappearance qt5ct -y
+  sudo apt install -y lxappearance 
+  sudo apt install -y qt5ct
   sudo apt-get install gnome-sushi -y
   #add policykit
   sudo apt-get install policykit-1-gnome -y

@@ -47,9 +47,9 @@ configuration {
 	run-shell-command: "{terminal} -e {cmd}";
 
 	/*---------- Fallback Icon ----------*/
-	run,drun {
+	/* run,drun {
 		fallback-icon: "application-x-addon";
-	}
+	} */
 
 	/*---------- Window switcher settings ----------*/
 	window-match-fields: "title,class,role,name,desktop";

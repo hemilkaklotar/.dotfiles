@@ -5,26 +5,26 @@
 git clone https://github.com/epk/SF-Mono-Nerd-Font.git ~/.fonts/sf
 git clone https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts.git ~/.fonts/sf/pro
 
-#########################################
-#         Geist Mono by Vercel         #
-########################################
-# Specify the URL of the latest release
-RELEASE_URL="https://github.com/vercel/geist-font/releases/latest/download"
 
-# Function to check if a directory exists
-directory_exists() {
-  [ -d "$1" ]
-}
+FONT_NAMES=("FiraCode" "JetBrainsMono" "GeistMono")
+FONT_URL="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/"
 
-# Install Geist Mono Font if not already installed
-if ! directory_exists "$HOME/.fonts/Geist.Mono"; then
-  wget "${RELEASE_URL}/Geist.Mono.zip" -O /tmp/geistmono.zip
-  unzip /tmp/geistmono.zip -d ~/.fonts/
-  echo "Geist Mono Font Installed Successfully."
-else
-  echo "Geist Mono Font already Installed skipping the step"
+# Check if fonts directory exists
+if ! [[ -d "$HOME/.fonts" ]]; then
+  mkdir -p "$HOME/.fonts"
 fi
 
-# Clean up temporary files
-rm -f /tmp/geistmono.zip
+# Loop through fonts array
+for font_name in "${FONT_NAMES[@]}"; do
+  # Download font zip file
+  wget -O "/tmp/$font_name.zip" "$FONT_URL$font_name.zip"
 
+  # Create font directory
+  mkdir -p "$HOME/.fonts/$font_name"
+
+  # Unzip font to directory
+  unzip "/tmp/$font_name.zip" -d "$HOME/.fonts/$font_name"
+
+  # Remove temporary zip file
+  rm "/tmp/$font_name.zip"
+done

@@ -36,7 +36,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l dim
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -186,7 +186,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Inner gaps for all windows: space between two adjacent windows (or split containers).
-gaps inner 5
+# gaps inner 5
 # gaps outer 5
 
 # Outer gaps for all windows: space along the screen edges.
@@ -202,7 +202,7 @@ gaps inner 5
 #
 # inverse_outer only enables outer gaps when there is exactly one
 # window or split container on the workspace.
-smart_gaps on
+# smart_gaps on
 default_border pixel 10
 hide_edge_borders smart
 
@@ -224,11 +224,11 @@ bindsym XF86AudioPrev exec --no-startup-id volume_brightness.sh prev_track
 # Suspend keybinding
 bindsym $mod+Shift+period exec systemctl suspend
 # Picom keybinding
-bindsym Super+Shift+R exec picom &
+bindsym Super+Shift+R exec picom --daemon &
 # Polybar Toggle
 bindsym $mod+b exec --no-startup-id polybar-msg cmd toggle
 # Reload Polybar after modifications
-bindsym $mod+Shift+b exec --no-startup-id pkill polybar && polybar --config=~/.config/polybar/config.ini &
+bindsym $mod+Shift+b exec --no-startup-id ~/.config/polybar/launch.sh &
 # Rofi scripts keybindings
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/scripts/launcher.sh &
 bindsym $mod+x exec --no-startup-id ~/.config/rofi/scripts/powermenu.sh &
@@ -238,13 +238,13 @@ bindsym $mod+Shift+v exec --no-startup-id ~/.config/rofi/scripts/clipboard.sh &
 bindsym $mod+comma exec --no-startup-id ~/.config/rofi/scripts/emoji.sh &
 bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/scripts/windower.sh &
 # lockscreen
-bindsym $mod+shift+x exec betterlockscreen -l dim &
+bindsym $mod+shift+x exec i3lock &
 
 #######################################
 #   Custom Startup Commands / Apps    #
 #######################################
 # Picom
-exec --no-startup-id picom &
+exec --no-startup-id picom --daemon &
 # Gnome Policy kit
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11 &
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
@@ -256,11 +256,11 @@ exec --no-startup-id /usr/libexec/pam_kwallet_init &
 exec --no-startup-id /usr/libexec/gsd-xsettings &
 exec --no-startup-id gsettings set org.gnome.desktop.interface color-scheme prefer-dark &
 # Polybar
-exec --no-startup-id ~/.config/polybar/launch.sh &
+exec_always --no-startup-id ~/.config/polybar/launch.sh &
 exec --no-startup-id blueman-applet &
 exec_always --no-startup-id dunst &
 # set desktop background with custom effect
-exec --no-startup-id betterlockscreen -w dim &
+# exec --no-startup-id betterlockscreen -w dim &
 # Alternative (set last used background)
 # exec --no-startup-id feh --bg-fill "$(shuf -e -n1 $HOME/Pictures/Anime/*)" &
 exec --no-startup-id source ~/.fehbg &

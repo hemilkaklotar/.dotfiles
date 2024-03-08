@@ -38,7 +38,7 @@ disabled = #6e6a86
 
 [bar/bar]
 width = 100%
-height = 20pt
+height = 24pt
 radius = 0
 dpi = 120
 bottom = false
@@ -46,17 +46,20 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 
-padding-left = 1
-padding-right = 0
+padding-left = 2
+padding-right = 2
 
 module-margin = 5px
+module-margin-left = 2
+
+module-margin-right = .5
 font-0 = SFMono Nerd Font:size=10;2
 font-1 = FiraCode Nerd Font;size=10;2
 font-2 = Noto Color Emoji:scale=12;2
 
 modules-left = launcher xwindow
 modules-center = i3
-modules-right = memory cpu pulseaudio backlight battery date tray xkeyboard powermenu
+modules-right = memory cpu pulseaudio backlight battery date tray powermenu
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -625,8 +628,8 @@ type = custom/text
 content = " "
 content-prefix = %{T6}⏻%{T-}
 content-foreground = ${colors.primary}
-content-padding = 10px 
-format-radius = 10px
+content-padding = 0px 
+format-radius = 0px
 
 click-left = ~/.config/rofi/applets/bin/powermenu.sh
 click-right = ~/.config/rofi/scripts/powermenu_t1
