@@ -263,5 +263,5 @@ exec --no-startup-id pkill redshift && redshift &
 bindsym --release Mod1+Mod4+1 exec --no-startup-id setxkbmap us
 bindsym --release Mod1+Mod4+2 exec --no-startup-id setxkbmap us dvorak
 exec_always --no-startup-id setxkbmap -model pc105 -layout 'us,us(dvorak)' -option grp:ctrl_space_toggle -option compose:rwin
-
-# exec --no-startup-id i3-apps-open.sh &
+exec --no-startup-id feh --bg-fill "$(shuf -e -n1 $HOME/Pictures/*)" &
+exec --no-startup-id i3-apps-open.sh &

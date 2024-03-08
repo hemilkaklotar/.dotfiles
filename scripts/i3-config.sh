@@ -60,6 +60,7 @@ elif [[ ! -z $(which apt-get) ]]; then
   sudo apt-get install lxpolkit -y
   wget https://github.com/erebe/greenclip/releases/download/v4.2/greenclip -P ~/.local/bin/
   chmod +x ~/.local/bin/greenclip
+  sudo apt-get -y --reinstall install libnotify-bin notify-osd
 
 fi
 
