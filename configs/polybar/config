@@ -603,12 +603,13 @@ label-urgent-padding = 2
 [module/tray]
 type = internal/tray
 
-format-margin = 8px
+; format-margin = 8px
 tray-spacing = 8px
 tray-padding = 2px
 tray-foreground = ${colors.alert}
-tray-size= 60%
-tray-maxsize= 14px
+tray-background = ${colors.secondary}
+tray-size= 100%
+; tray-maxsize= 14px
 
 ;; Application Launcher Module
 [module/launcher]

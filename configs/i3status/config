@@ -9,15 +9,28 @@
 general {
         colors = true
         interval = 5
+        separator = "  "
+        color_good =     '#88b090'  
+        color_degraded = '#ccdc90'  
+        color_bad =      '#e89393' 
+        output_format = "i3bar"
 }
 
 order += "disk /"
 order += "battery all"
 order += "load"
 order += "tztime local"
+order += "volume master"
 
 battery all {
-        format = "%status %percentage %remaining"
+        format = "%status %percentage %remaining %emptytime"
+        format_down = "No battery"
+        status_chr = "󰂋"
+        status_bat = "󰁹"
+        status_unk = "󰂑"
+        status_full = "󱟢"
+        # path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 10
 }
 
 tztime local {
@@ -32,3 +45,10 @@ disk "/" {
         format = "%avail"
 }
 
+volume master {
+        format = "󰕾 %volume"
+        format_muted = "󰖁 %volume"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}

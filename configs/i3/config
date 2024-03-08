@@ -21,7 +21,7 @@ font pango:FiraCode Nerd Font 16px
 # Thanks Childz
 for_window [class="^.*"] border pixel 2
                           # class                 border  backgr. text    indicator child_border
-for_window [class="^.*"] client.focused          #77dd77 #faf281 #ffffff #2e9ef4   #fa252b
+for_window [class="^.*"] client.focused           #77dd77 #faf281 #ffffff #2e9ef4   #fa252b
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -36,7 +36,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock
+exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l dim &
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -184,24 +184,13 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
+bar {
+        status_command i3status
+        tray_output primary
+}
 # Inner gaps for all windows: space between two adjacent windows (or split containers).
 # gaps inner 5
 # gaps outer 5
-
-# Outer gaps for all windows: space along the screen edges.
-# gaps outer 2
-
-# Inner and outer gaps for all windows on a specific workspace.
-# <ws> can be a workspace number or name.
-# workspace <ws> gaps inner <gap_size>[px]
-# workspace <ws> gaps outer|horizontal|vertical|top|left|bottom|right <gap_size>[px]
-
-# Enabling “Smart Gaps” means no gaps will be shown when there is
-# precisely one window or split container on the workspace.
-#
-# inverse_outer only enables outer gaps when there is exactly one
-# window or split container on the workspace.
 # smart_gaps on
 default_border pixel 10
 hide_edge_borders smart
@@ -228,7 +217,7 @@ bindsym Super+Shift+R exec picom --daemon &
 # Polybar Toggle
 bindsym $mod+b exec --no-startup-id polybar-msg cmd toggle
 # Reload Polybar after modifications
-bindsym $mod+Shift+b exec --no-startup-id ~/.config/polybar/launch.sh &
+# bindsym $mod+Shift+b exec --no-startup-id ~/.config/polybar/launch.sh &
 # Rofi scripts keybindings
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/scripts/launcher.sh &
 bindsym $mod+x exec --no-startup-id ~/.config/rofi/scripts/powermenu.sh &
@@ -238,7 +227,7 @@ bindsym $mod+Shift+v exec --no-startup-id ~/.config/rofi/scripts/clipboard.sh &
 bindsym $mod+comma exec --no-startup-id ~/.config/rofi/scripts/emoji.sh &
 bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/scripts/windower.sh &
 # lockscreen
-bindsym $mod+shift+x exec i3lock &
+bindsym $mod+shift+x exec betterlockscreen -l dim &
 
 #######################################
 #   Custom Startup Commands / Apps    #
@@ -256,7 +245,7 @@ exec --no-startup-id /usr/libexec/pam_kwallet_init &
 exec --no-startup-id /usr/libexec/gsd-xsettings &
 exec --no-startup-id gsettings set org.gnome.desktop.interface color-scheme prefer-dark &
 # Polybar
-exec_always --no-startup-id ~/.config/polybar/launch.sh &
+# exec_always --no-startup-id ~/.config/polybar/launch.sh &
 exec --no-startup-id blueman-applet &
 exec_always --no-startup-id dunst &
 # set desktop background with custom effect
