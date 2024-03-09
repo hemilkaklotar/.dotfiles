@@ -3,67 +3,45 @@
 if [[ ! -z $(which dnf) ]]; then
   sudo dnf install flatpak -y
 
-    ##########################
-    #
-    #  Figma Linux Installation
-    #
-    ##########################
-    # Get the latest release URL
-    RELEASE_URL=$(curl -sL "https://api.github.com/repos/Figma-Linux/figma-linux/releases/latest" | grep "browser_download_url.*_x86_64.rpm" | cut -d '"' -f 4)
-
-    # Download the latest release
-    wget "$RELEASE_URL" -O /tmp/figma-linux.rpm
-
-    sudo dnf install /tmp/figma-linux.rpm
-
-    sudo rm /tmp/figma-linux.rpm
-
+  # NOTE:  Figma Linux Installation # Get the latest release URL
+  RELEASE_URL=$(curl -sL "https://api.github.com/repos/Figma-Linux/figma-linux/releases/latest" | grep "browser_download_url.*_x86_64.rpm" | cut -d '"' -f 4)
+  # INFO: Download the latest release
+  wget "$RELEASE_URL" -O /tmp/figma-linux.rpm
+  sudo dnf install /tmp/figma-linux.rpm
+  sudo rm /tmp/figma-linux.rpm
 
 elif [[ ! -z $(which apt-get) ]]; then
   sudo apt install flatpak -y
   sudo apt install gnome-software-plugin-flatpak -y
 fi
 
-# add flatpak repo
+# NOTE: Adding flatpak repo
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-source ~/.zshrc
-# install slack using flatpak
-flatpak install -y --user --noninteractive flathub com.slack.Slack
+source ~/.profile
+# NOTE: Define an array of Flatpak applications
+flatpak_apps=(
+    "com.slack.Slack"
+    "org.videolan.VLC"
+    "com.jetbrains.PyCharm-Community"
+    "md.obsidian.Obsidian"
+    "com.spotify.Client"
+    "org.telegram.desktop"
+    "com.obsproject.Studio"
+    "fr.handbrake.ghb"
+    "io.github.shiftey.Desktop"
+    "com.discordapp.Discord"
+    "us.zoom.Zoom"
+    "io.github.mimbrero.WhatsAppDesktop"
+    "com.bitwarden.desktop"
+    "com.getpostman.Postman"
+    "com.mongodb.Compass"
+    "org.mozilla.Thunderbird"
+)
 
-# installing vlc video player using flatpak
-flatpak install -y --user --noninteractive flathub org.videolan.VLC
+# Iterate over the array and install each Flatpak application
+for app in "${flatpak_apps[@]}"; do
+    flatpak install -y --user --noninteractive flathub "$app"
+done
 
-flatpak install -y --user --noninteractive flathub com.visualstudio.code
-
-flatpak install -y --user --noninteractive flathub com.jetbrains.PyCharm-Community
-
-flatpak install -y --user --noninteractive flathub com.brave.Browser
-
-flatpak install -y --user --noninteractive flathub md.obsidian.Obsidian
-
-flatpak install -y --user --noninteractive flathub com.spotify.Client
-
-flatpak install -y --user --noninteractive flathub org.telegram.desktop
-
-flatpak install -y --user --noninteractive flathub com.obsproject.Studio
-
-flatpak install -y --user --noninteractive flathub fr.handbrake.ghb
-
-flatpak install -y --user --noninteractive flathub io.github.shiftey.Desktop
-
-flatpak install -y --user --noninteractive flathub com.discordapp.Discord
-
-flatpak install -y --user --noninteractive flathub us.zoom.Zoom
-
-flatpak install -y --user --noninteractive flathub io.github.mimbrero.WhatsAppDesktop
-
-flatpak install -y --user --noninteractive flathub com.bitwarden.desktop
-
-flatpak install -y --user --noninteractive flathub com.getpostman.Postman
-
-flatpak install -y --user --noninteractive flathub com.mongodb.Compass
-
-flatpak install -y --user --noninteractive flathub com.jetbrains.IntelliJ-IDEA-Community
-
-
+echo "Flatpak applications installation completed."
