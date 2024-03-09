@@ -13,7 +13,8 @@ general {
         color_good =     '#88b090'  
         color_degraded = '#ccdc90'  
         color_bad =      '#e89393' 
-        output_format = "i3bar"
+        # output_format = "i3bar"
+        markup = "pango"
 }
 
 order += "disk /"
@@ -23,31 +24,31 @@ order += "tztime local"
 order += "volume master"
 
 battery all {
-        format = "%status %percentage %remaining %emptytime"
+        format = "<span color='#c4a7e7'>%status %percentage %remaining %emptytime</span>"
         format_down = "No battery"
         status_chr = "󰂋"
-        status_bat = "󰁹"
+        status_bat = "  "
         status_unk = "󰂑"
         status_full = "󱟢"
-        # path = "/sys/class/power_supply/BAT%d/uevent"
         low_threshold = 10
 }
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+        format = "<span foreground='#ebbcba'> 󱑁 %time </span>"
+        format_time = "%x %X"
 }
 
 load {
-        format = "%1min"
+        format = "<span color='#9ccfd8'>  %1min </span>"
 }
 
 disk "/" {
-        format = "%avail"
+        format = "<span color='#f6c177'> 󰆼 %avail </span>"
 }
 
 volume master {
-        format = "󰕾 %volume"
-        format_muted = "󰖁 %volume"
+        format = "<span color='#9ccfd8'> 󰕾 %volume </span>"
+        format_muted = " 󰖁 %volume"
         device = "default"
         mixer = "Master"
         mixer_idx = 0

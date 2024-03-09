@@ -187,7 +187,42 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
         tray_output primary
+        colors {
+                background #191724
+                statusline #e0def4
+
+                focused_workspace  #21202e #ebbcba
+                active_workspace   #ebbcba #26233a
+                inactive_workspace #ebbcba #26233a
+                urgent_workspace   #21202e #eb6f92
+        }
 }
+# set primary Rosé Pine colorscheme colors
+set $base           #191724
+set $surface        #1f1d2e
+set $overlay        #26233a
+set $muted          #6e6a86
+set $subtle         #908caa
+set $text           #e0def4
+set $love           #eb6f92
+set $gold           #f6c177
+set $rose           #ebbcba
+set $pine           #31748f
+set $foam           #9ccfd8
+set $iris           #c4a7e7
+set $highlightlow   #21202e
+set $highlightmed   #403d52
+set $highlighthigh  #524f67
+
+# Teming border and Windows --------------
+# target                 title     bg    text   indicator  border
+client.focused           $rose     $base $text  $rose      $rose
+client.focused_inactive  $text     $base $text  $subtle    $surface
+client.unfocused         $text     $base $text  $overlay   $overlay
+client.urgent            $text     $base $text  $love      $love
+client.placeholder       $base     $base $text  $overlay   $overlay
+client.background        $base
+
 # Inner gaps for all windows: space between two adjacent windows (or split containers).
 # gaps inner 5
 # gaps outer 5
@@ -251,7 +286,7 @@ exec_always --no-startup-id dunst &
 # set desktop background with custom effect
 # exec --no-startup-id betterlockscreen -w dim &
 # Alternative (set last used background)
-# exec --no-startup-id feh --bg-fill "$(shuf -e -n1 $HOME/Pictures/Anime/*)" &
+exec --no-startup-id feh --bg-fill "$(shuf -e -n1 $HOME/Pictures/*)" &
 exec --no-startup-id source ~/.fehbg &
 # Green clip for clipboard
 exec --no-startup-id greenclip daemon &
@@ -263,5 +298,4 @@ exec --no-startup-id pkill redshift && redshift &
 bindsym --release Mod1+Mod4+1 exec --no-startup-id setxkbmap us
 bindsym --release Mod1+Mod4+2 exec --no-startup-id setxkbmap us dvorak
 exec_always --no-startup-id setxkbmap -model pc105 -layout 'us,us(dvorak)' -option grp:ctrl_space_toggle -option compose:rwin
-exec --no-startup-id feh --bg-fill "$(shuf -e -n1 $HOME/Pictures/*)" &
 exec --no-startup-id i3-apps-open.sh &
