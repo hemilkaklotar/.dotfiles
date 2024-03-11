@@ -23,6 +23,7 @@ if [[ ! -z $(which dnf) ]]; then
   sudo dnf install -y dunst 
   sudo dnf install -y xclip 
   sudo dnf install -y xdotool
+  sudo dnf install -y redshift
   sudo dnf install -y polkit-gnome
   sudo dnf install -y lxpolkit
   sudo dnf install -y mpd --allowerasing
@@ -55,6 +56,7 @@ elif [[ ! -z $(which apt-get) ]]; then
   sudo apt install -y gnome-shell-extension-manager
   sudo apt install -y lxappearance # for gtk dark mode detection
   sudo apt install -y qt5ct
+  sudo apt install -y redshift
   sudo apt-get install gnome-sushi -y
   sudo apt-get install policykit-1-gnome -y #add policykit
   sudo apt-get install lxpolkit -y

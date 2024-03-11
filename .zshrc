@@ -19,6 +19,7 @@ alias l.='eza -a | egrep "^\."'
 
 alias cwall='feh --bg-fill "$(shuf -e -n1 $HOME/Pictures/*)"'
 alias lwall='betterlockscreen -u "$(shuf -e -n1 $HOME/Pictures/*)"'
+alias kbd='sudo ~/.local/bin/kanata --cfg ~/.config/kanata/keyboard.kbd &'
 alias keymaps="setxkbmap \
   -model pc105 \
   -layout 'us(dvorak),us' \
@@ -34,14 +35,15 @@ eval "$(zoxide init zsh)"
 export PATH="$HOME/.spicetify:$PATH"
 
 # >>> conda initialize >>>
-__conda_setup="$('$HOME/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/plater99/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/plater99/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/plater99/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="$HOME/anaconda3/bin:$PATH"
+        export PATH="/home/plater99/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup

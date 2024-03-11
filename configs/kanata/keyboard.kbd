@@ -29,22 +29,22 @@
 ;;
 ;; There are currently a maximum of 25 layers allowed.
 (deflayer qwerty
-  grv 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   @cap a    s    d    f    g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt rmet rctl
+  lctl lmet lalt           spc            @alt rmet rctl
 )
 
 ;; The dvorak layer remaps the keys to the dvorak layout. In addition there is
 ;; another tap-hold key: @cap. This key retains caps lock functionality when
 ;; quickly tapped but is read as left-control when held.
 (deflayer dvorak
-  grv 1    2    3    4    5    6    7    8    9    0    [    ]    bspc
+  grv  1    2    3    4    5    6    7    8    9    0    [    ]    bspc
   tab  '    ,    .    p    y    f    g    c    r    l    /    =    \
   @cap a    o    e    u    i    d    h    t    n    s    -    ret
   lsft ;    q    j    k    x    b    m    w    v    z    rsft
-  lctl lmet lalt           spc            ralt rmet rctl
+  lctl lmet lalt           spc            @alt rmet rctl
 )
 
 ;; defalias is used to declare a shortcut for a more complicated action to keep
@@ -53,12 +53,13 @@
 ;;
 ;; Aliases are referred to by `@<alias_name>`.
 (defalias
+  alt (tap-hold 100 100 ralt (layer-toggle layers))
   ;; layer-switch changes the base layer.
   dvk (layer-switch dvorak)
   qwr (layer-switch qwerty)
 
   ;; tap for capslk, hold for lctl
-  cap (tap-hold 100 100 _ (layer-toggle layers))
+  cap (tap-hold 200 200 caps lctl)
 )
 
 ;; The `lrld` action stands for "live reload". This will re-parse everything
@@ -73,7 +74,7 @@
 (deflayer layers
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    @qwr _    lrld _    _    _    _    _    _    bspc _    _    _
-  _    caps _    _    _    _    left down up   rght ret  _    _
+  _    _    _    _    _    _    left down up   rght ret  _    _
   _    _    _    _    _    _    _    _    _    _    \    _
   _    _    _              _              _    _    _
 )

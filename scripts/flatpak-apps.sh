@@ -45,3 +45,12 @@ for app in "${flatpak_apps[@]}"; do
 done
 
 echo "Flatpak applications installation completed."
+
+
+# NOTE: Kanata key remapper installation
+mkdir -p "$HOME/.local/bin"
+rm -rf "$HOME/.local/bin/kanata"
+wget -O "$HOME/.local/bin/kanata" "https://github.com/jtroo/kanata/releases/latest/download/kanata"
+chmod +x $HOME/.local/bin/kanata
+
+

@@ -1,22 +1,30 @@
 #!/usr/bin/env bash
+commands=(
+    "2;kitty -e tmux"
+    "3;code"
+    "4;flatpak run com.spotify.Client"
+    "4;flatpak run org.mozilla.Thunderbird"
+    "5;flatpak run io.github.shiftey.Desktop"
+    "6;flatpak run md.obsidian.Obsidian"
+    "7;flatpak run com.slack.Slack"
+    "7;flatpak run com.discordapp.Discord"
+    "7;flatpak run io.github.mimbrero.WhatsAppDesktop"
+    "1;google-chrome"
+)
 
-i3-msg 'workspace 1; exec google-chrome;workspace 1'
-sleep 3
-i3-msg 'workspace 2; exec kitty -e tmux;workspace 2'
-sleep 3
-i3-msg 'workspace 3; exec code;workspace 3'
-sleep 3
-i3-msg 'workspace 4; exec flatpak run com.spotify.Client;workspace 4'
-sleep 3
-i3-msg 'workspace 5; exec flatpak run io.github.shiftey.Desktop;workspace 5'
-sleep 3
-i3-msg 'workspace 6; exec flatpak run md.obsidian.Obsidian;workspace 6'
-sleep 3
-i3-msg 'workspace 7; exec flatpak run com.slack.Slack;workspace 7'
-sleep 3
-i3-msg 'workspace 7; exec flatpak run com.discordapp.Discord;workspace 7'
-sleep 3
-i3-msg 'workspace 7; exec flatpak run io.github.mimbrero.WhatsAppDesktop;workspace 7'
-sleep 3
-i3-msg 'workspace 4; exec flatpak run org.mozilla.Thunderbird;workspace 4'
-sleep 3
+# Iterate over the array and execute the commands
+for cmd in "${commands[@]}"; do
+    # Split the array element into workspace and command
+    IFS=';' read -r -a parts <<< "$cmd"
+
+    # Extract workspace number and command
+    workspace="${parts[0]}"
+    app_command="${parts[1]}"
+
+    # Run the i3-msg command with the specified workspace and command
+    i3-msg "workspace $workspace; exec $app_command; workspace $workspace"
+
+    # Sleep for 3 seconds between each command
+    sleep 3
+done
+
