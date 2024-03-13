@@ -13,7 +13,7 @@ general {
         color_good =     '#88b090'  
         color_degraded = '#ccdc90'  
         color_bad =      '#e89393' 
-        # output_format = "i3bar"
+        output_format = "i3bar"
         markup = "pango"
 }
 
@@ -34,8 +34,7 @@ battery all {
 }
 
 tztime local {
-        format = "<span foreground='#ebbcba'> 󱑁 %time </span>"
-        format_time = "%x %X"
+        format = "<span foreground='#ebbcba'> 󱑁 %d-%m-%Y %I:%M %P </span>"
 }
 
 load {
