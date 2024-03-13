@@ -41,7 +41,7 @@ flatpak_apps=(
 
 # Iterate over the array and install each Flatpak application
 for app in "${flatpak_apps[@]}"; do
-    flatpak install -y --user --noninteractive flathub "$app"
+    flatpak install -y --noninteractive flathub "$app"
 done
 
 echo "Flatpak applications installation completed."

@@ -6,9 +6,23 @@ elif [[ ! -z $(which apt-get) ]]; then
   sudo apt install golang -y
 fi
 mkdir -p $HOME/go
-echo 'export GOPATH=$HOME/go' >> $HOME/.bashrc
-source $HOME/.bashrc
+add_export_to_rc_file() {
+    local rc_file="$1"
+    local add_line="export GOPATH=$HOME/go"
+
+    if ! grep -qF "$add_line" "$rc_file"; then
+        echo "$add_line" >> "$rc_file"
+        source "$rc_file"
+        echo "Theme line added to $rc_file"
+    else
+        echo "Theme line already present in $rc_file"
+    fi
+}
+
+add_export_to_rc_file "$HOME/.zshrc"
+add_export_to_rc_file "$HOME/.bashrc"
 go env GOPATH
+
 
 # node
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash # change the version number as per current version

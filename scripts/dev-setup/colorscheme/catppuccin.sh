@@ -17,5 +17,21 @@ if [ ! -e ~/.themes/Catppuccin-Mocha-Standard-Mauve-Dark ]; then
   rm -rf ~/.themes/catppuccin.zip;
 fi
 
-echo "export GTK_THEME='Catppuccin-Mocha-Standard-Mauve-Dark:dark'" >> ~/.zshrc
-echo "export GTK_THEME='Catppuccin-Mocha-Standard-Mauve-Dark:dark'" >> ~/.bashrc
+# echo "export GTK_THEME='Catppuccin-Mocha-Standard-Mauve-Dark:dark'" >> ~/.zshrc
+# echo "export GTK_THEME='Catppuccin-Mocha-Standard-Mauve-Dark:dark'" >> ~/.bashrc
+
+add_theme_to_rc_file() {
+    local rc_file="$1"
+    local theme_line="export GTK_THEME='Catppuccin-Mocha-Standard-Mauve-Dark:dark'"
+
+    if ! grep -qF "$theme_line" "$rc_file"; then
+        echo "$theme_line" >> "$rc_file"
+        echo "Theme line added to $rc_file"
+    else
+        echo "Theme line already present in $rc_file"
+    fi
+}
+
+add_theme_to_rc_file "$HOME/.zshrc"
+add_theme_to_rc_file "$HOME/.profile"
+add_theme_to_rc_file "$HOME/.bashrc"
