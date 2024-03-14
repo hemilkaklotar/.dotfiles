@@ -1,5 +1,14 @@
 # .dotfiles
 
+```
+   ██████╗  ██████╗ ████████╗███████╗██╗██╗     ███████╗███████╗
+   ██╔══██╗██╔═══██╗╚══██╔══╝██╔════╝██║██║     ██╔════╝██╔════╝
+   ██║  ██║██║   ██║   ██║   █████╗  ██║██║     █████╗  ███████╗
+   ██║  ██║██║   ██║   ██║   ██╔══╝  ██║██║     ██╔══╝  ╚════██║
+██╗██████╔╝╚██████╔╝   ██║   ██║     ██║███████╗███████╗███████║
+╚═╝╚═════╝  ╚═════╝    ╚═╝   ╚═╝     ╚═╝╚══════╝╚══════╝╚══════╝
+```
+
 Recently swithed to Fedora with gnome and i3wm,
 Before that I was using Ubuntu with gnome and i3wm
 
@@ -23,23 +32,17 @@ I am using `zsh` shell as my default
 1. Clone the repo in your home diretory of system by running below command in terminal
 
 ```bash
-git clone https://github.com/hemilkaklotar/.dotfiles.git ~/
+git clone --recurse-submodules -j8 https://github.com/hemilkaklotar/.dotfiles.git ~/.dotfiles
 ```
 
-2. Modify as per your system and requirement!
+2. To install things run the install script by below command
 
 ```bash
-vim ~/.dotfiles/install.sh
-```
-
-3. To install things run the install script by below command
-
-```bash
-source ~/.dotfiles/install.sh
+~/.dotfiles/install.sh
 ```
 
 
-4. (Optional) Enable tap to click and three fingers touch to middle click
+3. (Optional) Enable tap to click and three fingers touch to middle click
 
 ```conf
 # /etc/X11/xorg.conf.d/90-touchpad.conf
@@ -53,7 +56,7 @@ Section "InputClass"
 EndSection
 ```
 
-5. (Optional) For Google chrome keyring issue for gnome follow below
+4. (Optional) For Google chrome keyring issue for gnome follow below
 
 ```
 sudo vim /usr/share/applications/google-chrome.desktop
@@ -75,6 +78,11 @@ then add the `--password-store=gnome-libsecret` after all `Exec` commands :)
 - [x] lxappearance
 - [x] qt5ct
 - [x] zsh
+- [x] tmux
+- [x] kitty
+- [x] catppuccin
+- [x] sway wm
+- [x] waybar
 
 In future more module will be added!
 
@@ -117,7 +125,7 @@ This repo includes the shell scripts and the configs for the component.
 
 ## Features
 
-Dotfiles with i3wm and polybar , rofi
+Dotfiles with i3wm, sway wm, polybar , rofi
 
 - Theme : Gruvbox
 
