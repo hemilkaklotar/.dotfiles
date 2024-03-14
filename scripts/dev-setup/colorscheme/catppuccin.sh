@@ -9,16 +9,15 @@ sudo flatpak override --filesystem=$HOME/.themes
 sudo flatpak override --env=GTK_THEME=Catppuccin-Mocha-Standard-Mauve-Dark
 
 # catppuccin
-ctpversion=v0.7.1
 if [ ! -e ~/.themes/Catppuccin-Mocha-Standard-Mauve-Dark ]; then
   mkdir -p ~/.themes
-  curl -L https://github.com/catppuccin/gtk/releases/download/$ctpversion/Catppuccin-Mocha-Standard-Mauve-Dark.zip -o ~/.themes/catppuccin.zip
+  curl -L https://github.com/catppuccin/gtk/releases/latest/download/Catppuccin-Mocha-Standard-Mauve-Dark.zip -o ~/.themes/catppuccin.zip
   unzip ~/.themes/catppuccin.zip -d ~/.themes/
   rm -rf ~/.themes/catppuccin.zip;
+  echo "catppuccin Mocha Mauve Dark installed"
+else
+  echo "catppuccin Mocha Mauve Dark already installed"
 fi
-
-# echo "export GTK_THEME='Catppuccin-Mocha-Standard-Mauve-Dark:dark'" >> ~/.zshrc
-# echo "export GTK_THEME='Catppuccin-Mocha-Standard-Mauve-Dark:dark'" >> ~/.bashrc
 
 add_theme_to_rc_file() {
     local rc_file="$1"
