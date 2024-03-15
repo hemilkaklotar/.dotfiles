@@ -51,14 +51,14 @@ elif [[ ! -z $(which apt-get) ]]; then
   sudo apt install kitty -y
   sudo apt install -y rofi 
   sudo apt install -y light
-  sudo chmod +s /usr/bin/light # to give permission run light without sudoers
+  sudo chmod +s /usr/bin/light # NOTE: to give permission run light without sudoers
   sudo apt install -y gnome-tweaks 
   sudo apt install -y gnome-shell-extension-manager
-  sudo apt install -y lxappearance # for gtk dark mode detection
+  sudo apt install -y lxappearance # NOTE: for gtk dark mode detection
   sudo apt install -y qt5ct
   sudo apt install -y redshift
   sudo apt-get install gnome-sushi -y
-  sudo apt-get install policykit-1-gnome -y #add policykit
+  sudo apt-get install policykit-1-gnome -y # NOTE:add policykit
   sudo apt-get install lxpolkit -y
   wget https://github.com/erebe/greenclip/releases/download/v4.2/greenclip -P ~/.local/bin/
   chmod +x ~/.local/bin/greenclip
@@ -66,5 +66,5 @@ elif [[ ! -z $(which apt-get) ]]; then
 
 fi
 
-# installing betterlockscreen
+# NOTE: installing betterlockscreen
 source ~/.dotfiles/scripts/betterlockscreen.sh

@@ -1,28 +1,31 @@
 #!/usr/bin/env bash
 
-# updating the packages and repository
-sudo apt update && sudo apt upgrade
+#  NOTE:updating the packages and repository
+sudo apt update -y && sudo apt upgrade -y
 
 sudo apt install zsh -y
 
 source ~/.bashrc
 
-# installing curl and ripgrep for neovim
+#  NOTE:installing curl and ripgrep for neovim
 sudo apt install curl -y 
 sudo apt install ripgrep -y
 sudo apt install playerctl -y
 
-# install oh my zsh
+#  NOTE:install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-sudo apt install htop -y
-sudo apt install neofetch -y
+#  NOTE:system monitoring and resources
+sudo apt install btop -y
+sudo add-apt-repository ppa:zhangsongcui3371/fastfetch -y
+sudo apt update -y
+sudo apt install fastfetch -y
 
-#TMUX
+#  NOTE: Tmux and tmux plugins
 sudo apt install tmux -y
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-#neovim installation
+#  NOTE:neovim installation
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
 ./nvim.appimage --appimage-extract
@@ -32,6 +35,6 @@ sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
 rm -rf ./nvim.appimage
 rm -rf ./squashfs-root
 
-# remove unneccessary packages
-sudo apt autoclean
-sudo apt autoremove
+#  NOTE:remove unneccessary packages
+sudo apt autoclean -y
+sudo apt autoremove -y

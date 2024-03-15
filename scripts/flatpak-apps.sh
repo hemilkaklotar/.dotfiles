@@ -39,7 +39,7 @@ flatpak_apps=(
     "org.mozilla.Thunderbird"
 )
 
-# Iterate over the array and install each Flatpak application
+# NOTE: Iterate over the array and install each Flatpak application
 for app in "${flatpak_apps[@]}"; do
     flatpak install -y --noninteractive flathub "$app"
 done

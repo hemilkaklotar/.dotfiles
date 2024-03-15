@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 mkdir -p ~/.local/bin
 mkdir -p ~/.config
-# sym link the config files to the user config
+# NOTE: sym link the config files to the user config
 ln -sf ~/.dotfiles/configs/* ~/.config/
 ln -sf ~/.dotfiles/.zshrc ~/
 ln -sf ~/.dotfiles/.profile ~/
