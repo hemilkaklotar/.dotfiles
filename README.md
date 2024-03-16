@@ -127,7 +127,7 @@ This repo includes the shell scripts and the configs for the component.
 
 Dotfiles with i3wm, sway wm, polybar , rofi
 
-- Theme : Gruvbox
+- Theme : Catppuccin
 
 ## How to Contribute
 
