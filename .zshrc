@@ -19,7 +19,7 @@ alias l.='eza -a | egrep "^\."'
 
 alias cwall='feh --bg-fill "$(shuf -e -n1 $HOME/Pictures/*)"'
 alias lwall='betterlockscreen -u "$(shuf -e -n1 $HOME/Pictures/*)"'
-alias kbd='sudo ~/.local/bin/kanata --cfg ~/.config/kanata/keyboard.kbd &'
+alias kbd='$(sudo ~/.local/bin/kanata --cfg ~/.config/kanata/keyboard.kbd &)'
 alias keymaps="setxkbmap \
   -model pc105 \
   -layout 'us(dvorak),us' \

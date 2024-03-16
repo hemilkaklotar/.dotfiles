@@ -184,43 +184,59 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+# colorscheme 
+set $rosewater #f5e0dc
+set $flamingo  #f2cdcd
+set $pink      #f5c2e7
+set $mauve     #cba6f7
+set $red       #f38ba8
+set $maroon    #eba0ac
+set $peach     #fab387
+set $yellow    #f9e2af
+set $green     #a6e3a1
+set $teal      #94e2d5
+set $sky       #89dceb
+set $sapphire  #74c7ec
+set $blue      #89b4fa
+set $lavender  #b4befe
+set $text      #cdd6f4
+set $subtext1  #bac2de
+set $subtext0  #a6adc8
+set $overlay2  #9399b2
+set $overlay1  #7f849c
+set $overlay0  #6c7086
+set $surface2  #585b70
+set $surface1  #45475a
+set $surface0  #313244
+set $base      #1e1e2e
+set $mantle    #181825
+set $crust     #11111b
+
 bar {
         status_command i3status
         tray_output primary
         colors {
-                background #191724
-                statusline #e0def4
-
-                focused_workspace  #21202e #ebbcba
-                active_workspace   #ebbcba #26233a
-                inactive_workspace #ebbcba #26233a
-                urgent_workspace   #21202e #eb6f92
+           background         $base
+           statusline         $text
+           focused_statusline $text
+           active_workspace   $base $text $blue
+           focused_separator  $base
+           focused_workspace  $base $base $green
+           active_workspace   $base $base $blue
+           inactive_workspace $base $base $surface1
+           urgent_workspace   $base $base $surface1
+           binding_mode       $base $base $surface1
         }
 }
-# set primary Rosé Pine colorscheme colors
-set $base           #191724
-set $surface        #1f1d2e
-set $overlay        #26233a
-set $muted          #6e6a86
-set $subtle         #908caa
-set $text           #e0def4
-set $love           #eb6f92
-set $gold           #f6c177
-set $rose           #ebbcba
-set $pine           #31748f
-set $foam           #9ccfd8
-set $iris           #c4a7e7
-set $highlightlow   #21202e
-set $highlightmed   #403d52
-set $highlighthigh  #524f67
 
 # Teming border and Windows --------------
 # target                 title     bg    text   indicator  border
-client.focused           $rose     $base $text  $rose      $rose
-client.focused_inactive  $text     $base $text  $subtle    $surface
-client.unfocused         $text     $base $text  $overlay   $overlay
-client.urgent            $text     $base $text  $love      $love
-client.placeholder       $base     $base $text  $overlay   $overlay
+client.focused           $lavender $base $text  $rosewater $lavender
+client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
+client.unfocused         $overlay0 $base $text  $rosewater $overlay0
+client.urgent            $peach    $base $peach $overlay0  $peach
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
 
 # Inner gaps for all windows: space between two adjacent windows (or split containers).
@@ -230,11 +246,11 @@ client.background        $base
 default_border pixel 10
 hide_edge_borders smart
 
-#######################################
+#INFO:###############################
 #           Custom Keymaps            #
 #######################################
 
-## Media Keys bindings
+# NOTE:  Media Keys bindings
 bindsym XF86AudioRaiseVolume exec --no-startup-id volume_brightness.sh volume_up
 bindsym XF86AudioLowerVolume exec --no-startup-id volume_brightness.sh volume_down
 bindsym XF86AudioMute exec --no-startup-id volume_brightness.sh volume_mute
@@ -245,56 +261,64 @@ bindsym XF86AudioPause exec --no-startup-id volume_brightness.sh play_pause
 bindsym XF86AudioPlay exec --no-startup-id volume_brightness.sh play_pause
 bindsym XF86AudioNext exec --no-startup-id volume_brightness.sh next_track
 bindsym XF86AudioPrev exec --no-startup-id volume_brightness.sh prev_track
-# Suspend keybinding
+
+# INFO: To Suspend system press ALT + Shift + .
 bindsym $mod+Shift+period exec systemctl suspend
-# Picom keybinding
+# INFO: To restart Picom keybinding
 bindsym Super+Shift+R exec picom --daemon &
-# Polybar Toggle
+# INFO: To Polybar Toggle
 bindsym $mod+b exec --no-startup-id polybar-msg cmd toggle
-# Reload Polybar after modifications
+# INFO: To Reload Polybar after modifications
 # bindsym $mod+Shift+b exec --no-startup-id ~/.config/polybar/launch.sh &
-# Rofi scripts keybindings
+
+# INFO: Rofi scripts keybindings
+
+# ALT + d will launch the Rofi launcher.
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/scripts/launcher.sh &
+# ALT + x will open the power menu
 bindsym $mod+x exec --no-startup-id ~/.config/rofi/scripts/powermenu.sh &
+# ALT + t will access the music player.
 bindsym $mod+t exec --no-startup-id ~/.config/rofi/music/music &
+# ALT + Shift + s will take a screenshot.
 bindsym $mod+Shift+s exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh &
+# ALT + Shift + v will access the clipboard manager.
 bindsym $mod+Shift+v exec --no-startup-id ~/.config/rofi/scripts/clipboard.sh &
+# ALT + comma will open the emoji picker.
 bindsym $mod+comma exec --no-startup-id ~/.config/rofi/scripts/emoji.sh &
+# ALT + Tab will manage windows.
 bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/scripts/windower.sh &
-# lockscreen
-bindsym $mod+shift+x exec betterlockscreen -l dim &
+
+# NOTE: to change keyboard layouts -- us --- dvorak
+
+# use super(windows key) + alt + NUMBER(1 or 2) to toggle keyboard layout
+bindsym --release Mod1+Mod4+1 exec --no-startup-id setxkbmap us
+bindsym --release Mod1+Mod4+2 exec --no-startup-id setxkbmap us dvorak
 
 #######################################
 #   Custom Startup Commands / Apps    #
 #######################################
 # Picom
 exec --no-startup-id picom --daemon &
-# Gnome Policy kit
+# NOTE: To Enable Gnome Policy kit if available
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11 &
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id lxpolkit &
-#KDE Policykit
+# NOTE: To enable KDE Policykit if available.
 exec --no-startup-id /usr/libexec/pam_kwallet_init &
-# Gnome Dark Mode
+# NOTE: To enable Gnome Dark Mode
 exec --no-startup-id /usr/libexec/gsd-xsettings &
 exec --no-startup-id gsettings set org.gnome.desktop.interface color-scheme prefer-dark &
-# Polybar
+# NOTE: TO run Polybar uncomment the following line.
 # exec_always --no-startup-id ~/.config/polybar/launch.sh &
 exec --no-startup-id blueman-applet &
 exec_always --no-startup-id dunst &
-# set desktop background with custom effect
-# exec --no-startup-id betterlockscreen -w dim &
-# Alternative (set last used background)
-exec --no-startup-id feh --bg-fill "$(shuf -e -n1 $HOME/Pictures/*)" &
-exec --no-startup-id source ~/.fehbg &
-# Green clip for clipboard
+# NOTE: setup last used background by feh
+exec --no-startup-id source ~/.fehbg
 exec --no-startup-id greenclip daemon &
 exec --no-startup-id mpd &
 exec_always --no-startup-id input-remapper-control --command autoload &
-#for night light using redshift
+# NOTE: for night light using redshift
+# WARNING: Setup the config for redshift in ~/.config/redshift.conf 
+# if you need sample config available at https://github.com/jonls/redshift/blob/master/redshift.conf.sample 
 exec --no-startup-id pkill redshift && redshift &
-## keyboard layouts -- us --- dvorak
-bindsym --release Mod1+Mod4+1 exec --no-startup-id setxkbmap us
-bindsym --release Mod1+Mod4+2 exec --no-startup-id setxkbmap us dvorak
-exec_always --no-startup-id setxkbmap -model pc105 -layout 'us,us(dvorak)' -option grp:ctrl_space_toggle -option compose:rwin
