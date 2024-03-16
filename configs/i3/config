@@ -314,7 +314,8 @@ exec --no-startup-id gsettings set org.gnome.desktop.interface color-scheme pref
 exec --no-startup-id blueman-applet &
 exec_always --no-startup-id dunst &
 # NOTE: setup last used background by feh
-exec --no-startup-id source ~/.fehbg
+exec --no-startup-id feh --bg-fill ~/.dotfiles/assets/wallpaper/wall.png &
+exec --no-startup-id source ~/.fehbg &
 exec --no-startup-id greenclip daemon &
 exec --no-startup-id mpd &
 exec_always --no-startup-id input-remapper-control --command autoload &

@@ -33,3 +33,32 @@ add_theme_to_rc_file() {
 add_theme_to_rc_file "$HOME/.zshrc"
 add_theme_to_rc_file "$HOME/.profile"
 add_theme_to_rc_file "$HOME/.bashrc"
+
+
+# NOTE: cloning the kvantum theme for catppuccin
+mkdir -p ~/.config/Kvantum
+git clone https://github.com/catppuccin/Kvantum.git ~/Documents/catppuccin_kvantum
+cp -r ~/Documents/catppuccin_kvantum/src/Catppuccin-Mocha-Mauve ~/.config/Kvantum/
+rm -rf ~/Documents/catppuccin_kvantum
+# Check if the file exists
+if [ ! -f ~/.config/Kvantum/kvantum.kvconfig ]; then
+    # If the file doesn't exist, create it and add the specified content
+    echo "[General]" > ~/.config/Kvantum/kvantum.kvconfig
+    echo "theme=Catppuccin-Mocha-Mauve" >> ~/.config/Kvantum/kvantum.kvconfig
+else
+    # If the file exists, replace the theme setting
+    sed -i 's/^theme=.*/theme=Catppuccin-Mocha-Mauve/' ~/.config/Kvantum/kvantum.kvconfig
+fi
+
+# NOTE: set kvantum theme into qt5ct
+
+# Check if the file exists
+if [ ! -f ~/.config/qt5ct/qt5ct.conf ]; then
+    # If the file doesn't exist, create it and add the specified content
+    echo "[Appearance]" > ~/.config/qt5ct/qt5ct.conf
+    echo "style=kvantum-dark" >> ~/.config/qt5ct/qt5ct.conf
+else
+    # If the file exists, replace the style setting
+    sed -i 's/^style=.*/style=kvantum-dark/' ~/.config/qt5ct/qt5ct.conf
+fi
+

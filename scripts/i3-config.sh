@@ -10,6 +10,7 @@ if [[ ! -z $(which dnf) ]]; then
   # sudo dnf install gnome-sushi gtk-chtheme -y
   sudo dnf install -y picom
   sudo dnf install -y kitty
+  sudo dnf install -y kvantum
   sudo dnf install -y i3
   sudo dnf install -y pulseaudio
   sudo dnf install -y pavucontrol
@@ -37,6 +38,8 @@ elif [[ ! -z $(which apt-get) ]]; then
   # sudo apt install -y polybar 
   # sudo apt install -y alacritty
   sudo apt install -y picom 
+  sudo apt install -y qt5-style-kvantum 
+  sudo apt install -y qt5-style-kvantum-themes
   sudo apt install -y i3 
   sudo apt install -y pulseaudio 
   sudo apt install -y pavucontrol 
