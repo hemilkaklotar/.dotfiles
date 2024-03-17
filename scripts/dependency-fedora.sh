@@ -40,6 +40,10 @@ sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
 rm -rf ./nvim.appimage
 rm -rf ./squashfs-root
 
+# NOTE: input remapper 
+sudo dnf install input-remapper
+sudo systemctl enable --now input-remapper
+
 # NOTE: battery saver for laptops
 sudo dnf install tlp -y
 sudo systemctl enable tlp.service

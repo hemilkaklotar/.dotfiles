@@ -44,8 +44,7 @@ module-margin-left = 2
 
 module-margin-right = .5
 font-0 = FiraCode Nerd Font:size=10;2
-font-1 = SFMono Nerd Font:size=10;2
-font-2 = Noto Color Emoji:scale=10;2
+font-1 = Noto Color Emoji:scale=10;2
 
 modules-left = launcher xwindow
 modules-center = i3

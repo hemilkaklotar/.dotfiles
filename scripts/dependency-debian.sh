@@ -35,6 +35,15 @@ sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
 rm -rf ./nvim.appimage
 rm -rf ./squashfs-root
 
+# NOTE: Input remapper 
+input_remapper_url=$(curl -s "https://api.github.com/repos/sezanzeb/input-remapper/releases/latest" | jq -r '.assets[] | select(.name | endswith(".deb")) | .browser_download_url')
+# Check if download URL is not empty
+if [ ! -z "$input_remapper_url" ]; then
+    wget -P /tmp "$input_remapper_url"
+    sudo dpkg -i "/tmp/$(basename "$input_remapper_url")"
+    rm "/tmp/$(basename "$input_remapper_url")"
+fi
+
 #  NOTE:remove unneccessary packages
 sudo apt autoclean -y
 sudo apt autoremove -y
