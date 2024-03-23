@@ -214,6 +214,7 @@ set $mantle    #181825
 set $crust     #11111b
 
 bar {
+        position top
         status_command i3status
         tray_output primary
         colors {
@@ -293,6 +294,9 @@ bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/scripts/windower.sh &
 # use super(windows key) + alt + NUMBER(1 or 2) to toggle keyboard layout
 bindsym --release Mod1+Mod4+1 exec --no-startup-id setxkbmap us
 bindsym --release Mod1+Mod4+2 exec --no-startup-id setxkbmap us dvorak
+
+# do not disturb (DND) for dunst notifications
+bindsym $mod+n exec --no-startup-id dunstctl set‐paused toggle &
 
 #######################################
 #   Custom Startup Commands / Apps    #

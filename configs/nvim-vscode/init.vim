@@ -50,6 +50,19 @@ function! s:openWhichKeyInVisualMode()
     endif
 endfunction
 
+" Center the cursor vertically on the screen
+augroup KeepCentered
+  autocmd!
+  autocmd CursorMoved * normal! zz
+augroup END
+
+" Center the cursor vertically on the screen when hit the Return (Enter) key) in insertion mode
+inoremap <CR> <C-\><C-O><C-E><CR>
+" Center the cursor vertically on the screen when hit the Backspace key in insertion mode
+inoremap <BS> <BS><C-O>zz
+" Center the cursor vertically on the screen when hit the New add line key (o/O) in insertion mode
+nnoremap o <C-E>o
+
 " Better Navigation
 nnoremap <silent> <C-j> :call VSCodeNotify('workbench.action.navigateDown')<CR>
 xnoremap <silent> <C-j> :call VSCodeNotify('workbench.action.navigateDown')<CR>

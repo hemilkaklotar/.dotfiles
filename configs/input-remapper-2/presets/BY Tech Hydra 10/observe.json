@@ -275,5 +275,39 @@
         "target_uinput": "keyboard",
         "output_symbol": "Right",
         "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 100,
+                "origin_hash": "00d726b805d0f47f95fbf0bfbb4e9f43"
+            },
+            {
+                "type": 1,
+                "code": 25,
+                "origin_hash": "00d726b805d0f47f95fbf0bfbb4e9f43"
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "BackSpace",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 100,
+                "origin_hash": "00d726b805d0f47f95fbf0bfbb4e9f43"
+            },
+            {
+                "type": 1,
+                "code": 39,
+                "origin_hash": "00d726b805d0f47f95fbf0bfbb4e9f43"
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "Return",
+        "mapping_type": "key_macro"
     }
 ]
