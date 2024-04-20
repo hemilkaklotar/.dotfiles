@@ -213,23 +213,23 @@ set $base      #1e1e2e
 set $mantle    #181825
 set $crust     #11111b
 
-bar {
-        position top
-        status_command i3status
-        tray_output primary
-        colors {
-           background         $base
-           statusline         $text
-           focused_statusline $text
-           active_workspace   $base $text $blue
-           focused_separator  $base
-           focused_workspace  $base $base $green
-           active_workspace   $base $base $blue
-           inactive_workspace $base $base $surface1
-           urgent_workspace   $base $base $surface1
-           binding_mode       $base $base $surface1
-        }
-}
+# bar {
+#         position top
+#         status_command i3status
+#         tray_output primary
+#         colors {
+#            background         $base
+#            statusline         $text
+#            focused_statusline $text
+#            active_workspace   $base $text $blue
+#            focused_separator  $base
+#            focused_workspace  $base $base $green
+#            active_workspace   $base $base $blue
+#            inactive_workspace $base $base $surface1
+#            urgent_workspace   $base $base $surface1
+#            binding_mode       $base $base $surface1
+#         }
+# }
 
 # Teming border and Windows --------------
 # target                 title     bg    text   indicator  border
@@ -270,7 +270,7 @@ bindsym Super+Shift+R exec picom --daemon &
 # INFO: To Polybar Toggle
 bindsym $mod+b exec --no-startup-id polybar-msg cmd toggle
 # INFO: To Reload Polybar after modifications
-# bindsym $mod+Shift+b exec --no-startup-id ~/.config/polybar/launch.sh &
+bindsym $mod+Shift+b exec --no-startup-id ~/.config/polybar/launch.sh &
 
 # INFO: Rofi scripts keybindings
 
@@ -314,7 +314,7 @@ exec --no-startup-id /usr/libexec/pam_kwallet_init &
 exec --no-startup-id /usr/libexec/gsd-xsettings &
 exec --no-startup-id gsettings set org.gnome.desktop.interface color-scheme prefer-dark &
 # NOTE: TO run Polybar uncomment the following line.
-# exec_always --no-startup-id ~/.config/polybar/launch.sh &
+exec_always --no-startup-id ~/.config/polybar/launch.sh &
 exec --no-startup-id blueman-applet &
 exec_always --no-startup-id dunst &
 # NOTE: setup last used background by feh

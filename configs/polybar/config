@@ -28,10 +28,10 @@ disabled = #6e6a86
 
 [bar/bar]
 width = 100%
-height = 16pt
+height = 20pt
 radius = 0
 dpi = 120
-bottom = true
+;; bottom = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
