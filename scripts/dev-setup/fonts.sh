@@ -28,3 +28,12 @@ for font_name in "${FONT_NAMES[@]}"; do
   # Remove temporary zip file
   rm "/tmp/$font_name.zip"
 done
+
+# Installing microsoft fonts
+#
+# 
+if [[ ! -z $(which dnf) ]]; then
+  sudo dnf install mscore-fonts-all -y
+elif [[ ! -z $(which apt-get) ]]; then
+  sudo apt-get -y install msttcorefonts 
+fi
