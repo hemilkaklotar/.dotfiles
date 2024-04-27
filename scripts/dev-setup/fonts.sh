@@ -6,7 +6,7 @@ git clone https://github.com/epk/SF-Mono-Nerd-Font.git ~/.fonts/sf
 git clone https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts.git ~/.fonts/sf/pro
 
 
-FONT_NAMES=("FiraCode" "JetBrainsMono" "GeistMono" "SpaceMono" "RobotoMono")
+FONT_NAMES=("FiraCode" "GeistMono")
 FONT_URL="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/"
 
 # Check if fonts directory exists

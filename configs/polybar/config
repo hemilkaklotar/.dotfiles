@@ -82,7 +82,7 @@ label-font-size = 12px
 ;   %class%    (second part of the WM_CLASS atom, new in version 3.7.0)
 ; Default: %title%
 label = %title% - %instance%
-label-maxlen = 30
+label-maxlen = 50
 
 ; Used instead of label when there is no window title
 ; Available tokens:
@@ -124,8 +124,8 @@ reverse-scroll = false
 ;   <label-volume> (default)
 ;   <ramp-volume>
 ;   <bar-volume>
-format-volume = <ramp-volume> <label-volume>
-ramp-volume-foreground = ${colors.foreground}
+format-volume = <ramp-volume>  <label-volume>
+ramp-volume-foreground = ${colors.primary}
 ; Available tags:
 ;   <label-muted> (default)
 ;   <ramp-volume>
@@ -594,6 +594,7 @@ label-urgent-padding = 2
 type = internal/tray
 format-margin = 8px
 tray-spacing = 8px
+tray-size = 60%
 
 ;; Application Launcher Module
 [module/launcher]
