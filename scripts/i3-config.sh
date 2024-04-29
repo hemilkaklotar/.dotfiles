@@ -5,9 +5,7 @@
 
 if [[ ! -z $(which dnf) ]]; then
   mkdir -p ~/.local/bin
-  # sudo dnf install -y alacritty
-  # sudo dnf install -y polybar 
-  # sudo dnf install gnome-sushi gtk-chtheme -y
+  sudo dnf install -y polybar 
   sudo dnf install -y picom
   sudo dnf install -y kitty
   sudo dnf install -y kvantum
@@ -35,8 +33,7 @@ if [[ ! -z $(which dnf) ]]; then
 
 elif [[ ! -z $(which apt-get) ]]; then
 
-  # sudo apt install -y polybar 
-  # sudo apt install -y alacritty
+  sudo apt install -y polybar 
   sudo apt install -y picom 
   sudo apt install -y qt5-style-kvantum 
   sudo apt install -y qt5-style-kvantum-themes
@@ -48,7 +45,6 @@ elif [[ ! -z $(which apt-get) ]]; then
   sudo apt install -y feh
   sudo apt install -y mpd
   sudo apt install -y maim
-  sudo apt install -y arandr
   sudo apt install -y dunst
   sudo apt install -y xdotool
   sudo apt install kitty -y
