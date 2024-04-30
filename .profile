@@ -64,5 +64,3 @@ alias python="python3"
 alias pip="pip3"
 alias vim="nvim"
 alias tmx="tmux attach -t default || tmux new -s default"
-export GTK_THEME='Adwaita-Dark:dark'
-export QT_QPA_PLATFORMTHEME='qt6ct'
