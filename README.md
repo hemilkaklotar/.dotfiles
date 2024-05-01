@@ -62,11 +62,18 @@ EndSection
 sudo vim /usr/share/applications/google-chrome.desktop
 ```
 
-then add the `--password-store=gnome-libsecret` after all `Exec` commands :)
+- then add the below config after all `Exec` commands :)
 
-- add qt5ct and lxappareance then add below to file
 
-`sudo echo "QT_QPA_PLATFORMTHEME=qt5ct" >> /etc/environment`
+```bash
+--password-store=gnome-libsecret
+``` 
+
+- add qt6ct and lxappareance then add below to file
+
+```bash
+sudo echo "QT_QPA_PLATFORMTHEME=qt6ct" >> /etc/environment
+```
 
 ## Configuration includes
 
@@ -76,7 +83,7 @@ then add the `--password-store=gnome-libsecret` after all `Exec` commands :)
 - [x] alacritty
 - [x] dunst
 - [x] lxappearance
-- [x] qt5ct
+- [x] qt6ct
 - [x] zsh
 - [x] tmux
 - [x] kitty
