@@ -54,11 +54,15 @@ elif [[ ! -z $(which apt-get) ]]; then
   sudo apt install -y lxappearance # NOTE: for gtk dark mode detection
   sudo apt install -y qt6ct
   sudo apt install -y redshift
-  sudo apt-get install gnome-sushi -y
-  sudo apt-get install policykit-1-gnome -y # NOTE:add policykit
-  sudo apt-get install lxpolkit -y
-  sudo apt-get -y --reinstall install libnotify-bin notify-osd
-
+  sudo apt install gnome-sushi -y
+  sudo apt install policykit-1-gnome -y # NOTE:add policykit
+  sudo apt install lxpolkit -y
+  sudo apt -y --reinstall install libnotify-bin notify-osd
+  
+  # NOTE: Installing Kvantum
+  sudo add-apt-repository ppa:papirus/papirus
+  sudo apt update
+  sudo apt install qt6-style-kvantum qt6-style-kvantum-themes
 fi
 
 # NOTE: installing greenclip
