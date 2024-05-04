@@ -1,23 +1,16 @@
+<img src="assets/images/dotfiles_banner.png" alt="dotfiles banner"  /><bt /> 
 # .dotfiles
 
-```
-   ██████╗  ██████╗ ████████╗███████╗██╗██╗     ███████╗███████╗
-   ██╔══██╗██╔═══██╗╚══██╔══╝██╔════╝██║██║     ██╔════╝██╔════╝
-   ██║  ██║██║   ██║   ██║   █████╗  ██║██║     █████╗  ███████╗
-   ██║  ██║██║   ██║   ██║   ██╔══╝  ██║██║     ██╔══╝  ╚════██║
-██╗██████╔╝╚██████╔╝   ██║   ██║     ██║███████╗███████╗███████║
-╚═╝╚═════╝  ╚═════╝    ╚═╝   ╚═╝     ╚═╝╚══════╝╚══════╝╚══════╝
-```
+This Dotfiles are tested with Debian and Fedora based distributions.
+This configs are my daily work configs. feel free to fork it and change according to your needs.
+Thanks :)
 
-Recently swithed to Fedora with gnome and i3wm,
-Before that I was using Ubuntu with gnome and i3wm
+## Disclaimer
 
-I am using `zsh` shell as my default
-
-<pre>
-<img src="assets/images/i3wm_Polybar_setup.png" alt="i3wm setup" width="49%" /> <img src="assets/images/AppLauncher.png" alt="i3wm Applauncher Rofi" width="49%"/> <br />
-<img src="assets/images/Lockscreen.png" alt="i3wm Lockscreen Rofi" width="49%"/> <img src="assets/images/Screenshot.png" alt="i3wm screenshot rofi" width="49%" />
-</pre>
+- I am using `zsh` shell as my default
+- If you using install via script then be aware it'll auto install `Oh-My-Zsh` Plugin.
+- At the time I wrote all this config is working. if In future any of the plugins or library may not work, Keep in mind.
+- I wrote all the config with fellow ricers or developers, I forget where I pick up those scripts, Shout out to those hardworkers to keep community functioning.
 
 ## Table of Contents
 
@@ -25,7 +18,11 @@ I am using `zsh` shell as my default
 - [Configuration Includes](#configuration-includes)
 - [Usage](#usage)
 - [Credits](#credits)
-- [License](#license)
+- [Badges](#badges)
+- [Features](#features)
+- [How To Contribute](#how-to-contribute)
+- [Tests](#tests)
+- [Screenshots](#screenshots)
 
 ## Installation
 
@@ -44,8 +41,15 @@ git clone --recurse-submodules -j8 https://github.com/hemilkaklotar/.dotfiles.gi
 
 3. (Optional) Enable tap to click and three fingers touch to middle click
 
+- Open this file with root permissions.
+
+```bash
+sudo nvim /etc/X11/xorg.conf.d/90-touchpad.conf
+```
+
+- Add below config to opened file.
+
 ```conf
-# /etc/X11/xorg.conf.d/90-touchpad.conf
 Section "InputClass"
         Identifier "touchpad"
         MatchIsTouchpad "on"
@@ -58,7 +62,7 @@ EndSection
 
 4. (Optional) For Google chrome keyring issue for gnome follow below
 
-```
+```bash
 sudo vim /usr/share/applications/google-chrome.desktop
 ```
 
@@ -142,4 +146,12 @@ Dotfiles with i3wm, sway wm, polybar , rofi
 
 ## Tests
 
-All the configs files are here are tested
+All the configs files are here are tested.
+If any problem occured while installing keep issue open. or contribute to solve those issue.
+
+## Screenshots
+
+<pre>
+<img src="assets/images/i3wm_Polybar_setup.png" alt="i3wm setup"  /> <img src="assets/images/AppLauncher.png" alt="i3wm Applauncher Rofi" /> <br />
+<img src="assets/images/Lockscreen.png" alt="i3wm Lockscreen Rofi" /> <img src="assets/images/Screenshot.png" alt="i3wm screenshot rofi" />
+</pre>
