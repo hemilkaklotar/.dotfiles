@@ -1,20 +1,26 @@
-import = [ "~/.config/alacritty/themes/rose-pine.toml" ]
+import = [ "~/.config/alacritty/themes/themes/catppuccin.toml" ]
 
 [window]
 opacity = 1
+blur = true
+padding.x = 10
+padding.y = 10
+
+decorations = "Buttonless"
+
 
 [env]
 TERM = "xterm-256color"
 
 [font]
-size = 12
+size = 16
 
   [font.offset]
   x = 0 # for letter spacing
   y = 8 # for line spacing 
   
   [font.normal]
-  family = "FiraCode Nerd Font"
+  family = "JetBrainsMono Nerd Font Mono"
   style = "Regular"
 
 [shell]
