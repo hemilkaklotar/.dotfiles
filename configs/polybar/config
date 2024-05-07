@@ -601,11 +601,11 @@ tray-size = 60%
 [module/launcher]
 type = custom/text
 
-content = %{T6} %{T-}
+content = %{T6}󰀻 %{T-}
 content-foreground = ${colors.primary}
 
 
-click-left = ~/.config/rofi/scripts/launcher_t1
+click-left = ~/.config/rofi/scripts/launcher.sh
 click-right = ~/.config/rofi/applets/bin/apps.sh
 
 ;; Power Menu Module

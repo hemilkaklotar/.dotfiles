@@ -323,7 +323,3 @@ exec --no-startup-id source ~/.fehbg &
 exec --no-startup-id greenclip daemon &
 exec --no-startup-id mpd &
 exec_always --no-startup-id input-remapper-control --command autoload &
-# NOTE: for night light using redshift
-# WARNING: Setup the config for redshift in ~/.config/redshift.conf 
-# if you need sample config available at https://github.com/jonls/redshift/blob/master/redshift.conf.sample 
-# exec --no-startup-id redshift

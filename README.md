@@ -1,4 +1,5 @@
-<img src="assets/images/dotfiles_banner.png" alt="dotfiles banner"  /><bt /> 
+<img src="assets/images/dotfiles_banner.png" alt="dotfiles banner"  /><bt />
+
 # .dotfiles
 
 This Dotfiles are tested with Debian and Fedora based distributions.
@@ -38,7 +39,6 @@ git clone --recurse-submodules -j8 https://github.com/hemilkaklotar/.dotfiles.gi
 ~/.dotfiles/install.sh
 ```
 
-
 3. (Optional) Enable tap to click and three fingers touch to middle click
 
 - Open this file with root permissions.
@@ -68,16 +68,36 @@ sudo vim /usr/share/applications/google-chrome.desktop
 
 - then add the below config after all `Exec` commands :)
 
-
 ```bash
 --password-store=gnome-libsecret
-``` 
+```
 
 - add qt6ct and lxappareance then add below to file
 
 ```bash
 sudo echo "QT_QPA_PLATFORMTHEME=qt6ct" >> /etc/environment
 ```
+
+5. (Optional) to setup redshift as system service in debian based distros.
+
+Add this below systemd config to run on every login ─❯ `sudo nvim ~/.config/systemd/user/redshift.service`
+
+```
+[Unit]
+Description=Redshift display colour temperature adjustment
+Documentation=http://jonls.dk/redshift/
+After=display-manager.service
+
+[Service]
+ExecStart=/usr/bin/redshift
+Restart=always
+
+[Install]
+WantedBy=default.target
+```
+
+- Run `sudo systemctl --user enable redshift.service`
+- Run `sudo systemctl --user start redshift.service`
 
 ## Configuration includes
 
@@ -155,3 +175,4 @@ If any problem occured while installing keep issue open. or contribute to solve 
 <img src="assets/images/i3wm_Polybar_setup.png" alt="i3wm setup"  /> <img src="assets/images/AppLauncher.png" alt="i3wm Applauncher Rofi" /> <br />
 <img src="assets/images/Lockscreen.png" alt="i3wm Lockscreen Rofi" /> <img src="assets/images/Screenshot.png" alt="i3wm screenshot rofi" />
 </pre>
+
