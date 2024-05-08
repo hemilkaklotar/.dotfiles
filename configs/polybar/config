@@ -47,8 +47,8 @@ font-0 = CaskaydiaCove Nerd Font Mono:size=10;2
 font-1 = Noto Color Emoji:scale=10;2
 font-2 = FiraCode Nerd Font:size=10;2
 
-modules-left = launcher xwindow
-modules-center = i3
+modules-left = i3 launcher xwindow
+modules-center = 
 modules-right = memory cpu redshift pulseaudio backlight battery date tray powermenu
 
 cursor-click = pointer
@@ -83,7 +83,7 @@ label-font-size = 12px
 ;   %class%    (second part of the WM_CLASS atom, new in version 3.7.0)
 ; Default: %title%
 label = %title% - %instance%
-label-maxlen = 50
+label-maxlen = 35
 
 ; Used instead of label when there is no window title
 ; Available tokens:
@@ -530,7 +530,7 @@ ws-icon-4 = 5;
 ws-icon-5 = 6;
 ws-icon-6 = 7;
 ws-icon-7 = 8;
-ws-icon-default = 
+ws-icon-default = 󰘳
 ; NOTE: You cannot skip icons, e.g. to get a ws-icon-6
 ; you must also define a ws-icon-5.
 ; NOTE: Icon will be available as the %icon% token inside label-*
@@ -544,7 +544,7 @@ format = <label-state> <label-mode>
 ;   %mode%
 ; Default: %mode%
 label-mode = %mode%
-label-mode-padding = 2
+label-mode-padding = 1
 label-mode-background = ${colors.alert}
 label-mode-foreground = ${colors.background}
 ; Available tokens:
@@ -553,11 +553,11 @@ label-mode-foreground = ${colors.background}
 ;   %index%
 ;   %output%
 ; Default: %icon% %name%
-label-focused = %name%
+label-focused = %icon% %name%
 label-focused-foreground = ${colors.secondary}
 ; label-focused-background = ${colors.background-alt}
 label-focused-underline = ${colors.secondary}
-label-focused-padding = 2
+label-focused-padding = 1
 
 ; Available tokens:
 ;   %name%
@@ -565,9 +565,9 @@ label-focused-padding = 2
 ;   %index%
 ;   %output%
 ; Default: %icon% %name%
-label-unfocused = %name%
+label-unfocused = %icon% %name%
 label-unfocused-foreground = ${colors.disabled}
-label-unfocused-padding = 2
+label-unfocused-padding = 1
 
 ; Available tokens:
 ;   %name%
@@ -575,9 +575,9 @@ label-unfocused-padding = 2
 ;   %index%
 ;   %output%
 ; Default: %icon% %name%
-label-visible = %name%
+label-visible = %icon% %name%
 label-visible-underline = ${colors.secondary}
-label-visible-padding = 2
+label-visible-padding = 1
 
 ; Available tokens:
 ;   %name%
@@ -585,10 +585,10 @@ label-visible-padding = 2
 ;   %index%
 ;   %output%
 ; Default: %icon% %name%
-label-urgent = %index%
+label-urgent = %icon% %name%
 label-urgent-background = ${colors.alert}
 label-urgent-foreground = ${colors.background}
-label-urgent-padding = 2
+label-urgent-padding = 1
 
 
 [module/tray]
@@ -601,7 +601,7 @@ tray-size = 60%
 [module/launcher]
 type = custom/text
 
-content = %{T6}󰀻 %{T-}
+content = %{T6}[ 󰀻 Launcher ]  %{T-}
 content-foreground = ${colors.primary}
 
 

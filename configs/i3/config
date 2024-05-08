@@ -14,7 +14,7 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:FiraCode Nerd Font 16px
+font pango:CaskaydiaCove Nerd Font Mono 20px
 
 # GET DEM BORDERS OUT OF HEREc:w
 #
@@ -301,6 +301,7 @@ bindsym $mod+n exec --no-startup-id dunstctl set‐paused toggle &
 #######################################
 #   Custom Startup Commands / Apps    #
 #######################################
+
 # Picom
 exec --no-startup-id picom --daemon &
 # NOTE: To Enable Gnome Policy kit if available
@@ -314,9 +315,9 @@ exec --no-startup-id /usr/libexec/pam_kwallet_init &
 exec --no-startup-id /usr/libexec/gsd-xsettings &
 exec --no-startup-id gsettings set org.gnome.desktop.interface color-scheme prefer-dark &
 # NOTE: TO run Polybar uncomment the following line.
-exec_always --no-startup-id ~/.config/polybar/launch.sh &
+exec --no-startup-id ~/.config/polybar/launch.sh &
 exec --no-startup-id blueman-applet &
-exec_always --no-startup-id dunst &
+exec --no-startup-id dunst &
 # NOTE: setup last used background by feh
 exec --no-startup-id feh --bg-fill ~/.dotfiles/assets/wallpaper/wall.* &
 exec --no-startup-id source ~/.fehbg &
