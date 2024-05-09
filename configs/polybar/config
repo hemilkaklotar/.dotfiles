@@ -48,9 +48,9 @@ module-margin = 0
 module-margin-left = 2
 
 module-margin-right = .5
-font-0 = CaskaydiaCove Nerd Font Mono:size=10;2
-font-1 = Noto Color Emoji:scale=10;2
-font-2 = FiraCode Nerd Font:size=10;2
+font-0 = CaskaydiaCove Nerd Font:size=9;2
+font-1 = Noto Color Emoji:scale=9;2
+font-2 = FiraCode Nerd Font:size=9;2
 
 modules-left = i3 launcher xwindow
 modules-right = memory cpu redshift pulseaudio backlight battery date tray powermenu
