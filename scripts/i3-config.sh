@@ -69,5 +69,13 @@ fi
 wget https://github.com/erebe/greenclip/releases/latest/download/greenclip -P ~/.local/bin/
 chmod +x ~/.local/bin/greenclip
 
+# NOTE: installing i3-restore
+git clone https://github.com/jdholtz/i3-restore.git ~/.local/bin/i3-restore
+pip install -r ~/.local/bin/i3-restore/requirements.txt
+
+# NOTE: installing i3-reurrect
+git clone git@github.com:JonnyHaystack/i3-resurrect.git ~/Documents/i3-resurrect
+pip3 install --user ~/Documents/i3-resurrect/
+
 # NOTE: installing betterlockscreen
 source ~/.dotfiles/scripts/betterlockscreen.sh

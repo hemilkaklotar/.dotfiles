@@ -324,3 +324,7 @@ exec --no-startup-id source ~/.fehbg &
 exec --no-startup-id greenclip daemon &
 exec --no-startup-id mpd &
 exec_always --no-startup-id input-remapper-control --command autoload &
+
+# restoring session using i3-restore 
+exec --no-startup-id i3-resurrect restore &
+exec --no-startup-id ~/.local/bin/i3-restore/i3-restore &

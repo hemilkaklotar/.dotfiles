@@ -4,6 +4,7 @@
 ########################################
 git clone https://github.com/epk/SF-Mono-Nerd-Font.git ~/.fonts/sf
 git clone https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts.git ~/.fonts/sf/pro
+git clone https://github.com/shaunsingh/SFMono-Nerd-Font-Ligaturized.git ~/.fonts/sf/liga
 
 # Example ( "FiraCode" "GeistMono" )
 FONT_NAMES=( "CascadiaCode" )

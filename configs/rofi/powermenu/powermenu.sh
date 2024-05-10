@@ -56,8 +56,12 @@ run_cmd() {
 	selected="$(confirm_exit)"
 	if [[ "$selected" == "$yes" ]]; then
 		if [[ $1 == '--shutdown' ]]; then
+      i3-resurrect save &
+      $HOME/.local/bin/i3-restore/i3-save &
 			systemctl poweroff
 		elif [[ $1 == '--reboot' ]]; then
+      i3-resurrect save &
+      $HOME/.local/bin/i3-restore/i3-save &
 			systemctl reboot
 		elif [[ $1 == '--suspend' ]]; then
 			mpc -q pause
@@ -69,6 +73,8 @@ run_cmd() {
 			elif [[ "$DESKTOP_SESSION" == 'bspwm' ]]; then
 				bspc quit
 			elif [[ "$DESKTOP_SESSION" == 'i3' ]]; then
+        $HOME/.local/bin/i3-restore/i3-save &
+        i3-resurrect save &
 				i3-msg exit
 			elif [[ "$DESKTOP_SESSION" == 'sway' ]]; then
 				swaymsg exit
@@ -92,7 +98,7 @@ case ${chosen} in
         ;;
     $lock)
 		if [[ ! -z $(which betterlockscreen) ]]; then
-			betterlockscreen -l
+			betterlockscreen -l dim
 		elif [[ -x '/usr/bin/i3lock' ]]; then
 			i3lock
 		fi

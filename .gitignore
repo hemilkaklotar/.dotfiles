@@ -7,3 +7,5 @@ nvim.appimage
 mpdstate
 ./configs/mpd/playlists/*
 .gitconfig
+
+configs/i3/workspace_*
