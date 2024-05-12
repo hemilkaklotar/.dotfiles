@@ -5,14 +5,14 @@
 
 # Current Theme
 dir="$HOME/.config/rofi/powermenu"
-theme='style-9'
+theme='style-7'
 
 # CMDs
 uptime="`uptime -p | sed -e 's/up //g'`"
 host=`hostname`
 
 # Options
-shutdown='⏻'
+shutdown='⏻ '
 reboot='󰜉'
 lock='󰌾'
 suspend='󰤄'

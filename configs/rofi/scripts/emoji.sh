@@ -1,8 +1,16 @@
 #!/usr/bin/zsh
 # Rofi Emoticons. Not my own. Cant remember the source
 
+## Available Styles
+#
+## style-1     style-2     style-3     style-4     style-5
+## style-6     style-7     style-8     style-9     style-10
+## style-11    style-12    style-13    style-14    style-15
+
+dir="$HOME/.config/rofi/launchers"
+theme='style-8'
 sed '1,/^### DATA ###$/d' $0 | 
-rofi -dmenu -i -theme ~/.config/rofi/launchers/style-8.rasi | 
+rofi -dmenu -i -theme ${dir}/${theme}.rasi | 
 cut -d ' ' -f 1 | tr -d '\n' | xclip -sel clip
 
 
