@@ -81,4 +81,4 @@ git clone git@github.com:JonnyHaystack/i3-resurrect.git ~/Documents/i3-resurrect
 pip3 install --user ~/Documents/i3-resurrect/
 
 # NOTE: installing betterlockscreen
-source ~/.dotfiles/scripts/betterlockscreen.sh
+# source ~/.dotfiles/scripts/betterlockscreen.sh

@@ -97,7 +97,9 @@ case ${chosen} in
 		run_cmd --reboot
         ;;
     $lock)
-		if [[ ! -z $(which betterlockscreen) ]]; then
+		if [[ -x $HOME/.config/i3/scripts/lock.sh ]]; then
+			bash $HOME/.config/i3/scripts/lock.sh
+    elif [[ ! -z $(which betterlockscreen) ]]; then
 			betterlockscreen -l dimblur
 		elif [[ -x '/usr/bin/i3lock' ]]; then
 			i3lock
