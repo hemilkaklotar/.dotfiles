@@ -32,7 +32,7 @@ disabled = #6e6a86
 
 [bar/bar]
 width = 100%
-height = 15pt
+height = 16pt
 dpi = 120
 
 fixed-center = true
@@ -607,7 +607,7 @@ label-urgent-padding = 1
 type = internal/tray
 format-margin = 8px
 tray-spacing = 8px
-tray-size = 60%
+tray-size = 16px
 
 ;; Application Launcher Module
 [module/launcher]

@@ -65,6 +65,9 @@ elif [[ ! -z $(which apt-get) ]]; then
   sudo apt install qt6-style-kvantum qt6-style-kvantum-themes
 fi
 
+# NOTE: ADDED: Fastcompmgr replacement to picom for performance perspective
+wget https://github.com/tycho-kirchner/fastcompmgr/releases/latest/download/fastcompmgr -P ~/.local/bin/
+
 # NOTE: installing greenclip
 wget https://github.com/erebe/greenclip/releases/latest/download/greenclip -P ~/.local/bin/
 chmod +x ~/.local/bin/greenclip

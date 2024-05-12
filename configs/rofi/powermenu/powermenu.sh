@@ -98,7 +98,7 @@ case ${chosen} in
         ;;
     $lock)
 		if [[ ! -z $(which betterlockscreen) ]]; then
-			betterlockscreen -l dim
+			betterlockscreen -l dimblur
 		elif [[ -x '/usr/bin/i3lock' ]]; then
 			i3lock
 		fi

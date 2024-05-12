@@ -36,7 +36,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l dim &
+exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l dimblur &
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -233,18 +233,18 @@ set $crust     #11111b
 
 # Teming border and Windows --------------
 # target                 title     bg    text   indicator  border
-client.focused           $lavender $base $text  $rosewater $lavender
-client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
-client.unfocused         $overlay0 $base $text  $rosewater $overlay0
-client.urgent            $peach    $base $peach $overlay0  $peach
-client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.focused           $lavender $base $text  $rosewater $overlay0
+client.focused_inactive  $overlay0 $base $text  $rosewater $base
+client.unfocused         $overlay0 $base $text  $rosewater $base
+client.urgent            $peach    $base $peach $overlay0  $red
+client.placeholder       $overlay0 $base $text  $overlay0  $base
 client.background        $base
 
 # Inner gaps for all windows: space between two adjacent windows (or split containers).
-# gaps inner 5
-# gaps outer 5
-# smart_gaps on
-default_border pixel 10
+gaps inner 5
+gaps outer 0
+smart_gaps on
+default_border pixel 1
 hide_edge_borders smart
 
 #INFO:###############################
@@ -303,7 +303,8 @@ bindsym $mod+n exec --no-startup-id dunstctl set‐paused toggle &
 #######################################
 
 # Picom
-exec --no-startup-id picom --daemon &
+# exec --no-startup-id picom --daemon &
+exec --no-startup-id fastcompmgr -o 0.2 -r 20 -c -C -F &
 # NOTE: To Enable Gnome Policy kit if available
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11 &
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
@@ -318,9 +319,10 @@ exec --no-startup-id gsettings set org.gnome.desktop.interface color-scheme pref
 exec --no-startup-id ~/.config/polybar/launch.sh &
 exec --no-startup-id blueman-applet &
 exec --no-startup-id dunst &
+exec_always --no-startup-id betterlockscreen -u "$(sed -n '2p' $HOME/.fehbg | cut -d "'" -f 2)" &
 # NOTE: setup last used background by feh
-exec --no-startup-id feh --bg-fill ~/.dotfiles/assets/wallpaper/wall.* &
-exec --no-startup-id source ~/.fehbg &
+exec_always --no-startup-id source ~/.fehbg &
+exec_always --no-startup-id betterlockscreen -w dimblur &
 exec --no-startup-id greenclip daemon &
 exec --no-startup-id mpd &
 exec_always --no-startup-id input-remapper-control --command autoload &
