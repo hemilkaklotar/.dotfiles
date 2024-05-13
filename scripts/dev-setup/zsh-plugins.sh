@@ -7,6 +7,7 @@ if [[ ! -z $(which dnf) ]]; then
 	sudo dnf install -y fzf
 	sudo dnf copr enable atim/lazygit -y
 	sudo dnf install lazygit -y
+  sudo dnf install bat
 elif [[ ! -z $(which apt-get) ]]; then
 	sudo apt install -y ranger
 	sudo apt install -y zoxide
@@ -17,4 +18,7 @@ elif [[ ! -z $(which apt-get) ]]; then
 	curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 	tar xf lazygit.tar.gz lazygit
 	sudo install lazygit /usr/local/bin
+  sudo apt install -y bat
+  mkdir -p ~/.local/bin
+  ln -s /usr/bin/batcat ~/.local/bin/bat
 fi
