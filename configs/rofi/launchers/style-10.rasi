@@ -6,7 +6,7 @@
 /*****----- Configuration -----*****/
 configuration {
 	modi:                       "drun,run";
-    show-icons:                 false;
+    show-icons:                 true;
     display-drun:               "";
     display-run:                "";
     display-filebrowser:        "";
@@ -92,7 +92,7 @@ mainbox {
     enabled:                     true;
     spacing:                     20px;
     margin:                      0px;
-    padding:                     40px;
+    padding:                     5px;
     border:                      0px solid;
     border-radius:               0px 0px 0px 0px;
     border-color:                @border-colour;
@@ -105,7 +105,7 @@ inputbar {
     enabled:                     true;
     spacing:                     10px;
     margin:                      0px;
-    padding:                     8px;
+    padding:                     5px;
     border:                      0px solid;
     border-radius:               4px;
     border-color:                @border-colour;
@@ -116,24 +116,29 @@ inputbar {
 
 prompt {
     enabled:                     true;
-    padding:                     10px;
-    background-color:            inherit;
+    border:                      0px solid;
+    border-radius:               10px;
+    padding:                     0px 10px;
+    margin:                      5px;
+    background-color:            @alternate-background;
     text-color:                  inherit;
 }
 textbox-prompt-colon {
     enabled:                     true;
-    padding:                     10px 0px 10px 0px;
+    padding:                     5px 0px;
     expand:                      false;
-    str:                         "::";
+    str:                         "App =>";
     background-color:            inherit;
     text-color:                  inherit;
 }
 entry {
     enabled:                     true;
-    padding:                     10px;
+    padding:                     5px 12px;
     expand:                      false;
-    width:                       20em;
-    background-color:            inherit;
+    width:                       10em;
+    border:                      0px solid;
+    border-radius:               20px;
+    background-color:            @alternate-background;
     text-color:                  inherit;
     cursor:                      text;
     placeholder:                 "search...";
@@ -177,7 +182,7 @@ listview {
     fixed-height:                true;
     fixed-columns:               true;
     
-    spacing:                     10px;
+    spacing:                     0px;
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
@@ -197,11 +202,11 @@ scrollbar {
 /*****----- Elements -----*****/
 element {
     enabled:                     true;
-    spacing:                     8px;
+    spacing:                     10px;
     margin:                      0px;
-    padding:                     10px 8px;
+    padding:                     5px 8px;
     border:                      0px solid;
-    border-radius:               0px;
+    border-radius:               20px;
     border-color:                @border-colour;
     background-color:            transparent;
     text-color:                  @foreground-colour;
@@ -246,7 +251,7 @@ element alternate.active {
 element-icon {
     background-color:            transparent;
     text-color:                  inherit;
-    size:                        24px;
+    size:                        16px;
     cursor:                      inherit;
 }
 element-text {
@@ -296,7 +301,7 @@ message {
     text-color:                  @foreground-colour;
 }
 textbox {
-    padding:                     8px;
+    padding:                     5px;
     border:                      0px solid;
     border-radius:               0px;
     border-color:                @border-colour;

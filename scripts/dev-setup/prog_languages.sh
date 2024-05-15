@@ -40,9 +40,9 @@ fi
 
 # rust
 if [[ ! -z $(which dnf) ]]; then
-  sudo dnf install -y rust cargo
+  sudo dnf install -y rust cargo rustfmt
 elif [[ ! -z $(which apt-get) ]]; then
-  sudo apt install -y rustc cargo
+  sudo apt install -y rustc cargo rustfmt
 fi
 
 
