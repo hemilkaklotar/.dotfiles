@@ -1,4 +1,4 @@
-import = [ "~/.config/alacritty/themes/themes/rose-pine.toml" ]
+import = [ "~/.config/alacritty/schemes/rose-pine.toml" ]
 
 [window]
 opacity = 1
