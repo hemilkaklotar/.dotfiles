@@ -1,6 +1,0 @@
-[submodule "wallpapers"]
-	path = wallpapers
-	url = https://github.com/hemilkaklotar/gruvbox-wallpapers.git
-[submodule "configs/nvim"]
-	path = configs/nvim
-	url = https://github.com/hemilkaklotar/kickstart.nvim.git

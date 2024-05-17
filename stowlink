@@ -1,0 +1,23 @@
+#!/usr/bin/env zsh
+
+# Set default values for STOW_FOLDERS and DOTFILES if they are not already set
+if [[ -z $STOW_FOLDERS ]]; then
+    STOW_FOLDERS="tmux,zsh,config,xsession,local"
+fi
+
+if [[ -z $DOTFILES ]]; then
+    DOTFILES=$HOME/.dotfiles
+fi
+
+# Push into the DOTFILES directory
+pushd $DOTFILES
+
+# Iterate over each folder specified in STOW_FOLDERS
+for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g"); do
+    echo "NOTE:: stow $folder"
+    stow -D $folder   # Unstow the folder
+    stow $folder   # Stow the folder, adopting any existing files
+done
+
+# Pop back to the original directory
+popd

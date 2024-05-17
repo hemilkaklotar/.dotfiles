@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+echo "
+   ██████╗  ██████╗ ████████╗███████╗██╗██╗     ███████╗███████╗ 
+   ██╔══██╗██╔═══██╗╚══██╔══╝██╔════╝██║██║     ██╔════╝██╔════╝ 
+   ██║  ██║██║   ██║   ██║   █████╗  ██║██║     █████╗  ███████╗ 
+   ██║  ██║██║   ██║   ██║   ██╔══╝  ██║██║     ██╔══╝  ╚════██║ 
+██╗██████╔╝╚██████╔╝   ██║   ██║     ██║███████╗███████╗███████║ 
+╚═╝╚═════╝  ╚═════╝    ╚═╝   ╚═╝     ╚═╝╚══════╝╚══════╝╚══════╝ 
+"
+# Define the scripts directory path
+scripts_dir="$HOME/.dotfiles/scripts"
+
+# Define an array of script paths relative to the scripts directory
+scripts=(
+    "dependency.sh"
+    "flatpak-apps.sh"
+    "i3-config.sh"
+    "sway-nvidia.sh"
+    "zsh-plugins.sh"
+    "prog_languages.sh"
+    "fonts.sh"
+    "catppuccin_colorscheme.sh"
+)
+
+# Define prompts for each script
+prompts=(
+    "Do you want to install all dependencies for your Debian or Fedora based system? (y/n): "
+    "Do you want to install apps from flatpak? (y/n): "
+    "Do you want to install i3 dwm and its based apps for Fedora or Debian dependencies? (y/n): "
+    "Do you want to install sway dwm with NVIDIA? (y/n): "
+    "Do you want to install zsh plugins? (y/n): "
+    "Do you want to install programming languages and it's dependencies for go, python, rust, node and more? (y/n): "
+    "Do you want to install Nerd fonts and other fonts? (y/n): "
+    "Do you want to install Catppuccin colorscheme for gnome and qt? (y/n): "
+)
+
+# Array to store user responses
+responses=()
+
+# Iterate over each prompt and gather user responses
+for prompt in "${prompts[@]}"; do
+    read -p "$prompt" answer
+    responses+=("$answer")
+done
+
+# Iterate over each response and execute the corresponding script if the answer is 'y' or 'Y'
+for ((i=0; i<${#responses[@]}; i++)); do
+    if [ "${responses[$i]}" == "y" ] || [ "${responses[$i]}" == "Y" ]; then
+        bash "$scripts_dir/${scripts[$i]}"
+    fi
+done
+
+echo "All dependencies and apps have been installed."
+echo "Stowing Links "
+./stowlink
+echo "All links have been stowed."
+echo "Reboot your system to apply changes."
