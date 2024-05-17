@@ -19,7 +19,7 @@ setopt hist_find_no_dups
 
 
 ## Profiles
-
+export PATH=$HOME/.local/bin:$PATH
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
 # set descriptions format to enable group support
