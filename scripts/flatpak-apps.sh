@@ -2,14 +2,16 @@
 # installing flatpak
 if [[ ! -z $(which dnf) ]]; then
   sudo dnf install flatpak -y
-
-  # NOTE:  Figma Linux Installation # Get the latest release URL
-  RELEASE_URL=$(curl -sL "https://api.github.com/repos/Figma-Linux/figma-linux/releases/latest" | grep "browser_download_url.*_x86_64.rpm" | cut -d '"' -f 4)
-  # INFO: Download the latest release
-  wget "$RELEASE_URL" -O /tmp/figma-linux.rpm
-  sudo dnf install /tmp/figma-linux.rpm
-  sudo rm /tmp/figma-linux.rpm
-
+  # ask user if they want to install figma
+  read -p "Do you want to install Figma? (y/n) " figma_executable
+  if [ "$figma_executable" == "y" ] || [ "$figma_executable" == "Y" ]; then
+    # NOTE:  Figma Linux Installation # Get the latest release URL
+    RELEASE_URL=$(curl -sL "https://api.github.com/repos/Figma-Linux/figma-linux/releases/latest" | grep "browser_download_url.*_x86_64.rpm" | cut -d '"' -f 4)
+    # INFO: Download the latest release
+    wget "$RELEASE_URL" -O /tmp/figma-linux.rpm
+    sudo dnf install /tmp/figma-linux.rpm
+    sudo rm /tmp/figma-linux.rpm
+  fi
 elif [[ ! -z $(which apt-get) ]]; then
   sudo apt install flatpak -y
   sudo apt install gnome-software-plugin-flatpak -y
@@ -23,7 +25,6 @@ source ~/.profile
 flatpak_apps=(
     "com.slack.Slack"
     "org.videolan.VLC"
-    "com.jetbrains.PyCharm-Community"
     "md.obsidian.Obsidian"
     "com.spotify.Client"
     "org.telegram.desktop"
@@ -32,11 +33,8 @@ flatpak_apps=(
     "io.github.shiftey.Desktop"
     "com.discordapp.Discord"
     "us.zoom.Zoom"
-    "io.github.mimbrero.WhatsAppDesktop"
     "com.bitwarden.desktop"
-    "com.getpostman.Postman"
     "com.mongodb.Compass"
-    "org.mozilla.Thunderbird"
 )
 
 # NOTE: Iterate over the array and install each Flatpak application
@@ -48,9 +46,19 @@ echo "Flatpak applications installation completed."
 
 
 # NOTE: Kanata key remapper installation
-mkdir -p "$HOME/.local/bin"
-rm -rf "$HOME/.local/bin/kanata"
-wget -O "$HOME/.local/bin/kanata" "https://github.com/jtroo/kanata/releases/latest/download/kanata"
-chmod +x $HOME/.local/bin/kanata
+echo "Installing Kanata key remapper..."
+# read user input for Kanata installation
+read -p "Do you want to install Kanata key remapper? (y/n) " kanata_executable
+if [ "$kanata_executable" == "y" ] || [ "$kanata_executable" == "Y" ]; then
+    mkdir -p "$HOME/.local/bin"
+    rm -rf "$HOME/.local/bin/kanata"
+    wget -O "$HOME/.local/bin/kanata" "https://github.com/jtroo/kanata/releases/latest/download/kanata"
+    chmod +x $HOME/.local/bin/kanata
+    echo "Kanata key remapper installation completed."
+else
+  echo "Kanata key remapper installation skipped."
+fi
+
+
 
 

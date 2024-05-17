@@ -2,10 +2,6 @@
 ########################################
 #         SF Mono / Pro               #
 ########################################
-git clone https://github.com/epk/SF-Mono-Nerd-Font.git ~/.fonts/sf
-git clone https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts.git ~/.fonts/sf/pro
-git clone https://github.com/shaunsingh/SFMono-Nerd-Font-Ligaturized.git ~/.fonts/sf/liga
-
 # Example ( "FiraCode" "GeistMono" )
 FONT_NAMES=( "CascadiaCode" )
 FONT_URL="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/"
@@ -32,9 +28,9 @@ done
 
 # Installing microsoft fonts
 #
-# 
+#
 if [[ ! -z $(which dnf) ]]; then
   sudo dnf install mscore-fonts-all -y
 elif [[ ! -z $(which apt-get) ]]; then
-  sudo apt-get -y install msttcorefonts 
+  sudo apt-get -y install msttcorefonts
 fi
