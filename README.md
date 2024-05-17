@@ -36,8 +36,12 @@ git clone --recurse-submodules -j8 https://github.com/hemilkaklotar/.dotfiles.gi
 2. To install things run the install script by below command
 
 ```bash
-~/.dotfiles/install.sh
+~/.dotfiles/install
 ```
+
+- it will ask few question what do you want to install and it will install accordingly
+- it will link the configs to your home directory
+- it will set git config which is inside the [git/.gitconfig](git/.gitconfig) make sure you change as per your username and email.
 
 3. (Optional) Enable tap to click and three fingers touch to middle click
 
