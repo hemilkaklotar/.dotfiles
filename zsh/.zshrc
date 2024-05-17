@@ -1,3 +1,4 @@
+[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 source ~/.zsh_profile
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
