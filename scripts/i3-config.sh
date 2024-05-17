@@ -9,7 +9,8 @@ if [[ ! -z $(which dnf) ]]; then
  
   sudo dnf install -y polybar 
   sudo dnf install -y picom
-  sudo dnf install -y kitty
+  # sudo dnf install -y kitty
+  sudo dnf install -y alacritty
   sudo dnf install -y kvantum
   sudo dnf install -y i3
   sudo dnf install -y pulseaudio
@@ -45,7 +46,7 @@ elif [[ ! -z $(which apt-get) ]]; then
   sudo apt install -y maim
   sudo apt install -y dunst
   sudo apt install -y xdotool
-  sudo apt install kitty -y
+  sudo apt install -y alacritty
   sudo apt install -y rofi 
   sudo apt install -y light
   sudo chmod +s /usr/bin/light # NOTE: to give permission run light without sudoers

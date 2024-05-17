@@ -1,4 +1,4 @@
-import = [ "~/.config/alacritty/schemes/rose-pine.toml" ]
+import = [ "~/.config/alacritty/schemes/everforest_dark.toml" ]
 
 [window]
 opacity = 1
@@ -12,15 +12,18 @@ padding.y = 10
 TERM = "xterm-256color"
 
 [font]
-size = 12
+size = 16
 
-  [font.offset]
-  # x = 0 # for letter spacing
-  # y = 8 # for line spacing 
-  
   [font.normal]
-  family = "Liga SFMono Nerd Font"
+  family = "CaskaydiaCove Nerd Font"
   style = "Regular"
+  [font.bold]
+  family = "CaskaydiaCove Nerd Font"
+  style = "Bold"
+  [font.italic]
+  family = "CaskaydiaCove Nerd Font"
+  style = "Italic"
+
 
 [shell]
 program = "/usr/bin/zsh"

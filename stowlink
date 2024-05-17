@@ -2,7 +2,7 @@
 
 # Set default values for STOW_FOLDERS and DOTFILES if they are not already set
 if [[ -z $STOW_FOLDERS ]]; then
-    STOW_FOLDERS="tmux,zsh,config,xsession,local"
+    STOW_FOLDERS="tmux,zsh,config,xsession,local,git"
 fi
 
 if [[ -z $DOTFILES ]]; then
