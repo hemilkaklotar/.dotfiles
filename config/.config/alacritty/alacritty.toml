@@ -1,7 +1,7 @@
-import = [ "~/.config/alacritty/schemes/everforest_dark.toml" ]
+import = [ "~/.config/alacritty/schemes/nord.toml" ]
 
 [window]
-opacity = 1
+opacity = 0.9
 blur = true
 padding.x = 10
 padding.y = 10
@@ -12,7 +12,7 @@ padding.y = 10
 TERM = "xterm-256color"
 
 [font]
-size = 16
+size = 12
 
   [font.normal]
   family = "CaskaydiaCove Nerd Font"
