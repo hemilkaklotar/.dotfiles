@@ -6,26 +6,14 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
-plugins=(git sudo docker fzf golang zsh-autosuggestions sudo web-search copyfile copybuffer dirhistory history jsontools)
+plugins=(git sudo docker fzf golang zsh-autosuggestions sudo web-search copyfile copybuffer dirhistory history jsontools zsh-syntax-highlighting fzf-tab)
+
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
+# load completions 
+autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
-
-alias ls='eza --icons --color=always --group-directories-first'
-alias ll='eza -alF --icons --color=always --group-directories-first'
-alias la='eza -a --icons --color=always --group-directories-first'
-alias l='eza -F --icons --color=always --group-directories-first'
-alias l.='eza -a | egrep "^\."'
-
-alias cwall='feh --bg-fill "$(shuf -e -n1 $HOME/Pictures/*)"'
-alias lwall='betterlockscreen -u "$(shuf -e -n1 $HOME/Pictures/*)"'
-alias kbd='$(sudo ~/.local/bin/kanata --cfg ~/.config/kanata/keyboard.kbd &)'
-alias keymaps="setxkbmap \
-  -model pc105 \
-  -layout 'us(dvorak),us' \
-  -option \
-  -option grp:ctrl_space_toggle \
-  -option compose:rwin"
-export DOTFILES="$HOME/.dotfiles"
 
 eval "$(zoxide init zsh)"
 
@@ -60,5 +48,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export GOPATH=/home/plater99/go
-export GTK_THEME='Catppuccin-Mocha-Standard-Mauve-Dark:dark'
+
 

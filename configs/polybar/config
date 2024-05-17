@@ -1,16 +1,5 @@
-[colors]
-;; rose-pine color scheme
-background = #191724
-background-alt = #21202e
-foreground = #908caa
-primary = #ebbcba
-secondary = #31748f	
-tertiary = #f6c177
-highlight-low = #21202e
-highlight-med = #403d52
-highlight-high = #524f67
-alert = #eb6f92
-disabled = #6e6a86
+; importing file for colors
+include-file = ./colors/nord-dark.ini
 
 [bar/bar]
 width = 100%

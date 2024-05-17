@@ -11,7 +11,7 @@ source ~/.bashrc
 sudo apt install curl -y 
 sudo apt install ripgrep -y
 sudo apt install playerctl -y
-
+sudo apt install stow -y
 #  NOTE:install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 

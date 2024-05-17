@@ -5,7 +5,7 @@ sudo dnf -y update && sudo dnf -y upgrade
 mkdir -p ~/.local/bin
 
 sudo dnf install -y zsh
-
+sudo dnf install -y stow
 # NOTE:installing curl and ripgrep for neovim
 sudo dnf install -y curl
 sudo dnf install -y ripgrep

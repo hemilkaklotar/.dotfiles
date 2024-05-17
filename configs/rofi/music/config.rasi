@@ -7,7 +7,8 @@
   text-color:		@fg; 
 }
 
-@import "./style.rasi"
+@import "~/.config/rofi/colors.rasi"
+@import "~/.config/rofi/fonts.rasi"
 
 window {
   transparency:		"real";
