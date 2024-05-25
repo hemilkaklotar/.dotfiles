@@ -39,6 +39,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -1 --color=always $real
 export VISUAL="nvim"
 export EDITOR="nvim"
 export DOTFILES="$HOME/.dotfiles"
+export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 
 # Aliases
 alias nvfzf="nvim \$(fzf --preview='cat {}')"

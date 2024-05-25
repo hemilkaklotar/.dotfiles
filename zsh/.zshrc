@@ -1,5 +1,5 @@
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
-
+[[ -e ~/.zsh_profile ]] && emulate sh -c 'source ~/.zsh_profile'
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -15,6 +15,10 @@ autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
+# zsh profile
+# starship
+eval "$(starship init zsh)"
+# zoxide
 eval "$(zoxide init zsh)"
 
 export PATH="$HOME/.spicetify:$PATH"
@@ -50,4 +54,4 @@ export NVM_DIR="$HOME/.nvm"
 export GOPATH=/home/plater99/go
 
 
-[[ -e ~/.zsh_profile ]] && emulate sh -c 'source ~/.zsh_profile'
+
