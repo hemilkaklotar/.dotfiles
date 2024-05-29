@@ -1,7 +1,7 @@
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
-[[ -e ~/.zsh_profile ]] && emulate sh -c 'source ~/.zsh_profile'
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -15,6 +15,7 @@ autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
+[[ -e ~/.zsh_profile ]] && emulate sh -c 'source ~/.zsh_profile'
 # zsh profile
 # starship
 eval "$(starship init zsh)"

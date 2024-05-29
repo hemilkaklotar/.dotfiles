@@ -19,11 +19,20 @@ config.check_for_updates = false
 config.color_scheme = Scheme_for_appearance(wezterm.gui.get_appearance())
 config.inactive_pane_hsb = { hue = 1.0, saturation = 1.0, brightness = 1.0 }
 config.font_size = 12.0
-config.enable_tab_bar = false -- Enable the tab bar
 config.detect_password_input = true
-config.window_background_opacity = 0.7
+-- Window settings
+config.window_decorations = "TITLE"
+config.window_padding = {
+	left = 20,
+	right = 20,
+	top = 10,
+	bottom = 10,
+}
+config.enable_tab_bar = false -- Enable the tab bar
 config.window_close_confirmation = "NeverPrompt"
-
+config.window_background_opacity = 1
+config.win32_system_backdrop = "Mica"
+config.warn_about_missing_glyphs = false
 -- Font settings
 config.font = wezterm.font_with_fallback({
 	"CaskaydiaCove Nerd Font",
@@ -53,15 +62,6 @@ end
 config.default_cursor_style = "BlinkingBar"
 config.cursor_blink_rate = 600
 config.cursor_blink_ease_out = "Linear"
-
--- Window settings
-config.window_decorations = "RESIZE"
-config.window_padding = {
-	left = 20,
-	right = 20,
-	top = 10,
-	bottom = 10,
-}
 
 -- Keybindings
 config.leader = { key = "z", mods = "CTRL" }
@@ -115,7 +115,7 @@ config.keys = {
 -- Launch menu
 config.launch_menu = {
 	{ label = "bash", args = { "bash", "-l" } },
-	{ label = "fish", args = { "fish", "-l" } },
+	{ label = "zsh", args = { "zsh", "-l" } },
 }
 
 -- Return the configuration to wezterm
