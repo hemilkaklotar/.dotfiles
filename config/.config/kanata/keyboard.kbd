@@ -73,8 +73,8 @@
 ;; behaviour is used when pressing that key.
 (deflayer layers
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    @qwr _    lrld _    _    _    _    _    _    bspc _    _    _
-  _    _    _    _    _    _    left down up   rght ret  _    _
+  _    @qwr _    _    lrld _    _    _    _    _    bspc _    _    _
+  _    _    _    @dvk _    _    left down up   rght ret  _    _
   _    _    _    _    _    _    _    _    _    _    \    _
   _    _    _              _              _    _    _
 )
