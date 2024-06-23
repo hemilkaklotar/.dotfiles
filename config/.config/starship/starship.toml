@@ -49,20 +49,19 @@ format = '[[ $symbol( $version) ](fg:green bg:base)]($style)'
 
 [c]
 symbol = " "
-format = '[[ $symbol( $version) ](fg:mauve bg:base)]($style)'
+format = '[[ $symbol( $version) ](fg:sapphire bg:base)]($style)'
 
 [rust]
 symbol = ""
-format = '[[ $symbol( $version) ](fg:mauve bg:base)]($style)'
-
+format = '[[ $symbol( $version) ](fg:peach bg:base)]($style)'
 
 [php]
 symbol = ""
-format = '[[ $symbol( $version) ](fg:mauve bg:base)]($style)'
+format = '[[ $symbol( $version) ](fg:lavender bg:base)]($style)'
 
 [java]
 symbol = ""
-format = '[[ $symbol( $version) ](fg:mauve bg:base)]($style)'
+format = '[[ $symbol( $version) ](fg:yellow bg:base)]($style)'
 
 [kotlin]
 symbol = ""
@@ -74,7 +73,7 @@ format = '[[ $symbol( $version) ](fg:mauve bg:base)]($style)'
 
 [python]
 symbol = ""
-format = '[[ $symbol( $version) (\($virtualenv\))](fg:mauve bg:base)]($style)'
+format = '[[ $symbol( $version) (\($virtualenv\))](fg:blue bg:base)]($style)'
 
 [docker_context]
 symbol = ""
@@ -88,9 +87,9 @@ format = '[[ $symbol( $environment) ](fg:green bg:base)]($style)'
 
 [time]
 disabled = false
-time_format = "%R"
+time_format = "%R %p"
 style = "bg:base"
-format = '[[  $time ](fg:mauve bg:base)]($style)'
+format = '[[  $time ](fg:rosewater bg:base)]($style)'
 
 [line_break]
 disabled = false
