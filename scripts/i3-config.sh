@@ -68,6 +68,7 @@ fi
 
 # NOTE: ADDED: Fastcompmgr replacement to picom for performance perspective
 wget https://github.com/tycho-kirchner/fastcompmgr/releases/latest/download/fastcompmgr -P ~/.local/bin/
+chmod +x ~/.local/bin/fastcompmgr
 
 # NOTE: installing greenclip
 wget https://github.com/erebe/greenclip/releases/latest/download/greenclip -P ~/.local/bin/

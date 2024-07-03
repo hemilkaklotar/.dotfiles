@@ -28,6 +28,7 @@ symbol = ""
 format = '[$symbol(profile: "$profile" )(\(region: $region\) )]($style)'
 
 [kubernetes]
+disabled = true
 symbol = '󱃾'
 detect_files = ['Dockerfile']
 format = '[$symbol$context( \($namespace\))]($style)'

@@ -60,7 +60,8 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec --no-startup-id alacritty &
+set $terminalcommand kitty
+bindsym $mod+Return exec --no-startup-id $terminalcommand &
 
 # kill focused window
 bindsym $mod+Shift+q kill

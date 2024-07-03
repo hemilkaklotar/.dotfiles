@@ -1,10 +1,10 @@
 @theme "/dev/null"
 * {
-  bg:			#0C0F09;
-  fg:			#05E289;
-  button:		#1B1E25;
-  background-color:	@bg;
-  text-color:		@fg; 
+  bg:	@background;
+  fg:	@selected;
+  button:		@background-alt;
+  background-color:	@background;
+  text-color:		@foreground; 
 }
 
 @import "~/.config/rofi/colors.rasi"

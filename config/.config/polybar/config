@@ -1,5 +1,5 @@
 ; importing file for colors
-include-file = ./colors/nord-dark.ini
+include-file = ./colors/rosepine.ini
 
 [bar/bar]
 width = 100%
