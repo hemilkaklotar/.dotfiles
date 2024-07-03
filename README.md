@@ -76,6 +76,12 @@ sudo vim /usr/share/applications/google-chrome.desktop
 --password-store=gnome-libsecret
 ```
 
+- if you are using kde then use bellow for kde version 5 use `kwallet5` for version 6 use `kwallet6`
+
+```bash
+Exec=/usr/bin/google-chrome-stable --password-store=kwallet6 %U
+```
+
 - add qt6ct and lxappareance then add below to file
 
 ```bash
