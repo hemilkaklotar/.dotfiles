@@ -31,7 +31,8 @@ if [ -d "$HOME/.cargo/bin" ]; then
 fi
 
 if [[ $DESKTOP_SESSION=~"^i3.*$" ]]; then
-# 	# export XDG_CURRENT_DESKTOP="KDE"
-# 	# export XDG_SESSION_DESKTOP="plasma"
-  export GTK_THEME='WhiteSur-Dark-solid-nord:dark'
+	export XDG_CURRENT_DESKTOP="KDE"
+	export XDG_SESSION_DESKTOP="plasma"
 fi
+
+

@@ -89,10 +89,11 @@ horibox {
 
 /*****----- Main Box -----*****/
 mainbox {
+    height:                      20px;
     enabled:                     true;
     spacing:                     20px;
     margin:                      0px;
-    padding:                     5px;
+    padding:                     0px;
     border:                      0px solid;
     border-radius:               0px 0px 0px 0px;
     border-color:                @border-colour;
@@ -105,9 +106,9 @@ inputbar {
     enabled:                     true;
     spacing:                     10px;
     margin:                      0px;
-    padding:                     5px;
+    padding:                     0px;
     border:                      0px solid;
-    border-radius:               4px;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            @alternate-background;
     text-color:                  @foreground-colour;
@@ -115,10 +116,10 @@ inputbar {
 }
 
 prompt {
-    enabled:                     true;
+    enabled:                     false;
     border:                      0px solid;
-    border-radius:               10px;
-    padding:                     0px 10px;
+    border-radius:               0px;
+    padding:                     0px 5px;
     margin:                      5px;
     background-color:            @alternate-background;
     text-color:                  inherit;
@@ -127,7 +128,7 @@ textbox-prompt-colon {
     enabled:                     true;
     padding:                     5px 0px;
     expand:                      false;
-    str:                         "App =>";
+    str:                         "";
     background-color:            inherit;
     text-color:                  inherit;
 }
@@ -137,7 +138,7 @@ entry {
     expand:                      false;
     width:                       10em;
     border:                      0px solid;
-    border-radius:               20px;
+    border-radius:               0px;
     background-color:            @alternate-background;
     text-color:                  inherit;
     cursor:                      text;
@@ -195,7 +196,7 @@ listview {
 scrollbar {
     handle-width:                5px ;
     handle-color:                @handle-colour;
-    border-radius:               8px;
+    border-radius:               0px;
     background-color:            @alternate-background;
 }
 
@@ -204,9 +205,9 @@ element {
     enabled:                     true;
     spacing:                     10px;
     margin:                      0px;
-    padding:                     5px 8px;
+    padding:                     7px 8px;
     border:                      0px solid;
-    border-radius:               20px;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            transparent;
     text-color:                  @foreground-colour;
@@ -301,7 +302,7 @@ message {
     text-color:                  @foreground-colour;
 }
 textbox {
-    padding:                     5px;
+    padding:                     0px;
     border:                      0px solid;
     border-radius:               0px;
     border-color:                @border-colour;

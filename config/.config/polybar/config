@@ -3,11 +3,11 @@ include-file = ./colors/rosepine.ini
 
 [bar/bar]
 width = 100%
-height = 16pt
+height = 20pt
 dpi = 120
 
 fixed-center = true
-bottom = true
+bottom = false
 
 background = ${colors.background}
 foreground = ${colors.foreground}
