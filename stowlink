@@ -19,5 +19,9 @@ for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g"); do
     stow $folder   # Stow the folder, adopting any existing files
 done
 
+# setup wallpaper feh
+feh --bg-fill $HOME/.dotfiles/assets/wallpaper/rosepine_minimal.jpg
+
+
 # Pop back to the original directory
 popd
