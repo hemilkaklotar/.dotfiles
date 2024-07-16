@@ -20,7 +20,12 @@ for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g"); do
 done
 
 # setup wallpaper feh
-feh --bg-fill $HOME/.dotfiles/assets/wallpaper/rosepine_minimal.jpg
+if command -v feh &> /dev/null; then
+    feh --bg-fill $HOME/.dotfiles/assets/wallpaper/wallpaper.png
+    echo "NOTE:: Default wallpaper set."
+else
+    echo "WARNING:: feh is not installed. Cannot set wallpaper."
+fi
 
 
 # Pop back to the original directory

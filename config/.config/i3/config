@@ -309,8 +309,8 @@ bindsym $mod+n exec --no-startup-id dunstctl set‐paused toggle &
 #######################################
 
 # Picom
-# exec --no-startup-id picom --daemon &
-exec --no-startup-id fastcompmgr -o 0.2 -r 20 -c -C -F &
+exec --no-startup-id picom --daemon &
+# exec --no-startup-id fastcompmgr -o 0.2 -r 20 -c -C -F &
 # NOTE: To Enable Gnome Policy kit if available
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11 &
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
