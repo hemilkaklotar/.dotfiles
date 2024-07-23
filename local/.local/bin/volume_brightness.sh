@@ -3,7 +3,7 @@
 # See README.md for usage instructions
 volume_step=5
 brightness_step=5
-max_volume=153
+max_volume=100
 notification_timeout=1000
 download_album_art=true
 show_album_art=true

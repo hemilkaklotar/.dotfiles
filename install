@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 echo "
-   ██████╗  ██████╗ ████████╗███████╗██╗██╗     ███████╗███████╗ 
-   ██╔══██╗██╔═══██╗╚══██╔══╝██╔════╝██║██║     ██╔════╝██╔════╝ 
-   ██║  ██║██║   ██║   ██║   █████╗  ██║██║     █████╗  ███████╗ 
-   ██║  ██║██║   ██║   ██║   ██╔══╝  ██║██║     ██╔══╝  ╚════██║ 
-██╗██████╔╝╚██████╔╝   ██║   ██║     ██║███████╗███████╗███████║ 
-╚═╝╚═════╝  ╚═════╝    ╚═╝   ╚═╝     ╚═╝╚══════╝╚══════╝╚══════╝ 
+   ██████╗  ██████╗ ████████╗███████╗██╗██╗     ███████╗███████╗
+   ██╔══██╗██╔═══██╗╚══██╔══╝██╔════╝██║██║     ██╔════╝██╔════╝
+   ██║  ██║██║   ██║   ██║   █████╗  ██║██║     █████╗  ███████╗
+   ██║  ██║██║   ██║   ██║   ██╔══╝  ██║██║     ██╔══╝  ╚════██║
+██╗██████╔╝╚██████╔╝   ██║   ██║     ██║███████╗███████╗███████║
+╚═╝╚═════╝  ╚═════╝    ╚═╝   ╚═╝     ╚═╝╚══════╝╚══════╝╚══════╝
 "
 # Define the scripts directory path
 scripts_dir="$HOME/.dotfiles/scripts"
@@ -15,8 +15,6 @@ scripts_dir="$HOME/.dotfiles/scripts"
 scripts=(
     "dependency.sh"
     "flatpak-apps.sh"
-    "i3-config.sh"
-    "sway-nvidia.sh"
     "zsh-plugins.sh"
     "prog_languages.sh"
     "fonts.sh"
@@ -27,13 +25,44 @@ scripts=(
 prompts=(
     "Do you want to install all dependencies for your Debian or Fedora based system? (y/n): "
     "Do you want to install apps from flatpak? (y/n): "
-    "Do you want to install i3 dwm and its based apps for Fedora or Debian dependencies? (y/n): "
-    "Do you want to install sway dwm with NVIDIA? (y/n): "
     "Do you want to install zsh plugins? (y/n): "
     "Do you want to install programming languages and it's dependencies for go, python, rust, node and more? (y/n): "
     "Do you want to install Nerd fonts and other fonts? (y/n): "
     "Do you want to install Catppuccin colorscheme for gnome and qt? (y/n): "
 )
+
+# Check for arguments
+if [ $# -gt 0 ]; then
+    case "$1" in
+        --config=i3)
+            read -p "Are you sure, Want to continue with i3 dwm config?" answeri3
+            if [ "$answeri3" == "y" ] || [ "$answeri3" == "Y" ]; then
+              bash "$scripts_dir/i3-config.sh"
+            fi
+            ;;
+        --config=sway)
+            read -p "Are you sure, Want to continue with sway config?" answerSway
+            if [ "$answerSway" == "y" ] || [ "$answerSway" == "Y" ]; then
+              bash "$scripts_dir/sway-nvidia.sh"
+            fi
+            ;;
+        --config=hypr)
+            echo "if you are preparing for hyprland then do not forget 'n' last question for copy dotfiles from sources of otherdirectory this repo already contains the preconfigured dotfiles for hyprland "
+            read -p "Are you sure, Want to continue with hyperland config?" answerHypr
+            if [ "$answerHypr" == "y" ] || [ "$answerHypr" == "Y" ]; then
+              bash "$scripts_dir/hyperland.sh"
+            fi
+            ;;
+        *)
+            echo "Invalid argument: $1"
+            echo "Usage: $0 [--config=i3|--config=sway|--config=hypr]"
+            exit 1
+            ;;
+    esac
+else
+  echo "You didn't choose any dwm to install use --config=i3 for installing i3 dwm or --config=sway for sway with nvidia graphics card suppots or --config=hypr to install hyperland with preconfigured setup commands by other felow developer"fi
+fi
+
 
 # Array to store user responses
 responses=()

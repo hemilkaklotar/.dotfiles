@@ -2,7 +2,6 @@
     "version": "2.0.1",
     "autoload": {
         "BY Tech Hydra 10": "observe",
-        "AT Translated Set 2 keyboard": "observe",
         "Compx Hydra 10": "observe",
         "Hydra 10 5.0  Keyboard": "observe"
     }

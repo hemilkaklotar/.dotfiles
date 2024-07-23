@@ -9,6 +9,26 @@ if [[ -z $DOTFILES ]]; then
     DOTFILES=$HOME/.dotfiles
 fi
 
+# Define the source and destination directories
+SOURCE_DIR="$HOME/.dotfiles/config/.config"
+DEST_DIR="$HOME/.config"
+
+# Get the current date in YYYYMMDD format
+CURRENT_DATE=$(date +"%Y%m%d")
+
+# Loop through each file/folder in the source directory
+for item in "$SOURCE_DIR"/*; do
+  # Get the base name of the item
+  base_item=$(basename "$item")
+  
+  # Check if the item exists in the destination directory
+  if [ -e "$DEST_DIR/$base_item" ]; then
+    # If it exists, back it up by renaming
+    mv "$DEST_DIR/$base_item" "$DEST_DIR/${base_item}_backup_$CURRENT_DATE"
+  fi
+ done
+
+echo "Backuped completed of existing files." 
 # Push into the DOTFILES directory
 pushd $DOTFILES
 
