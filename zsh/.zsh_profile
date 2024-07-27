@@ -56,7 +56,7 @@ alias la='eza -a --icons --color=always --group-directories-first'
 alias l='eza -F --icons --color=always --group-directories-first'
 alias l.='eza -a | egrep "^\."'
 
-alias cwall='feh --bg-fill "$(shuf -e -n1 $HOME/Pictures/*)"'
+alias cwall='feh --bg-fill "$(find $HOME/Pictures/wallpapers | fzf )"'
 alias lwall='betterlockscreen -u "$(shuf -e -n1 $HOME/Pictures/*)"'
 alias kbd='$(sudo ~/.local/bin/kanata --cfg ~/.config/kanata/keyboard.kbd &)'
 alias keymaps="setxkbmap \

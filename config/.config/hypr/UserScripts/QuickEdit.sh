@@ -2,7 +2,7 @@
 # Rofi menu for Quick Edit / View of Settings (SUPER E)
 
 # define your preferred text editor and terminal to use
-editor=nano
+editor=nvim
 tty=kitty
 
 configs="$HOME/.config/hypr/configs"
