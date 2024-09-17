@@ -9,13 +9,11 @@ git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/p
 
 if [[ ! -z $(which dnf) ]]; then
 	sudo dnf install -y eza zoxide
-	sudo dnf install -y ranger
 	sudo dnf install -y fzf
 	sudo dnf copr enable atim/lazygit -y
 	sudo dnf install lazygit -y
   sudo dnf install bat
 elif [[ ! -z $(which apt-get) ]]; then
-	sudo apt install -y ranger
 	sudo apt install -y zoxide
 	cargo install eza
 	sudo apt install -y fzf
@@ -28,4 +26,12 @@ elif [[ ! -z $(which apt-get) ]]; then
   sudo apt install -y bat
   mkdir -p ~/.local/bin
   ln -s /usr/bin/batcat ~/.local/bin/bat
+fi
+
+
+if [[ ! -z $(which cargo) ]]; then
+ echo "Info: Yazi file Manager Installing."
+ cargo install --locked yazi-fm yazi-cli &
+else 
+ echo "Error: Cargo not installed \nSkiped: Installation of Yazi file manager"
 fi

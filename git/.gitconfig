@@ -7,3 +7,7 @@
 	process = git-lfs filter-process
 	required = true
 
+[safe]
+	directory = /mnt/d/*
+[core]
+	autocrlf = input

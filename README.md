@@ -158,6 +158,9 @@ Check out his repo and create your own rofi theme.
 
 I appreciate their work which helps me alot. Thank you for your fabulous works..:)
 
+- Hyprland, Wofi & Waybar config are taken from [JaKooLit/Hyprland-Dots](https://github.com/JaKooLit/Hyprland-Dots)
+- Many thanks and applause to him for his awesome work.
+
 ## Badges
 
 ![Static Badge](https://img.shields.io/badge/100%25-Shell-blue)

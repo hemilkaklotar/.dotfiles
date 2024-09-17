@@ -3,11 +3,7 @@ local act = wezterm.action
 
 -- Function to set color scheme based on appearance
 function Scheme_for_appearance(appearance)
-	if appearance:find("Dark") then
 		return "Catppuccin Mocha"
-	else
-		return "Catppuccin Latte"
-	end
 end
 
 -- Configuration object
@@ -50,6 +46,41 @@ for idx, dom in ipairs(wsl_domains) do
 end
 config.wsl_domains = wsl_domains
 
+
+wezterm.on('toggle-background', function(window, pane)
+    local overrides = window:get_config_overrides() or {}
+    if wezterm.GLOBAL.background_empty == true then
+        overrides.background = {
+        {
+            source = {
+                File = wezterm.GLOBAL.background,
+            },
+            repeat_x = 'NoRepeat',
+            vertical_align = 'Bottom',
+            hsb = { brightness = 0.05, hue = 1, saturation = 1, },
+            opacity = 1,
+        },
+    }
+    wezterm.GLOBAL.background_empty = false
+    else
+        wezterm.GLOBAL.background_empty = true
+        overrides.background = {}
+    end
+    window:set_config_overrides(overrides)
+end)
+
+wezterm.on('toggle-opacity', function(window, pane)
+    local overrides = window:get_config_overrides() or {}
+    if not overrides.window_background_opacity then
+        overrides.window_background_opacity = 1
+    else
+        overrides.window_background_opacity = nil
+    end
+    window:set_config_overrides(overrides)
+end)
+
+config.window_background_opacity = .9
+
 -- Default program settings
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.default_prog = { "powershell", "-NoLogo" }
@@ -71,7 +102,9 @@ config.keys = {
 	{ key = "z", mods = "CTRL|LEADER", action = wezterm.action({ SendString = "\x01" }) },
 	{ key = "-", mods = "LEADER", action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" } }) },
 	{ key = "\\", mods = "LEADER", action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }) },
-	{ key = "z", mods = "LEADER", action = "TogglePaneZoomState" },
+	{ key = "z", mods = "LEADER", action = "TogglePaneZoomState" }, 
+  { key = "o", mods = "CTRL|META", action = wezterm.action.EmitEvent("toggle-opacity")},
+  { key = "m", mods = "CTRL|META", action = wezterm.action.EmitEvent("toggle-background")},
 	{ key = "c", mods = "LEADER", action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
 	{ key = "h", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Left" }) },
 	{ key = "j", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Down" }) },
@@ -117,6 +150,5 @@ config.launch_menu = {
 	{ label = "bash", args = { "bash", "-l" } },
 	{ label = "zsh", args = { "zsh", "-l" } },
 }
-
 -- Return the configuration to wezterm
 return config
