@@ -10,7 +10,8 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 #Mod1 for "ALT" and Mod4 for "Super or Win" key
-set $mod Mod4
+set $mod Mod1
+set $mod1 Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -60,7 +61,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-set $terminalcommand kitty
+set $terminalcommand kitty -e tmux attach -t default || tmux new -s default
 bindsym $mod+Return exec --no-startup-id $terminalcommand &
 
 # kill focused window
@@ -280,6 +281,7 @@ bindsym $mod+Shift+b exec --no-startup-id ~/.config/polybar/launch.sh &
 
 # INFO: Rofi scripts keybindings
 
+bindsym $mod1+e exec --no-startup-id nautilus &
 # ALT + d will launch the Rofi launcher.
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/scripts/launcher.sh &
 # ALT + x will open the power menu

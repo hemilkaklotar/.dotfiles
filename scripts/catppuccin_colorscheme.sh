@@ -4,7 +4,7 @@ ln -sf "${THEME_DIR}/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
 ln -sf "${THEME_DIR}/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
 ln -sf "${THEME_DIR}/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
 
-ThemeName="Catppuccin-Mocha-Standard-Mauve-Dark"
+ThemeName="catppuccin-mocha-mauve-standard+default"
 
 sudo flatpak override --filesystem=$HOME/.themes
 sudo flatpak override --env=GTK_THEME=$ThemeName
@@ -39,7 +39,7 @@ add_theme_to_rc_file "$HOME/.bashrc"
 # NOTE: cloning the kvantum theme for catppuccin
 mkdir -p ~/.config/Kvantum
 git clone https://github.com/catppuccin/Kvantum.git /tmp/catppuccin_kvantum
-cp -r /tmp/catppuccin_kvantum/src/Catppuccin-Mocha-Mauve ~/.config/Kvantum/
+cp -r /tmp/catppuccin_kvantum/themes/catppuccin-mocha-mauve ~/.config/Kvantum/Catppuccin-Mocha-Mauve
 rm -rf /tmp/catppuccin_kvantum
 # Check if the file exists
 if [ ! -f ~/.config/Kvantum/kvantum.kvconfig ]; then
