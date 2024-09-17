@@ -7,3 +7,8 @@
 	process = git-lfs filter-process
 	required = true
 
+[safe]
+	directory = /mnt/d/Work/Kaushikbhai/Extuent/profile_manager
+	directory = /mnt/d/Work/Kaushikbhai/Appinventiv/snaps
+[core]
+	autocrlf = input
