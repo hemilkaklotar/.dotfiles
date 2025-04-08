@@ -3,8 +3,7 @@
 format = """
 [](surface0)\
 $os\
-$username\
-[](bg:surface1 fg:surface0)\
+[](bg:surface1 fg:surface0)\
 $directory\
 [](bg:surface0 fg:surface1)\
 $git_branch\
