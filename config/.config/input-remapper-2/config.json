@@ -1,8 +1,0 @@
-{
-    "version": "2.0.1",
-    "autoload": {
-        "BY Tech Hydra 10": "observe",
-        "Compx Hydra 10": "observe",
-        "Hydra 10 5.0  Keyboard": "observe"
-    }
-}

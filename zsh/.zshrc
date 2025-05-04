@@ -56,3 +56,7 @@ export GOPATH="$HOME/go"
 
 
 
+
+export PATH=$PATH:/home/hkaklotar/.spicetify
+
+PATH=~/.console-ninja/.bin:$PATH
