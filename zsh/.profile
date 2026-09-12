@@ -33,4 +33,4 @@ fi
 . "$HOME/.cargo/env"
 
 # Added by Antigravity CLI installer
-export PATH="/home/shant/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"

@@ -27,7 +27,8 @@ confirm-close-surface = false
 # Boot into the sesh session picker (tmux sessions + configs + zoxide dirs).
 # Esc / Ctrl-C in the picker drops to a plain shell.
 # One named session per project — windows never mirror each other.
-command = /home/shant/.local/bin/sesh-picker
+# Ghostty does not expand ~ or $HOME in `command`, so go through sh.
+command = /bin/sh -c 'exec "$HOME/.local/bin/sesh-picker"'
 
 # --- Shell Integration ---
 shell-integration = detect

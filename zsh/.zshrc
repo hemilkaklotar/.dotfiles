@@ -41,7 +41,7 @@ alias conda=$HOME/miniconda3/bin/conda
 PATH=~/.console-ninja/.bin:$PATH
 
 # bun completions
-[ -s "/home/shant/.bun/_bun" ] && source "/home/shant/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -50,7 +50,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 eval "$(starship init zsh)"
 
 # Added by Antigravity CLI installer
-export PATH="/home/shant/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 alias oc="opencode"
 
 eval "$(mise activate zsh)"

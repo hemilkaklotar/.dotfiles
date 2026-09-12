@@ -1,0 +1,377 @@
+#!/usr/bin/env bash
+#
+# dotfiles setup — the ONE script for a fresh developer machine.
+#
+#   ./setup                 # everything: packages, linking, plugins, tools
+#   ./setup --no-system     # skip the package manager (no sudo needed)
+#   ./setup --desktop=niri  # + niri compositor configs (or: bare, hypr)
+#   STOW_FOLDERS="tmux,zsh" ./setup   # link only a subset (passed to stowlink)
+#
+# Safe to re-run: every step checks first and skips when already done.
+#
+set -u
+
+DOTFILES="${DOTFILES:-$HOME/.dotfiles}"
+NO_SYSTEM=0
+DESKTOP=""   # bare | niri | hypr (empty = ask interactively, default bare)
+for arg in "$@"; do
+	case "$arg" in
+		--no-system) NO_SYSTEM=1 ;;
+		--desktop=*) DESKTOP="${arg#--desktop=}" ;;
+		-h|--help)
+			sed -n '2,11p' "$0"
+			exit 0
+			;;
+		*) echo "Unknown flag: $arg (try --help)"; exit 1 ;;
+	esac
+done
+case "$DESKTOP" in
+	""|bare|niri|hypr) ;;
+	*) echo "Unknown desktop: $DESKTOP (use bare, niri or hypr)"; exit 1 ;;
+esac
+
+# ------------------------------------------------- desktop selection (prompt) ---
+# bare = terminal stack only (Ghostty + tmux), no compositor configs.
+if [ -z "$DESKTOP" ]; then
+	if [ -t 0 ]; then
+		printf '\nCompositor setup:\n'
+		printf '  1) bare      — terminal stack only, no WM configs\n'
+		printf '  2) niri      — link niri configs + install niri\n'
+		printf '  3) hyprland  — link hyprland configs + install hyprland\n'
+		# read -p: prompt goes to stderr unbuffered (a trailing-newline-less
+		# printf would sit in the stdout buffer until after you answer)
+		read -rp "Choice [1/2/3, default 1]: " choice || choice=""
+		case "$choice" in
+			2|niri) DESKTOP="niri" ;;
+			3|hypr|hyprland) DESKTOP="hypr" ;;
+			*) DESKTOP="bare" ;;
+		esac
+	else
+		DESKTOP="bare"   # non-interactive: stay minimal unless --desktop= is given
+	fi
+fi
+printf 'Desktop profile: %s\n' "$DESKTOP"
+
+log()  { printf '\n==> %s\n' "$*"; }
+ok()   { printf '  ok: %s\n' "$*"; }
+skip() { printf '  skip: %s\n' "$*"; }
+warn() { printf '  warn: %s\n' "$*" >&2; }
+have() { command -v "$1" >/dev/null 2>&1; }
+
+# ---------------------------------------------------------------- OS / sudo ---
+OS_ID="$(grep -E '^ID=' /etc/os-release 2>/dev/null | cut -d= -f2 | tr -d '"' || echo unknown)"
+SUDO=""
+[ "$(id -u)" -ne 0 ] && have sudo && SUDO="sudo"
+
+pkg_install() {
+	# $1 = manager, rest = packages. Never fatal — warn and continue.
+	case "$1" in
+		dnf) shift; $SUDO dnf install -y "$@" 2>&1 | tail -n 1 || warn "dnf install failed for: $*" ;;
+		apt) shift; $SUDO apt-get install -y "$@" 2>&1 | tail -n 1 || warn "apt install failed for: $*" ;;
+	esac
+}
+
+# ------------------------------------------------------- 1. system packages ---
+if [ "$NO_SYSTEM" -eq 0 ]; then
+	log "system packages ($OS_ID)"
+	case "$OS_ID" in
+		fedora|nobara|ultramarine)
+			$SUDO dnf makecache -q 2>/dev/null || true
+			pkg_install dnf git curl unzip stow zsh tmux fzf zoxide fd-find eza \
+				starship neovim yazi wl-clipboard gcc make \
+				jq ripgrep bat gh just dnf-plugins-core
+			;;
+		debian|ubuntu|pop)
+			$SUDO apt-get update -qq 2>/dev/null || true
+			pkg_install apt git curl unzip stow zsh tmux fzf zoxide fd-find eza \
+				neovim wl-clipboard gcc make \
+				jq ripgrep bat gh just
+			# debian names the binaries differently — link the expected names
+			if ! have fd && have fdfind && [ ! -e "$HOME/.local/bin/fd" ]; then
+				mkdir -p "$HOME/.local/bin"
+				ln -s "$(command -v fdfind)" "$HOME/.local/bin/fd"
+				ok "linked fd -> fdfind"
+			fi
+			if ! have bat && have batcat && [ ! -e "$HOME/.local/bin/bat" ]; then
+				mkdir -p "$HOME/.local/bin"
+				ln -s "$(command -v batcat)" "$HOME/.local/bin/bat"
+				ok "linked bat -> batcat"
+			fi
+			# yazi is not in debian repos — try cargo, else warn
+			if ! have yazi; then
+				if have cargo; then
+					cargo install --locked yazi-fm yazi-cli 2>&1 | tail -n 1 || warn "yazi cargo install failed"
+				else
+					warn "yazi unavailable (install via cargo or https://yazi-rs.github.io)"
+				fi
+			fi
+			;;
+		*) warn "unknown OS ($OS_ID) — install tools by hand, continuing" ;;
+	esac
+	# starship fallback (official installer) if the package manager lacked it
+	if ! have starship; then
+		curl -sS https://starship.rs/install.sh 2>/dev/null | sh -s -- -y 2>&1 | tail -n 1 || warn "starship install failed"
+	fi
+else
+	log "system packages — skipped (--no-system)"
+fi
+
+# ------------------------------------------------- desktop compositor binary ---
+# A selected compositor must end up installed — install it when missing.
+if [ "$DESKTOP" != "bare" ]; then
+	case "$DESKTOP" in
+		niri) need_bin="niri" ;;
+		hypr) need_bin="Hyprland" ;;
+	esac
+	if [ "$NO_SYSTEM" -eq 0 ]; then
+		log "compositor: $DESKTOP"
+		if ! have "$need_bin"; then
+			case "$DESKTOP/$OS_ID" in
+				niri/fedora|niri/nobara|niri/ultramarine) pkg_install dnf niri ;;
+				hypr/fedora|hypr/nobara|hypr/ultramarine) pkg_install dnf hyprland ;;
+				*) warn "$DESKTOP is not packaged for $OS_ID — install it by hand (see SETUP.md)" ;;
+			esac
+		fi
+		have "$need_bin" && ok "$DESKTOP ($need_bin)" || warn "$DESKTOP install failed — install $need_bin by hand, then re-run"
+	else
+		have "$need_bin" 2>/dev/null && ok "$DESKTOP ($need_bin) present" || warn "compositor $DESKTOP missing (--no-system); configs still link"
+	fi
+fi
+
+# ------------------------------------------------------- noctalia shell ---
+# The desktop shell for niri/hyprland (bar, launcher, notifications, lock).
+# Always NIGHTLY (git snapshots), per official docs (docs.noctalia.dev):
+#   Fedora 44+  -> noctalia-git from the LionHeartP COPR
+#   Debian/Ubuntu -> official pkg.noctalia.dev APT repo (release builds only;
+#                    nightly is not published there)
+if [ "$DESKTOP" != "bare" ]; then
+	if [ "$NO_SYSTEM" -eq 0 ]; then
+		log "noctalia shell (nightly)"
+		case "$OS_ID" in
+			fedora|nobara|ultramarine)
+				if rpm -q noctalia-git >/dev/null 2>&1; then
+					ok "noctalia-git (nightly) already installed"
+				else
+					$SUDO dnf copr enable lionheartp/Hyprland -y 2>&1 | tail -n 1 || warn "noctalia COPR enable failed"
+					# release package owns the same /usr/bin/noctalia — remove first
+					if rpm -q noctalia >/dev/null 2>&1; then
+						$SUDO dnf remove -y noctalia 2>&1 | tail -n 1 || warn "noctalia release remove failed"
+					fi
+					pkg_install dnf noctalia-git
+				fi
+				;;
+			debian|ubuntu|pop)
+				if ! have noctalia; then
+					tmpkey="$(mktemp -d)/nickh-archive-keyring.deb"
+					if curl -fsSL -o "$tmpkey" https://pkg.noctalia.dev/deb/nickh-archive-keyring.deb 2>/dev/null; then
+						$SUDO dpkg -i "$tmpkey" 2>&1 | tail -n 1 || warn "noctalia keyring failed"
+						rm -f "$tmpkey"
+						codename="$(grep -E '^VERSION_CODENAME=' /etc/os-release 2>/dev/null | cut -d= -f2 | tr -d '"')"
+						src=""
+						case "$codename" in
+							trixie)   src="noctalia-trixie.sources" ;;
+							sid)      src="noctalia-unstable.sources" ;;
+							resolute) src="noctalia-resolute.sources" ;;
+							*) warn "noctalia APT repo has no build for '$codename' — see https://docs.noctalia.dev/noctalia/getting-started/installation" ;;
+						esac
+						if [ -n "$src" ]; then
+							$SUDO wget -O "/etc/apt/sources.list.d/$src" "https://pkg.noctalia.dev/deb/$src" 2>&1 | tail -n 1 || warn "noctalia repo fetch failed"
+							$SUDO apt-get update -qq 2>/dev/null || true
+							pkg_install apt noctalia
+						fi
+					else
+						warn "noctalia keyring download failed"
+					fi
+				fi
+				warn "debian builds are release-only (no nightly published)"
+				;;
+			*) warn "noctalia is not packaged for $OS_ID — see https://docs.noctalia.dev/noctalia/getting-started/installation" ;;
+		esac
+		have noctalia && ok "noctalia $(noctalia --version 2>/dev/null | head -n 1)" || warn "noctalia install failed — install by hand, then re-run"
+	else
+		have noctalia && ok "noctalia present" || warn "noctalia missing (--no-system)"
+	fi
+fi
+
+# ------------------------------------------------------------- 2. rust/mise ---
+log "language toolchain managers"
+if ! have cargo; then
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs 2>/dev/null | sh -s -- -y --no-modify-path 2>&1 | tail -n 1 || warn "rustup failed"
+	[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+fi
+have cargo && ok "cargo $(cargo --version | cut -d' ' -f2)" || warn "no cargo"
+
+if ! have mise; then
+	curl -sS https://mise.run 2>/dev/null | sh 2>&1 | tail -n 1 || warn "mise install failed"
+	export PATH="$HOME/.local/bin:$PATH"
+fi
+have mise && ok "mise $(mise --version 2>/dev/null)" || warn "no mise"
+
+# ---------------------------------------------------------------- 3. langs ---
+if have mise; then
+	log "languages & runtimes via mise (go, node, bun, uv)"
+	eval "$(mise activate bash 2>/dev/null)" || true
+	mise use -g go@latest node@latest bun@latest uv@latest 2>&1 | tail -n 4 || warn "mise langs failed"
+	for t in go node bun uv; do
+		have "$t" && ok "$t" || warn "no $t"
+	done
+else
+	skip "langs (mise missing)"
+fi
+
+# ------------------------------------------------------------------ 4. sesh ---
+log "sesh (tmux session manager)"
+if ! have sesh; then
+	if have go; then
+		GOBIN="$HOME/.local/bin" go install github.com/joshmedeski/sesh/v2@latest 2>&1 | tail -n 1 || warn "sesh install failed"
+	else
+		warn "sesh needs go — rerun setup after go is available"
+	fi
+fi
+have sesh && ok "sesh $(sesh --version 2>/dev/null)" || warn "no sesh"
+
+# ------------------------------------------------------- 5. AI CLIs + dev TUI ---
+log "AI CLIs (opencode, codex, claude) + dev TUI (lazygit, lazydocker)"
+if have mise; then
+	# personal opencode fork (upstream: sst/opencode) — pinned in ~/.config/mise/config.toml
+	if ! have opencode; then
+		mise use -g github:anomalyco/opencode@latest 2>&1 | tail -n 1 || warn "opencode install failed"
+	fi
+fi
+have opencode && ok "opencode" || warn "no opencode"
+if ! have codex; then
+	if have npm; then
+		npm install -g @openai/codex 2>&1 | tail -n 1 || warn "codex install failed"
+	else
+		warn "codex needs npm (mise node) — rerun setup after node is available"
+	fi
+fi
+have codex && ok "codex" || warn "no codex"
+if ! have claude; then
+	curl -fsSL https://claude.ai/install.sh 2>/dev/null | bash 2>&1 | tail -n 1 || warn "claude install failed"
+	export PATH="$HOME/.local/bin:$PATH"
+fi
+have claude && ok "claude" || warn "no claude"
+if have go; then
+	if ! have lazygit; then
+		GOBIN="$HOME/.local/bin" go install github.com/jesseduffield/lazygit@latest 2>&1 | tail -n 1 || warn "lazygit install failed"
+	fi
+	if ! have lazydocker; then
+		GOBIN="$HOME/.local/bin" go install github.com/jesseduffield/lazydocker@latest 2>&1 | tail -n 1 || warn "lazydocker install failed"
+	fi
+else
+	skip "lazygit/lazydocker (go missing)"
+fi
+have lazygit && ok "lazygit" || warn "no lazygit"
+have lazydocker && ok "lazydocker" || warn "no lazydocker"
+
+# --------------------------------------------------------------- 6. oh-my-zsh ---
+log "oh-my-zsh + plugins"
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh 2>/dev/null)" "" --unattended 2>&1 | tail -n 1 || warn "oh-my-zsh install failed"
+fi
+[ -d "$HOME/.oh-my-zsh" ] && ok "oh-my-zsh" || warn "no oh-my-zsh"
+ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+clone_plugin() { # $1 = dir name, $2 = repo
+	if [ ! -d "$ZSH_CUSTOM/plugins/$1" ]; then
+		git clone -q "https://github.com/$2" "$ZSH_CUSTOM/plugins/$1" 2>&1 | tail -n 1 || { warn "plugin $1 failed"; return; }
+		ok "zsh plugin: $1"
+	else
+		skip "zsh plugin: $1"
+	fi
+}
+if [ -d "$ZSH_CUSTOM/plugins" ]; then
+	clone_plugin zsh-autosuggestions zsh-users/zsh-autosuggestions
+	clone_plugin zsh-syntax-highlighting zsh-users/zsh-syntax-highlighting
+	clone_plugin fzf-tab Aloxaf/fzf-tab
+	clone_plugin zsh-completions zsh-users/zsh-completions
+fi
+
+# ---------------------------------------------------------------- 7. stow ---
+log "linking dotfiles ($DESKTOP profile)"
+# GNU stow must exist before anything stow-related runs — install if missing.
+if ! have stow && [ "$NO_SYSTEM" -eq 0 ]; then
+	case "$OS_ID" in
+		fedora|nobara|ultramarine) pkg_install dnf stow ;;
+		debian|ubuntu|pop)         pkg_install apt stow ;;
+		*) warn "unknown OS — install GNU stow by hand" ;;
+	esac
+fi
+have stow && ok "stow $(stow --version 2>/dev/null | head -n 1)" || warn "no stow (stowlink below needs only ln, continuing)"
+# desktop profile decides which compositor configs link (explicit STOW_FOLDERS wins)
+if [ -z "${STOW_FOLDERS:-}" ]; then
+	STOW_FOLDERS="tmux,zsh,local,git,ghostty,sesh,starship,nvim"
+	[ "$DESKTOP" = "niri" ] && STOW_FOLDERS="$STOW_FOLDERS,niri"
+	[ "$DESKTOP" = "hypr" ] && STOW_FOLDERS="$STOW_FOLDERS,hypr"
+	export STOW_FOLDERS
+fi
+if [ -x "$DOTFILES/stowlink" ]; then
+	(cd "$DOTFILES" && ./stowlink) || warn "stowlink had errors"
+else
+	warn "stowlink not found at $DOTFILES/stowlink"
+fi
+
+# ---------------------------------------------------------- 8. tmux plugins ---
+log "tmux plugins (tpm)"
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+	git clone -q https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm" 2>&1 | tail -n 1 || warn "tpm clone failed"
+fi
+if [ -x "$HOME/.tmux/plugins/tpm/bin/install_plugins" ]; then
+	"$HOME/.tmux/plugins/tpm/bin/install_plugins" 2>&1 | tail -n 3 || warn "tpm install had errors"
+	ok "tpm plugins installed"
+else
+	warn "tpm missing — open tmux and press prefix + I"
+fi
+if have tmux; then
+	tmux source-file "$HOME/.tmux.conf" 2>/dev/null || true
+fi
+
+# --------------------------------------------------------------- 9. neovim ---
+log "neovim plugins (lazy.nvim, headless sync)"
+if have nvim && [ -L "$HOME/.config/nvim/init.lua" ]; then
+	nvim --headless "+Lazy! sync" +qa 2>&1 | tail -n 2 || warn "nvim Lazy sync had errors"
+	ok "nvim plugins synced"
+else
+	warn "nvim setup skipped (need nvim binary + linked ~/.config/nvim)"
+fi
+
+# ------------------------------------------------------------ 10. login shell ---
+if have zsh && [ "$SHELL" != "$(command -v zsh)" ]; then
+	log "default shell -> zsh (needs password, failure is fine)"
+	chsh -s "$(command -v zsh)" 2>&1 | tail -n 1 || warn "chsh failed — run: chsh -s \$(which zsh)"
+else
+	skip "default shell (already zsh)"
+fi
+
+# ----------------------------------------------------------------- 11. verify ---
+log "verify"
+missing=0
+for c in git zsh stow tmux sesh fzf zoxide fd eza nvim yazi starship mise go node bun uv opencode codex claude lazygit lazydocker gh jq rg bat just; do
+	if have "$c"; then
+		ok "$c"
+	else
+		warn "MISSING: $c"; missing=$((missing + 1))
+	fi
+done
+[ -L "$HOME/.tmux.conf" ] && ok "linked: ~/.tmux.conf" || { warn "~/.tmux.conf not linked"; missing=$((missing + 1)); }
+[ -L "$HOME/.zshrc" ] && ok "linked: ~/.zshrc" || { warn "~/.zshrc not linked"; missing=$((missing + 1)); }
+[ -L "$HOME/.config/nvim/init.lua" ] && ok "linked: nvim config" || { warn "nvim config not linked"; missing=$((missing + 1)); }
+case "$DESKTOP" in
+	niri)
+		have niri && ok "niri" || { warn "MISSING: niri"; missing=$((missing + 1)); }
+		[ -L "$HOME/.config/niri/config.kdl" ] && ok "linked: niri configs" || { warn "niri configs not linked"; missing=$((missing + 1)); }
+		have noctalia && ok "noctalia" || { warn "MISSING: noctalia"; missing=$((missing + 1)); }
+		;;
+	hypr)
+		have Hyprland && ok "Hyprland" || { warn "MISSING: Hyprland"; missing=$((missing + 1)); }
+		[ -L "$HOME/.config/hypr/hyprland.lua" ] && ok "linked: hypr configs" || { warn "hypr configs not linked"; missing=$((missing + 1)); }
+		have noctalia && ok "noctalia" || { warn "MISSING: noctalia"; missing=$((missing + 1)); }
+		;;
+esac
+
+echo
+if [ "$missing" -eq 0 ]; then
+	echo "All green. Restart your shell (or reboot), open Ghostty, pick a session."
+else
+	echo "$missing item(s) need attention above. Re-run ./setup after fixing."
+fi

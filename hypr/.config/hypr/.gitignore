@@ -1,0 +1,5 @@
+# Hyprland autogenerates this stub when hyprland.conf is missing; we use hyprland.lua only
+hyprland.conf
+# Noctalia generated
+noctalia.conf
+noctalia.lua

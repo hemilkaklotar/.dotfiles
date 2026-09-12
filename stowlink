@@ -5,7 +5,7 @@ set -e
 # Default values
 # Packages mirror $HOME: each folder's relative paths link to ~.
 # e.g. tmux/.tmux.conf -> ~/.tmux.conf, ghostty/.config/ghostty/config.ghostty -> ~/.config/ghostty/config.ghostty
-STOW_FOLDERS=${STOW_FOLDERS:-"tmux,zsh,local,git,ghostty,sesh,starship"}
+STOW_FOLDERS=${STOW_FOLDERS:-"tmux,zsh,local,git,ghostty,sesh,starship,nvim"}
 DOTFILES=${DOTFILES:-"$HOME/.dotfiles"}
 
 echo "Processing dotfiles..."
