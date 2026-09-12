@@ -1,3 +1,0 @@
-[submodule "config/.config/nvim"]
-	path = config/.config/nvim
-	url = https://github.com/hemilkaklotar/sanatan.nvim.git
