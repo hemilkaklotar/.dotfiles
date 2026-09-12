@@ -47,7 +47,18 @@ alias vimf="nvim \$(fzf --preview 'bat --color=always --style=numbers --line-ran
 alias python="python3"
 alias pip="pip3"
 alias vim="nvim"
-alias tmx="tmux attach -t default || tmux new -s default"
+# sesh: smart tmux session manager (tmux + configs + zoxide)
+# s = fuzzy picker, s <path> = jump, sl = back to last session
+s() {
+  if [ $# -eq 0 ]; then
+    local pick=$(sesh list --icons | fzf --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ')
+    [ -z "$pick" ] && return 0
+    sesh connect "$pick"
+  else
+    sesh connect "$@"
+  fi
+}
+alias sl='sesh last'
 alias 'zen-browser'="flatpak run app.zen_browser.zen"
 alias ls='eza --icons --color=always --group-directories-first'
 alias ll='eza -alF --icons --color=always --group-directories-first'
@@ -55,3 +66,4 @@ alias la='eza -a --icons --color=always --group-directories-first'
 alias l='eza -F --icons --color=always --group-directories-first'
 alias l.='eza -a | egrep "^\."'
 alias fastfetch='fastfetch --logo-type kitty --logo ~/.config/fastfetch/logo.png'
+alias y='yazi'

@@ -1,1 +1,0 @@
-../windower/windower.sh

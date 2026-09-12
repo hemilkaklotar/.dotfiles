@@ -9,5 +9,7 @@
 
 [safe]
 	directory = /mnt/d/*
+	directory = /mnt/d/FINAL_SITE
+	directory = /mnt/d/vms-serivices/vms-bulk-upload-api-v4
 [core]
 	autocrlf = input

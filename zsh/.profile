@@ -30,9 +30,7 @@ if [ -d "$HOME/.cargo/bin" ]; then
 	PATH="$HOME/.cargo/bin:$PATH"
 fi
 
-if [[ $DESKTOP_SESSION=~"^i3.*$" ]]; then
-	export XDG_CURRENT_DESKTOP="KDE"
-	export XDG_SESSION_DESKTOP="plasma"
-fi
+. "$HOME/.cargo/env"
 
-
+# Added by Antigravity CLI installer
+export PATH="/home/shant/.local/bin:$PATH"

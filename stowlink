@@ -1,52 +1,80 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
-# Set default values for STOW_FOLDERS and DOTFILES if they are not already set
-if [[ -z $STOW_FOLDERS ]]; then
-    STOW_FOLDERS="tmux,zsh,config,xsession,local,git"
-fi
+set -e
 
-if [[ -z $DOTFILES ]]; then
-    DOTFILES=$HOME/.dotfiles
-fi
+# Default values
+# Packages mirror $HOME: each folder's relative paths link to ~.
+# e.g. tmux/.tmux.conf -> ~/.tmux.conf, ghostty/.config/ghostty/config.ghostty -> ~/.config/ghostty/config.ghostty
+STOW_FOLDERS=${STOW_FOLDERS:-"tmux,zsh,local,git,ghostty,sesh,starship"}
+DOTFILES=${DOTFILES:-"$HOME/.dotfiles"}
 
-# Define the source and destination directories
-SOURCE_DIR="$HOME/.dotfiles/config/.config"
-DEST_DIR="$HOME/.config"
+echo "Processing dotfiles..."
 
-# Get the current date in YYYYMMDD format
-CURRENT_DATE=$(date +"%Y%m%d")
+# Convert comma-separated list into array
+IFS=',' read -ra FOLDERS <<< "$STOW_FOLDERS"
 
-# Loop through each file/folder in the source directory
-for item in "$SOURCE_DIR"/*; do
-  # Get the base name of the item
-  base_item=$(basename "$item")
-  
-  # Check if the item exists in the destination directory
-  if [ -e "$DEST_DIR/$base_item" ]; then
-    # If it exists, back it up by renaming
-    mv "$DEST_DIR/$base_item" "$DEST_DIR/${base_item}_backup_$CURRENT_DATE"
-  fi
- done
+for folder in "${FOLDERS[@]}"; do
+    echo "NOTE:: processing $folder"
 
-echo "Backuped completed of existing files." 
-# Push into the DOTFILES directory
-pushd $DOTFILES
+    SRC_DIR="$DOTFILES/$folder"
 
-# Iterate over each folder specified in STOW_FOLDERS
-for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g"); do
-    echo "NOTE:: stow $folder"
-    stow -D $folder   # Unstow the folder
-    stow $folder   # Stow the folder, adopting any existing files
+    if [[ ! -d "$SRC_DIR" ]]; then
+        echo "Skipping missing folder: $SRC_DIR"
+        continue
+    fi
+
+    # Traverse files
+    find "$SRC_DIR" -type f | while read -r src_file; do
+        # Get relative path
+        rel_path="${src_file#$SRC_DIR/}"
+        target="$HOME/$rel_path"
+
+        target_dir="$(dirname "$target")"
+
+        # Ensure target directory exists
+        mkdir -p "$target_dir"
+
+        # Backup existing file if needed
+        if [[ -e "$target" && ! -L "$target" ]]; then
+            echo "Backing up $target -> $target.backup"
+            mv "$target" "$target.backup"
+        fi
+
+        # Remove existing symlink
+        if [[ -L "$target" ]]; then
+            rm "$target"
+        fi
+
+        # Create symlink
+        ln -s "$src_file" "$target"
+        echo "Linked $target -> $src_file"
+    done
 done
 
-# setup wallpaper feh
-if command -v feh &> /dev/null; then
-    feh --bg-fill $HOME/.dotfiles/assets/wallpaper/wallpaper.png
-    echo "NOTE:: Default wallpaper set."
-else
-    echo "WARNING:: feh is not installed. Cannot set wallpaper."
-fi
+echo "Done."
 
-
-# Pop back to the original directory
-popd
+# #!/usr/bin/env bash
+#
+# # Set default values for STOW_FOLDERS and DOTFILES if they are not already set
+# if [[ -z $STOW_FOLDERS ]]; then
+#     STOW_FOLDERS="tmux,zsh,local,git"
+# fi
+#
+# if [[ -z $DOTFILES ]]; then
+#     DOTFILES=$HOME/.dotfiles
+# fi
+#
+#
+# echo "Backuped completed of existing files."
+# # Push into the DOTFILES directory
+# pushd $DOTFILES
+#
+# # Iterate over each folder specified in STOW_FOLDERS
+# for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g"); do
+#     echo "NOTE:: stow $folder"
+#     stow -D $folder   # Unstow the folder
+#     stow $folder   # Stow the folder, adopting any existing files
+# done
+#
+# # Pop back to the original directory
+# popd

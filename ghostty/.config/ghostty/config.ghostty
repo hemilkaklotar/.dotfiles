@@ -1,0 +1,48 @@
+
+# --- Window and Appearance ---
+background-opacity = 0.9
+background-blur-radius = 12
+macos-titlebar-style = transparent
+window-padding-x = 10
+window-padding-y = 8
+window-save-state = always
+window-theme = auto
+
+# --- Cursor ---
+cursor-style = bar
+cursor-style-blink = true
+cursor-opacity = 0.8
+#
+quick-terminal-position = top
+quick-terminal-screen = mouse
+quick-terminal-autohide = true
+quick-terminal-animation-duration = 0.15
+
+# --- Security ---
+clipboard-paste-protection = true
+clipboard-paste-bracketed-safe = true
+confirm-close-surface = false
+
+# --- Startup ---
+# Boot into the sesh session picker (tmux sessions + configs + zoxide dirs).
+# Esc / Ctrl-C in the picker drops to a plain shell.
+# One named session per project — windows never mirror each other.
+command = /home/shant/.local/bin/sesh-picker
+
+# --- Shell Integration ---
+shell-integration = detect
+
+# --- Typography ---
+font-family = JetBrainsMono Nerd Font Mono
+font-size = 16
+font-thicken = true
+adjust-cell-height = 2
+
+# --- Performance ---
+# Generous scrollback (25MB)
+scrollback-limit = 25000000
+
+window-decoration = false
+
+keybind = ctrl+backspace=text:\x17
+theme = noctalia
