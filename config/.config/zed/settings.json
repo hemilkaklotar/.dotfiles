@@ -1,0 +1,163 @@
+{
+  "cli_default_open_behavior": "existing_window",
+  "project_panel": {
+    "dock": "right",
+  },
+  "outline_panel": {
+    "dock": "right",
+  },
+  "collaboration_panel": {
+    "dock": "right",
+  },
+  "agent": {
+    "sidebar_side": "right",
+    "dock": "left",
+    "inline_assistant_model": {
+      "provider": "opencode",
+      "model": "minimax-m2.5-free",
+      "enable_thinking": false,
+    },
+    "default_model": {
+      "provider": "opencode",
+      "model": "minimax-m2.5-free",
+      "enable_thinking": false,
+    },
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "git_panel": {
+    "dock": "right",
+  },
+  "theme": "Catppuccin Mocha",
+  "vim_mode": false,
+  "icon_theme": "Material Icon Theme",
+  "agent_servers": {
+    "codex-acp": {
+      "type": "registry",
+    },
+    "claude-acp": {
+      "type": "registry",
+    },
+    "gemini": {
+      "type": "registry",
+    },
+    "kilo": {
+      "type": "registry",
+    },
+    "opencode": {
+      "type": "registry",
+    },
+  },
+
+  // Font Configuration
+  "tab_size": 4,
+  "format_on_save": "off",
+  "autosave": "off",
+  "ensure_final_newline_on_save": true,
+
+  // Code Editor Font
+  "buffer_font_family": "GeistMono Nerd Font Mono",
+  "buffer_font_weight": 400,
+  "buffer_line_height": null,
+  "buffer_font_size": 20,
+
+  // Interface Font
+  "ui_font_family": "Google Sans Flex",
+  "ui_font_size": 20,
+
+  // Nerd Font for Icons
+  "buffer_font_fallbacks": ["JetBrainsMono Nerd Font"],
+
+  "languages": {
+    "TypeScript": {
+      "tab_size": 2,
+      "formatter": "prettier",
+    },
+    "JavaScript": {
+      "tab_size": 2,
+      "formatter": "prettier",
+    },
+    "YAML": {
+      "tab_size": 2,
+    },
+    "Dockerfile": {
+      "tab_size": 2,
+    },
+    "Go": {
+      "tab_size": 4,
+      "language_servers": ["gopls", "golangci-lint"],
+    },
+    "Python": {
+      "language_servers": ["!basedpyright", "ty", "ruff"],
+      "tab_size": 4,
+      "format_on_save": "off",
+    },
+  },
+  "lsp": {
+    "golangci-lint": {
+      "initialization_options": {
+        "command": [
+          "golangci-lint",
+          "run",
+          "--output.json.path=stdout",
+          "--output.text.path=",
+          "--show-stats=false",
+        ],
+      },
+    },
+    "rust-analyzer": {
+      "initialization_options": {
+        "checkOnSave": true,
+      },
+    },
+    "typescript-language-server": {
+      "initialization_options": {
+        "preferences": {
+          "includeCompletionsForImportStatements": true,
+          "quotePreference": "single",
+        },
+      },
+    },
+  },
+
+  // Inlay Hints
+  "inlay_hints": {
+    "enabled": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true,
+  },
+
+  // Terminal
+  "terminal": {
+    "font_family": "GeistMono Nerd Font Mono",
+    "font_fallbacks": ["JetBrainsMono Nerd Font Mono"],
+    "font_size": 18,
+    "font_weight": 400,
+    "line_height": null,
+    "detect_venv": {
+      "on": {
+        "directories": [".venv", "venv", ".env", "env"],
+        "activate_script": "default",
+      },
+    },
+  },
+
+  // direnv support for Python projects
+  "load_direnv": "shell_hook",
+
+  // Edit Predictions (AI assistance)
+  "edit_predictions": {
+    "provider": "zed",
+    "mode": "eager",
+    "disabled_globs": [
+      "**/.env*",
+      "**/*.pem",
+      "**/*.key",
+      "**/*.cert",
+      "**/*.crt",
+      "**/secrets.yml",
+      "**/.dev.vars",
+    ],
+  },
+}
