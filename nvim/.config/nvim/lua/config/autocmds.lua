@@ -11,7 +11,6 @@
 if not _G._apply_transparency then
   function _G._apply_transparency()
     local transparent_groups = {
-      -- core
       'Normal',
       'NormalNC',
       'NormalFloat',
@@ -20,72 +19,27 @@ if not _G._apply_transparency then
       'SignColumn',
       'EndOfBuffer',
       'MsgArea',
-      'MsgSeparator',
       'LineNr',
-      'Folded',
-      'NonText',
-      'SpecialKey',
+      'CursorLineNr',
       'VertSplit',
       'WinSeparator',
       'StatusLine',
       'StatusLineNC',
       'TabLineFill',
-      'TabLine',
       'Pmenu',
-      'PmenuSel',
-      'PmenuSbar',
-      'PmenuThumb',
-      'CursorLine',
-      'CursorLineNr',
-      'FoldColumn',
-      -- telescope
-      'TelescopeNormal',
-      'TelescopeBorder',
-      'TelescopePromptNormal',
-      'TelescopePromptBorder',
-      -- file tree / explorer
       'NeoTreeNormal',
       'NeoTreeNormalNC',
-      'NeoTreeEndOfBuffer',
-      'NeoTreeWinSeparator',
-      'NvimTreeNormal',
-      'NvimTreeNormalNC',
-      'NvimTreeEndOfBuffer',
-      -- snacks (LazyVim picker, dashboard, input, notifier)
-      'SnackNormal',
-      'SnackNormalNC',
       'SnacksNormal',
       'SnacksNormalNC',
-      'SnacksPicker',
-      'SnacksPickerBorder',
-      'SnacksPickerTitle',
-      'SnacksInputNormal',
-      'SnacksInputBorder',
-      'SnacksDashboardNormal',
-      'SnacksNotifierHistory',
-      'DashboardNormal',
-      -- which-key / lazy / mason
       'WhichKeyFloat',
       'LazyNormal',
       'MasonNormal',
-      -- completion (blink.cmp)
       'BlinkCmpMenu',
-      'BlinkCmpMenuBorder',
       'BlinkCmpDoc',
-      'BlinkCmpDocBorder',
-      'BlinkCmpSignatureHelp',
-      -- noice / notify
       'NoicePopup',
-      'NoicePopupBorder',
       'NotifyBackground',
-      -- git / diff
-      'GitSignsAdd',
-      'GitSignsChange',
-      'GitSignsDelete',
     }
     for _, group in ipairs(transparent_groups) do
-      -- Use :highlight (not nvim_set_hl) so we only clear the background
-      -- and preserve fg / bold / italic from base16 / matugen.
       pcall(vim.cmd, 'highlight ' .. group .. ' guibg=NONE ctermbg=NONE')
     end
   end

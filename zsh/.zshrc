@@ -38,6 +38,7 @@ export NVM_DIR="$HOME/.nvm"
 export GOPATH="$HOME/go"
 
 alias conda=$HOME/miniconda3/bin/conda
+alias timi=$HOME/.dotfiles/local/.local/bin/sesh-picker
 PATH=~/.console-ninja/.bin:$PATH
 
 # bun completions
@@ -54,3 +55,4 @@ export PATH="$HOME/.local/bin:$PATH"
 alias oc="opencode"
 
 eval "$(mise activate zsh)"
+export AGENT_BROWSER_SESSION=sgverify
